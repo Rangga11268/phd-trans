@@ -25,13 +25,13 @@ export default function Navbar() {
               <Link href="/" className="text-white hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Home
               </Link>
-              <Link href="#about" className="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              <Link href="/about" className="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 About
               </Link>
-              <Link href="#fleet" className="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              <Link href="/fleet" className="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Fleet
               </Link>
-              <Link href="#contact" className="bg-primary text-black hover:bg-primary/90 px-5 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105">
+              <Link href="/contact" className="bg-primary text-black hover:bg-primary/90 px-5 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105">
                 Book Now
               </Link>
             </div>
@@ -60,21 +60,21 @@ export default function Navbar() {
               Home
             </Link>
             <Link 
-              href="#about" 
+              href="/about" 
               className="text-gray-300 block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10 hover:text-white"
               onClick={() => setIsOpen(false)}
             >
               About
             </Link>
             <Link 
-              href="#fleet" 
+              href="/fleet" 
               className="text-gray-300 block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10 hover:text-white"
               onClick={() => setIsOpen(false)}
             >
               Fleet
             </Link>
             <Link 
-              href="#contact" 
+              href="/contact" 
               className="text-primary block px-3 py-2 rounded-md text-base font-bold hover:bg-white/10"
               onClick={() => setIsOpen(false)}
             >

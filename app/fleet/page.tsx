@@ -4,22 +4,25 @@ import { Wifi, Zap, Coffee, Tv } from 'lucide-react';
 export default function FleetPage() {
   const buses = [
     {
-      name: "Executive Class",
-      image: "/assets/img/phdbus1.webp",
-      description: "Sempurna untuk perjalanan jarak jauh dengan ruang kaki ekstra dan kursi reclining.",
-      features: ["AC", "Kursi Reclining", "Toilet", "USB Charging", "Snack"]
+      id: 1,
+      name: "Big Bus 50+1TL Seat",
+      description: "Pilihan tepat untuk rombongan besar. Dilengkapi dengan konfigurasi kursi 2-2 yang nyaman, toilet, dan ruang bagasi luas.",
+      features: ["50+1 Seats", "Toilet", "AC", "Karaoke", "Reclining Seats"],
+      image: "/assets/img/phdbus1.webp"
     },
     {
-      name: "Royal Class",
-      image: "/assets/img/phd2.webp",
-      description: "Rasakan kemewahan dengan kursi lebih lebar dan sistem hiburan pribadi.",
-      features: ["AC", "Kursi Pijat", "Toilet", "Wifi", "Layanan Makan Malam", "TV Pribadi"]
+      id: 2,
+      name: "Big Bus 32 Legrest + 6 Seat",
+      description: "Kenyamanan ekstra dengan legrest untuk perjalanan jauh. Konfigurasi premium untuk pengalaman wisata yang lebih rileks.",
+      features: ["32 Legrest Seats", "6 Regular Seats", "AC", "Smart TV", "Coolbox"],
+      image: "/assets/img/phd2.webp"
     },
     {
-      name: "Tourist Bus",
-      image: "/assets/img/pgd3.webp",
-      description: "Ideal untuk tur grup dan charter, dilengkapi dengan karaoke dan sound system.",
-      features: ["AC", "Karaoke", "Coolbox", "Mic", "Bagasi Luas"]
+      id: 3,
+      name: "Medium Bus Luxury",
+      description: "Solusi fleksibel untuk rombongan menengah. Tetap nyaman dengan fasilitas premium dalam ukuran yang lebih compact.",
+      features: ["35 Seats", "AC", "Audio System", "USB Charger", "Bagasi Luas"],
+      image: "/assets/img/pgd3.webp"
     }
   ];
 

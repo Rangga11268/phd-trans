@@ -8,7 +8,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-primary/5" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Tentang <span className="text-primary">PHD Trans</span>
+            Tentang <span className="text-primary">PT. PUTRA HANDAYANI TRANS</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Mitra terpercaya Anda dalam transportasi wisata premium. Kami berkomitmen untuk memberikan keunggulan dalam setiap perjalanan.

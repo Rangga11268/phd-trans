@@ -17,8 +17,8 @@ export default function Footer() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-white">
-                PHD <span className="text-primary">Trans</span>
+              <h3 className="text-2xl font-bold text-slate-300">
+                PHD <span className="text-slate-300">Trans</span>
               </h3>
             </div>
             <p className="text-gray-400 leading-relaxed">
@@ -35,7 +35,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Phone className="h-5 w-5 text-primary" />
-                <span>+62 812-3456-7890</span>
+                <span>0813-5334-3110</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Mail className="h-5 w-5 text-primary" />
@@ -45,18 +45,22 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold text-white mb-6">Ikuti Kami</h4>
-            <div className="flex gap-4 mb-6">
-              <a href="#" className="bg-white/5 p-3 rounded-full hover:bg-primary hover:text-black transition-all text-white">
+            <h4 className="text-lg font-semibold text-white mb-6">Tautan Cepat</h4>
+            <ul className="space-y-2 mb-6">
+              <li><Link href="/reservation" className="text-gray-400 hover:text-primary transition-colors">Reservasi</Link></li>
+              <li><Link href="/merchandise" className="text-gray-400 hover:text-primary transition-colors">Merchandise</Link></li>
+              <li><Link href="/terms" className="text-gray-400 hover:text-primary transition-colors">Syarat & Ketentuan</Link></li>
+            </ul>
+
+            <h4 className="text-lg font-semibold text-white mb-4">Ikuti Kami</h4>
+            <div className="flex gap-4">
+              <a href="https://www.instagram.com/phd_trans/" target="_blank" rel="noopener noreferrer" className="bg-white/5 p-3 rounded-full hover:bg-primary hover:text-black transition-all text-white">
                 <Instagram className="h-6 w-6" />
               </a>
               <a href="#" className="bg-white/5 p-3 rounded-full hover:bg-primary hover:text-black transition-all text-white">
                 <Facebook className="h-6 w-6" />
               </a>
             </div>
-            <Link href="/terms" className="text-gray-400 hover:text-primary text-sm transition-colors">
-              Syarat & Ketentuan
-            </Link>
           </div>
         </div>
         

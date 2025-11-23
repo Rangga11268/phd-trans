@@ -3,8 +3,8 @@
 :root {
   --background: #0f172a; /* Deep Blue/Slate for premium feel */
   --foreground: #f8fafc;
-  --primary: #fbbf24; /* Gold/Amber for accents */
-  --secondary: #334155;
+  --primary: #6d28d9; /* Darker Vibrant Purple */
+  --secondary: #4c1d95; /* Darker Purple for depth */
 }
 
 @theme inline {

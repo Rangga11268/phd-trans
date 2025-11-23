@@ -22,8 +22,8 @@ export default function Navbar() {
                   className="object-cover"
                 />
               </div>
-              <span className="text-xl md:text-2xl font-bold tracking-tighter text-white">
-                PHD <span className="text-primary">Trans</span>
+              <span className="text-xl md:text-2xl font-bold tracking-tighter text-slate-300">
+                PHD <span className="text-slate-300">Trans</span>
               </span>
             </Link>
           </div>
@@ -39,7 +39,13 @@ export default function Navbar() {
               <Link href="/fleet" className="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Armada
               </Link>
-              <Link href="/contact" className="bg-primary text-black hover:bg-primary/90 px-5 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105">
+              <Link href="/reservation" className="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                Reservasi
+              </Link>
+              <Link href="/merchandise" className="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                Merch
+              </Link>
+              <Link href="/contact" className="bg-primary text-white hover:bg-primary/90 px-5 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105">
                 Pesan Sekarang
               </Link>
             </div>
@@ -80,6 +86,20 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               Armada
+            </Link>
+            <Link 
+              href="/reservation" 
+              className="text-gray-300 block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10 hover:text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Reservasi
+            </Link>
+            <Link 
+              href="/merchandise" 
+              className="text-gray-300 block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10 hover:text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Merch
             </Link>
             <Link 
               href="/contact" 

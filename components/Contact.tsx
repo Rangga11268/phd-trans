@@ -37,7 +37,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white mb-2">Telepon</h3>
-                  <p className="text-gray-400">+62 812-3456-7890<br />+62 812-9876-5432</p>
+                  <p className="text-gray-400">0813-5334-3110<br />Senin - Minggu, 24 Jam</p>
                 </div>
               </div>
 

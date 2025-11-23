@@ -1,15 +1,15 @@
 <div align="center">
 
-  <img src="public/assets/img/logoPHD.jpg" alt="PHD Trans Logo" width="120" height="120" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(125, 69, 184, 0.3);">
+  <img src="public/assets/img/logoPHD.jpg" alt="Logo PHD Trans" width="120" height="120" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(125, 69, 184, 0.3);">
 
   # PHD Trans
   ### Luxury in Motion
 
   <p align="center">
-    <a href="#-about">About</a> •
-    <a href="#-features">Features</a> •
-    <a href="#-tech-stack">Tech Stack</a> •
-    <a href="#-getting-started">Getting Started</a>
+    <a href="#-tentang">Tentang</a> •
+    <a href="#-fitur-unggulan">Fitur</a> •
+    <a href="#-teknologi">Teknologi</a> •
+    <a href="#-cara-memulai">Cara Memulai</a>
   </p>
 
   ![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)
@@ -21,67 +21,67 @@
 
 <br />
 
-## 💎 About
+## 💎 Tentang
 
-**PHD Trans** is a premium tourism bus charter service based in Nganjuk, East Java. This web application serves as the digital storefront for the company, reflecting its commitment to luxury, comfort, and safety.
+**PHD Trans** adalah layanan sewa bus pariwisata premium yang berbasis di Nganjuk, Jawa Timur. Aplikasi web ini berfungsi sebagai etalase digital perusahaan, mencerminkan komitmen terhadap kemewahan, kenyamanan, dan keselamatan.
 
-The website is designed with a **"Luxury in Motion"** philosophy, featuring a sleek dark-themed UI, glassmorphism effects, and smooth animations to provide a high-end user experience that matches the quality of the fleet.
+Website ini dirancang dengan filosofi **"Luxury in Motion"**, menampilkan antarmuka bertema gelap yang elegan, efek glassmorphism, dan animasi halus untuk memberikan pengalaman pengguna kelas atas yang setara dengan kualitas armada kami.
 
-## ✨ Features
+## ✨ Fitur Unggulan
 
-### 🎨 Premium UI/UX
-- **Cinematic Hero Section**: Immersive first impressions with video backgrounds and shiny text effects.
-- **Glassmorphism Design**: Modern, translucent cards and containers that blend beautifully with the dark aesthetic.
-- **Responsive Layout**: Perfectly optimized for all devices, from mobile phones to large desktop screens.
+### 🎨 UI/UX Premium
+- **Hero Section Sinematik**: Kesan pertama yang memukau dengan latar belakang video dan efek teks berkilau.
+- **Desain Glassmorphism**: Kartu dan kontainer transparan modern yang menyatu indah dengan estetika gelap.
+- **Tata Letak Responsif**: Dioptimalkan dengan sempurna untuk semua perangkat, dari ponsel hingga layar desktop besar.
 
-### 🚌 Fleet Showcase
-- **Interactive Gallery**: Detailed view of the fleet (Big Bus, Medium Bus) with high-quality images.
-- **Facility Highlights**: Clear icons and descriptions for amenities like AC, Karaoke, and Reclining Seats.
+### 🚌 Showcase Armada
+- **Galeri Interaktif**: Tampilan detail armada (Big Bus, Medium Bus) dengan gambar berkualitas tinggi.
+- **Sorotan Fasilitas**: Ikon dan deskripsi yang jelas untuk fasilitas seperti AC, Karaoke, dan Kursi Reclining.
 
-### 🎫 Smart Reservation
-- **Digital Voucher Preview**: A unique "Reservation Voucher" feature that generates a realistic-looking booking confirmation card.
-- **Direct WhatsApp Booking**: Seamless integration with WhatsApp for instant booking inquiries.
+### 🎫 Reservasi Cerdas
+- **Pratinjau Voucher Digital**: Fitur unik "Voucher Reservasi" yang menghasilkan kartu konfirmasi pemesanan yang terlihat realistis.
+- **Pemesanan via WhatsApp**: Integrasi mulus dengan WhatsApp untuk pertanyaan pemesanan instan.
 
-### 🏢 Corporate Identity
-- **History Timeline**: A visual journey of PHD Trans's growth and milestones.
-- **Professional Footer**: A comprehensive footer with quick links, social media integration, and decorative glow effects.
+### 🏢 Identitas Perusahaan
+- **Timeline Sejarah**: Perjalanan visual pertumbuhan dan pencapaian PHD Trans.
+- **Footer Profesional**: Footer lengkap dengan tautan cepat, integrasi media sosial, dan efek cahaya dekoratif.
 
-## 🛠 Tech Stack
+## 🛠 Teknologi
 
 - **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Bahasa**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Animations**: CSS Keyframes & Tailwind Utilities
+- **Ikon**: [Lucide React](https://lucide.dev/)
+- **Animasi**: CSS Keyframes & Tailwind Utilities
 
-## 🚀 Getting Started
+## 🚀 Cara Memulai
 
-Clone the repository and run the development server:
+Clone repositori dan jalankan server pengembangan:
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/phd-trans.git
+# Clone repositori
+git clone https://github.com/username-anda/phd-trans.git
 
-# Navigate to the project directory
+# Masuk ke direktori proyek
 cd phd-trans
 
-# Install dependencies
+# Install dependensi
 npm install
 
-# Run the development server
+# Jalankan server pengembangan
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000) dengan browser Anda untuk melihat hasilnya.
 
-## 📄 License
+## 📄 Lisensi
 
-This project is proprietary to **PHD Trans**. All rights reserved.
+Proyek ini adalah milik **PHD Trans**. Hak cipta dilindungi undang-undang.
 
 ---
 
 <div align="center">
-  <p>Developed with ❤️ for PHD Trans</p>
+  <p>Dikembangkan dengan ❤️ untuk PHD Trans</p>
   <p>
     <a href="https://www.instagram.com/phd_trans/">Instagram</a> • 
     <a href="https://wa.me/6281353343110">WhatsApp</a>

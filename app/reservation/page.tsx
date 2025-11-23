@@ -87,10 +87,10 @@ export default function ReservationPage() {
                     <span>Harga Kompetitif & Transparan</span>
                   </li>
                 </ul>
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-primary text-white font-bold px-8 py-4 rounded-full hover:bg-primary/90 transition-all">
+                <a href="https://wa.me/6281353343110?text=Halo,%20saya%20ingin%20reservasi%20bus%20PHD%20Trans" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary text-white font-bold px-8 py-4 rounded-full hover:bg-primary/90 transition-all">
                   <Phone className="h-5 w-5" />
-                  Hubungi Kami Sekarang
-                </Link>
+                  Pesan via WhatsApp
+                </a>
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden border border-white/10">
                 <Image 

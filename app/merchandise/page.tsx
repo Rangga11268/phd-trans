@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ShoppingBag } from 'lucide-react';
+import { ShoppingBag, Play } from 'lucide-react';
 
 export default function MerchandisePage() {
   const products = [
@@ -8,28 +8,28 @@ export default function MerchandisePage() {
       id: 1,
       name: "Kaos PHD Trans Official",
       price: "Rp 120.000",
-      image: "/assets/img/merch-tshirt.jpg", // Placeholder path
+      image: "/assets/img/Merch1.jpg",
       description: "Bahan Cotton Combed 30s, sablon plastisol berkualitas tinggi."
     },
     {
       id: 2,
       name: "Topi Exclusive",
       price: "Rp 85.000",
-      image: "/assets/img/merch-hat.jpg", // Placeholder path
+      image: "/assets/img/Merch2.jpg",
       description: "Topi baseball dengan bordir logo PHD Trans 3D."
     },
     {
       id: 3,
       name: "Gantungan Kunci Akrilik",
       price: "Rp 25.000",
-      image: "/assets/img/merch-keychain.jpg", // Placeholder path
+      image: "/assets/img/Merch3.jpg",
       description: "Gantungan kunci akrilik tebal dengan desain bus PHD Trans."
     },
     {
       id: 4,
       name: "Miniatur Bus (Diecast)",
       price: "Rp 450.000",
-      image: "/assets/img/merch-diecast.jpg", // Placeholder path
+      image: "/assets/img/Merch4.jpg",
       description: "Skala 1:50, detail presisi, bahan metal berkualitas."
     }
   ];
@@ -49,6 +49,22 @@ export default function MerchandisePage() {
         </div>
       </section>
 
+      {/* Video Section */}
+      <section className="py-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+            <video 
+              src="/assets/video/Merch.mp4" 
+              controls 
+              className="w-full h-full object-cover"
+              poster="/assets/img/Merch1.jpg" // Optional: use first image as poster
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
       {/* Product Grid */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,16 +72,12 @@ export default function MerchandisePage() {
             {products.map((product) => (
               <div key={product.id} className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all group">
                 <div className="relative h-64 bg-black/50">
-                  {/* Placeholder Image Logic */}
-                  <div className="absolute inset-0 flex items-center justify-center text-gray-600">
-                    <ShoppingBag className="h-12 w-12 opacity-50" />
-                  </div>
-                  {/* <Image 
+                  <Image 
                     src={product.image} 
                     alt={product.name} 
                     fill 
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  /> */}
+                  />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-white mb-2">{product.name}</h3>
@@ -73,7 +85,7 @@ export default function MerchandisePage() {
                   <div className="flex items-center justify-between">
                     <span className="text-primary font-bold text-lg">{product.price}</span>
                     <Link 
-                      href={`https://wa.me/6281234567890?text=Halo, saya ingin membeli ${product.name}`}
+                      href={`https://wa.me/6281353343110?text=Halo, saya ingin membeli ${product.name}`}
                       target="_blank"
                       className="bg-white/10 hover:bg-primary hover:text-black text-white p-2 rounded-lg transition-colors"
                     >

@@ -21,7 +21,7 @@ export default function Hero() {
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight mb-6 animate-fade-in-up">
           Nikmati <span className="text-shiny-purple">Kemewahan</span> Wisata Anda
         </h1>
-        <p className="text-lg sm:text-xl text-gray-200 max-w-2xl mb-6 animate-fade-in-up delay-100">
+        <p className="text-lg sm:text-xl text-gray-200 max-w-2xl mb-6 animate-fade-in-up delay-100 leading-relaxed px-2">
           PHD Trans menawarkan layanan bus pariwisata premium dengan kenyamanan dan keamanan terbaik untuk perjalanan wisata Anda di seluruh Indonesia.
         </p>
         <div className="mb-10 animate-fade-in-up delay-150">

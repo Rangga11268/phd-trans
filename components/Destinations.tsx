@@ -36,25 +36,25 @@ export default function Destinations() {
   ];
 
   return (
-    <section className="py-24 bg-black relative overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-24 bg-black relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-sm">
             <MapPin className="h-4 w-4 text-primary" />
             <span className="text-sm font-medium text-primary uppercase tracking-wider">Destinasi Populer</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 px-4">
             Jelajahi <span className="text-shiny-purple">Indonesia</span> Bersama Kami
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-4">
             Destinasi wisata favorit yang sering dikunjungi oleh pelanggan PHD Trans.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5 lg:gap-6">
           {destinations.map((destination, index) => {
             const whatsappMessage = `Halo PHD Trans, saya tertarik dengan paket wisata ke *${destination.name}*. Bisa info lebih lanjut?`;
             const whatsappLink = `https://wa.me/6281353343110?text=${encodeURIComponent(whatsappMessage)}`;
@@ -86,9 +86,9 @@ export default function Destinations() {
                 </div>
 
                 {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{destination.name}</h3>
-                  <p className="text-gray-300 text-sm mb-4">{destination.description}</p>
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{destination.name}</h3>
+                  <p className="text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4">{destination.description}</p>
                   
                   <div className="flex items-center gap-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                     <span>Pesan Sekarang</span>
@@ -100,10 +100,10 @@ export default function Destinations() {
           })}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-8 sm:mt-10 lg:mt-12">
           <a 
             href="/contact" 
-            className="inline-block bg-primary text-white font-bold px-8 py-4 rounded-full hover:bg-primary/90 transition-all transform hover:scale-105 shadow-lg shadow-primary/25"
+            className="inline-block bg-primary text-white font-bold px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base rounded-full hover:bg-primary/90 transition-all transform hover:scale-105 shadow-lg shadow-primary/25"
           >
             Konsultasi Destinasi Anda
           </a>

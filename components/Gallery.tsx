@@ -10,18 +10,18 @@ export default function Gallery() {
   ];
 
   return (
-    <section id="fleet" className="py-24 bg-black">
+    <section id="fleet" className="py-12 sm:py-16 lg:py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 px-4">
             Armada <span className="text-shiny-purple">Premium</span> Kami
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto px-4">
             Lihat armada bus modern dan terawat kami yang dirancang untuk kenyamanan perjalanan wisata Anda.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[300px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 auto-rows-[250px] sm:auto-rows-[280px] md:auto-rows-[300px]">
           {images.map((img, index) => (
             <div 
               key={index} 

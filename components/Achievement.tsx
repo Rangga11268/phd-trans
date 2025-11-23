@@ -72,36 +72,36 @@ export default function Achievement() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-slate-900 to-black relative overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-b from-slate-900 to-black relative overflow-hidden">
       {/* Decorative Background */}
       <div className="absolute inset-0 bg-[url('/assets/img/pattern.png')] opacity-5" />
       <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 px-4">
             Dipercaya oleh <span className="text-shiny-purple">Ribuan</span> Pelanggan
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg px-4">
             Angka-angka yang membuktikan komitmen kami dalam memberikan layanan terbaik.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
               <div 
                 key={index} 
-                className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-primary/50 transition-all group hover:transform hover:scale-105 duration-300"
+                className="bg-white/5 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-white/10 hover:border-primary/50 transition-all group hover:transform hover:scale-105 duration-300"
               >
-                <div className={`${stat.color} mb-4 transform group-hover:scale-110 transition-transform`}>
-                  <Icon className="h-12 w-12 mx-auto" />
+                <div className={`${stat.color} mb-3 sm:mb-4 transform group-hover:scale-110 transition-transform`}>
+                  <Icon className="h-10 w-10 sm:h-12 sm:w-12 mx-auto" />
                 </div>
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2 font-mono">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 font-mono">
                   {stat.value}
                 </div>
-                <div className="text-gray-400 text-sm uppercase tracking-wider">
+                <div className="text-gray-400 text-xs sm:text-sm uppercase tracking-wider">
                   {stat.label}
                 </div>
               </div>

@@ -47,6 +47,18 @@ export default function AboutPage() {
                   Dikenal dengan identitas warna ungu khas atau <span className="text-purple-400 font-semibold">"Purple Gank"</span>, kami hadir untuk memberikan pengalaman perjalanan yang tak terlupakan.
                 </p>
                 
+                {/* Decorative Bus Vector */}
+                <div className="relative my-8 flex justify-center">
+                  <div className="relative w-64 h-32">
+                    <Image
+                      src="/assets/img/Busvector1.png"
+                      alt="PHD Trans Bus"
+                      fill
+                      className="object-contain opacity-80"
+                    />
+                  </div>
+                </div>
+                
                 <div className="bg-white/5 p-6 rounded-2xl border-l-4 border-primary my-8">
                   <p className="italic text-lg text-gray-200 mb-4">
                     "Berawal dari hobi dan kecintaan pada bus, kami tumbuh menjadi penyedia layanan yang mengutamakan kenyamanan dan keselamatan penumpang layaknya keluarga sendiri."

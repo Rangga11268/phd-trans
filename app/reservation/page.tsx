@@ -20,9 +20,14 @@ export default function ReservationPage() {
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in-up">
             Informasi <span className="text-shiny-purple">Reservasi</span>
           </h1>
-          <p className="text-xl text-gray-200 max-w-2xl mx-auto animate-fade-in-up delay-100">
+          <p className="text-xl text-gray-200 max-w-2xl mx-auto mb-4 animate-fade-in-up delay-100">
             Simak informasi lengkap mengenai layanan dan armada kami melalui brosur di bawah ini.
           </p>
+          <div className="animate-fade-in-up delay-150">
+            <span className="inline-block px-5 py-1.5 bg-primary/20 border border-primary/50 rounded-full backdrop-blur-sm">
+              <span className="text-primary font-bold text-xs tracking-widest">#PurpleGang</span>
+            </span>
+          </div>
         </div>
       </section>
 

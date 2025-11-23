@@ -31,6 +31,9 @@ export default function Footer() {
             <p className="text-gray-400 leading-relaxed text-sm">
               Layanan bus pariwisata premium di Nganjuk. Nikmati kenyamanan, keamanan, dan kemewahan di setiap perjalanan wisata Anda bersama armada modern kami.
             </p>
+            <div className="inline-block px-4 py-1.5 bg-primary/10 border border-primary/30 rounded-full">
+              <span className="text-primary font-bold text-xs tracking-widest">#PurpleGang</span>
+            </div>
           </div>
           
           {/* Contact Column */}

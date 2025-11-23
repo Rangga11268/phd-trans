@@ -21,9 +21,14 @@ export default function Hero() {
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight mb-6 animate-fade-in-up">
           Nikmati <span className="text-shiny-purple">Kemewahan</span> Wisata Anda
         </h1>
-        <p className="text-lg sm:text-xl text-gray-200 max-w-2xl mb-10 animate-fade-in-up delay-100">
+        <p className="text-lg sm:text-xl text-gray-200 max-w-2xl mb-6 animate-fade-in-up delay-100">
           PHD Trans menawarkan layanan bus pariwisata premium dengan kenyamanan dan keamanan terbaik untuk perjalanan wisata Anda di seluruh Indonesia.
         </p>
+        <div className="mb-10 animate-fade-in-up delay-150">
+          <span className="inline-block px-6 py-2 bg-primary/20 border border-primary/50 rounded-full backdrop-blur-sm">
+            <span className="text-primary font-bold text-sm tracking-widest">#PurpleGang</span>
+          </span>
+        </div>
         <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-200">
           <a
             href="#fleet"

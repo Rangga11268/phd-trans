@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Phone, Calendar, CheckCircle, MessageSquare, Download } from 'lucide-react';
+import HowItWorks from '@/components/HowItWorks';
 
 export default function ReservationPage() {
   return (
@@ -217,16 +218,16 @@ export default function ReservationPage() {
         </div>
       </section>
 
+      {/* How It Works Section */}
+      <HowItWorks />
+
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-gradient-to-br from-secondary via-slate-900 to-slate-900 rounded-[2.5rem] p-10 md:p-16 border border-white/10 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-[url('/assets/img/pattern.png')] opacity-5" />
-            <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/20 rounded-full blur-3xl group-hover:bg-primary/30 transition-colors duration-500" />
-            
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Siap Melakukan Perjalanan?
+      <section className="py-20 bg-gradient-to-r from-slate-900 via-primary/5 to-slate-900 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center">
+            <div className="inline-block mb-10">
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                Siap Memesan <span className="text-shiny-purple">Sekarang</span>?
               </h2>
               <p className="text-gray-300 mb-10 text-lg max-w-2xl mx-auto leading-relaxed">
                 Jangan ragu untuk menghubungi kami jika ada pertanyaan atau ingin melakukan pemesanan. Tim kami siap membantu Anda 24/7.

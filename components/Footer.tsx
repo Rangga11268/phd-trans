@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Instagram, Facebook, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram, Facebook, ArrowRight, Music } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -125,6 +125,15 @@ export default function Footer() {
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5 group-hover:scale-110 transition-transform" />
+              </a>
+              <a 
+                href="https://www.tiktok.com/@phdtrans" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-white/5 p-3 rounded-xl hover:bg-black hover:text-white transition-all text-gray-400 group"
+                aria-label="TikTok"
+              >
+                <Music className="h-5 w-5 group-hover:scale-110 transition-transform" />
               </a>
             </div>
           </div>

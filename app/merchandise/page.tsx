@@ -66,26 +66,26 @@ export default function MerchandisePage() {
           <div className="inline-block bg-primary/20 backdrop-blur-md border border-primary/50 rounded-full px-6 py-2 mb-6 animate-fade-in-up">
             <span className="text-primary font-bold tracking-wider uppercase text-sm">Official Merchandise</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up delay-100">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up delay-100">
             Looking Elegant<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">Without Being Simple</span>
           </h1>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-up delay-200">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-up delay-200">
             The Royal Decker Edition. Didesain khusus untuk Anda yang mengutamakan kenyamanan dan gaya.
           </p>
           
           {/* Countdown Timer */}
           {isPreOrderActive ? (
-            <div className="flex justify-center gap-4 md:gap-8 animate-fade-in-up delay-300">
+            <div className="flex justify-center gap-2 sm:gap-3 md:gap-8 animate-fade-in-up delay-300">
               {[
                 { label: 'Hari', value: timeLeft.days },
                 { label: 'Jam', value: timeLeft.hours },
                 { label: 'Menit', value: timeLeft.minutes },
                 { label: 'Detik', value: timeLeft.seconds }
               ].map((item, idx) => (
-                <div key={idx} className="bg-black/50 backdrop-blur-md border border-white/10 rounded-xl p-4 min-w-[80px] md:min-w-[100px]">
-                  <div className="text-2xl md:text-4xl font-bold text-primary font-mono">{String(item.value).padStart(2, '0')}</div>
-                  <div className="text-xs text-gray-400 uppercase tracking-wider mt-1">{item.label}</div>
+                <div key={idx} className="bg-black/50 backdrop-blur-md border border-white/10 rounded-xl p-2 sm:p-3 md:p-4 min-w-[60px] sm:min-w-[70px] md:min-w-[100px]">
+                  <div className="text-xl sm:text-2xl md:text-4xl font-bold text-primary font-mono">{String(item.value).padStart(2, '0')}</div>
+                  <div className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider mt-1">{item.label}</div>
                 </div>
               ))}
             </div>
@@ -101,7 +101,7 @@ export default function MerchandisePage() {
       {/* Product Details Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
             {/* Gallery */}
             <div className="space-y-6">
               <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 group">
@@ -115,9 +115,9 @@ export default function MerchandisePage() {
                   Best Seller
                 </div>
               </div>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
                 {['/assets/img/Merch2.jpg', '/assets/img/Merch3.jpg', '/assets/img/Merch4.jpg'].map((src, idx) => (
-                  <div key={idx} className="relative aspect-square rounded-xl overflow-hidden border border-white/10 cursor-pointer hover:border-primary transition-all">
+                  <div key={idx} className="relative aspect-square rounded-lg md:rounded-xl overflow-hidden border border-white/10 cursor-pointer hover:border-primary transition-all">
                     <Image 
                       src={src}
                       alt={`Detail ${idx + 1}`}
@@ -148,14 +148,14 @@ export default function MerchandisePage() {
             {/* Info & Specs */}
             <div>
               <div className="mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">PHD Trans Official T-shirt</h2>
-                <p className="text-xl text-primary font-medium">The Royal Decker Edition</p>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">PHD Trans Official T-shirt</h2>
+                <p className="text-lg sm:text-xl text-primary font-medium">The Royal Decker Edition</p>
               </div>
 
-              <div className="flex items-baseline gap-4 mb-8">
-                <span className="text-4xl font-bold text-white">{formatPrice(price)}</span>
-                <span className="text-gray-500 line-through">Rp 150.000</span>
-                <span className="bg-green-500/20 text-green-400 text-sm font-bold px-3 py-1 rounded-full">Hemat 20%</span>
+              <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 md:gap-4 mb-8">
+                <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">{formatPrice(price)}</span>
+                <span className="text-sm sm:text-base text-gray-500 line-through">Rp 150.000</span>
+                <span className="bg-green-500/20 text-green-400 text-xs sm:text-sm font-bold px-2 sm:px-3 py-1 rounded-full">Hemat 20%</span>
               </div>
 
               <div className="bg-white/5 rounded-2xl p-6 border border-white/10 mb-8">
@@ -186,12 +186,12 @@ export default function MerchandisePage() {
               {/* Size Selection */}
               <div className="mb-8">
                 <h3 className="text-white font-bold mb-4">Pilih Ukuran:</h3>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2 sm:gap-3">
                   {['M', 'L', 'XL', 'XXL', 'XXXL'].map((size) => (
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}
-                      className={`w-14 h-14 rounded-xl font-bold transition-all ${
+                      className={`w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base transition-all ${
                         selectedSize === size
                           ? 'bg-primary text-white shadow-lg shadow-primary/25 scale-110'
                           : 'bg-white/5 text-gray-400 hover:bg-white/10'

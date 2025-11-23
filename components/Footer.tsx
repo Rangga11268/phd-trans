@@ -107,10 +107,20 @@ export default function Footer() {
             
             {/* Social Icons */}
             <div className="flex gap-4">
-              <a href="https://www.instagram.com/phd_trans/" target="_blank" rel="noopener noreferrer" className="bg-white/5 p-3 rounded-xl hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 hover:text-white transition-all text-gray-400 group">
+              <a 
+                href="https://www.instagram.com/phd_trans/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-white/5 p-3 rounded-xl hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 hover:text-white transition-all text-gray-400 group"
+                aria-label="Instagram"
+              >
                 <Instagram className="h-5 w-5 group-hover:scale-110 transition-transform" />
               </a>
-              <a href="#" className="bg-white/5 p-3 rounded-xl hover:bg-blue-600 hover:text-white transition-all text-gray-400 group">
+              <a 
+                href="#" 
+                className="bg-white/5 p-3 rounded-xl hover:bg-blue-600 hover:text-white transition-all text-gray-400 group"
+                aria-label="Facebook"
+              >
                 <Facebook className="h-5 w-5 group-hover:scale-110 transition-transform" />
               </a>
             </div>

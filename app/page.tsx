@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import CinematicVideo from "@/components/CinematicVideo";
 import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
 import Testimonials from "@/components/Testimonials";
@@ -10,6 +11,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col">
       <Hero />
       <About />
+      <CinematicVideo />
       <Gallery />
       <Testimonials />
       <Contact />

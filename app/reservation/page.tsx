@@ -52,6 +52,31 @@ export default function ReservationPage() {
         </div>
       </section>
 
+      {/* Reservation Video Section */}
+      <section className="py-20 relative overflow-hidden">
+        {/* Background Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full max-h-[500px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-white mb-4">Panduan Reservasi</h2>
+            <p className="text-gray-400">Video panduan langkah demi langkah untuk memesan bus impian Anda.</p>
+          </div>
+
+          <div className="bg-slate-900/50 backdrop-blur-xl rounded-[2.5rem] p-4 border border-white/10 shadow-2xl shadow-primary/20">
+            <div className="relative aspect-video rounded-[2rem] overflow-hidden bg-black border border-white/5 group">
+              <video 
+                src="/assets/video/vidio%20reservasi.mp4" 
+                controls 
+                className="w-full h-full object-cover"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-10 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

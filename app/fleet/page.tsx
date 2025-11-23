@@ -22,7 +22,7 @@ export default function FleetPage() {
       name: "Medium Bus Luxury",
       description: "Solusi fleksibel untuk rombongan menengah. Tetap nyaman dengan fasilitas premium dalam ukuran yang lebih compact.",
       features: ["35 Seats", "AC", "Audio System", "USB Charger", "Bagasi Luas"],
-      image: "/assets/img/pgd3.webp"
+      image: "/assets/img/mediumlongbus.jpg"
     }
   ];
 

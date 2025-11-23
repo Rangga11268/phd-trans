@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
@@ -8,6 +9,8 @@ import { useState, useEffect } from 'react';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +27,7 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-secondary/95 backdrop-blur-md py-4 shadow-lg' : 'bg-transparent py-6'
+      isScrolled || !isHome ? 'bg-secondary/95 backdrop-blur-md py-4 shadow-lg' : 'bg-transparent py-6'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -38,8 +41,8 @@ export default function Navbar() {
                   className="object-cover"
                 />
               </div>
-              <span className="text-xl md:text-2xl font-bold tracking-tighter text-slate-300">
-                PHD <span className="text-slate-300">Trans</span>
+              <span className="text-xl md:text-2xl font-bold tracking-tighter">
+                <span className="text-shiny">PHD</span> <span className="text-shiny-purple">Trans</span>
               </span>
             </Link>
           </div>

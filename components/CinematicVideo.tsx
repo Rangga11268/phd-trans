@@ -33,7 +33,7 @@ export default function CinematicVideo() {
             <span className="text-sm font-medium text-primary uppercase tracking-wider">Galeri Video</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Cinematic <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">Experience</span>
+            Cinematic <span className="text-shiny-purple">Experience</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
             Saksikan keindahan armada dan layanan kami melalui lensa sinematik. Setiap detail dirancang untuk kenyamanan Anda.

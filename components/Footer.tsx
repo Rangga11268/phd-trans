@@ -17,8 +17,8 @@ export default function Footer() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-slate-300">
-                PHD <span className="text-slate-300">Trans</span>
+              <h3 className="text-2xl font-bold">
+                <span className="text-shiny">PHD</span> <span className="text-shiny-purple">Trans</span>
               </h3>
             </div>
             <p className="text-gray-400 leading-relaxed">
@@ -51,8 +51,10 @@ export default function Footer() {
               <li><Link href="/merchandise" className="text-gray-400 hover:text-primary transition-colors">Merchandise</Link></li>
               <li><Link href="/terms" className="text-gray-400 hover:text-primary transition-colors">Syarat & Ketentuan</Link></li>
             </ul>
+          </div>
 
-            <h4 className="text-lg font-semibold text-white mb-4">Ikuti Kami</h4>
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-6">Ikuti Kami</h4>
             <div className="flex gap-4">
               <a href="https://www.instagram.com/phd_trans/" target="_blank" rel="noopener noreferrer" className="bg-white/5 p-3 rounded-full hover:bg-primary hover:text-black transition-all text-white">
                 <Instagram className="h-6 w-6" />

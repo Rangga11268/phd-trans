@@ -45,3 +45,39 @@ body {
     transform: translateY(0);
   }
 }
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.text-shiny {
+  background: linear-gradient(
+    to right,
+    #e2e8f0 20%,
+    #ffffff 40%,
+    #e2e8f0 60%,
+    #ffffff 80%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: shine 3s linear infinite;
+}
+
+.text-shiny-purple {
+  background: linear-gradient(
+    to right,
+    #7D45B8 20%,
+    #a78bfa 40%,
+    #7D45B8 60%,
+    #a78bfa 80%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: shine 3s linear infinite;
+}

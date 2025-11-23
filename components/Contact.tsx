@@ -14,7 +14,7 @@ export default function Contact() {
           {/* Contact Info */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Hubungi <span className="text-primary">Kami</span>
+              Hubungi <span className="text-shiny-purple">Kami</span>
             </h2>
             <p className="text-gray-400 mb-12 text-lg">
               Siap merencanakan perjalanan Anda? Hubungi kami untuk penawaran harga atau pertanyaan apa pun. Tim kami siap membantu Anda 24/7.

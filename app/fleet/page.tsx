@@ -88,7 +88,12 @@ export default function FleetPage() {
                   </div>
                   
                   <div>
-                    <a href="/contact" className="inline-block w-full text-center bg-primary text-white font-bold px-8 py-4 rounded-xl hover:bg-primary/90 transition-all transform hover:scale-[1.02] shadow-lg shadow-primary/25">
+                    <a 
+                      href={`https://wa.me/6281353343110?text=${encodeURIComponent(`Halo PHD Trans, saya ingin booking *${bus.name}*. Mohon info harga dan ketersediaan.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block w-full text-center bg-primary text-white font-bold px-8 py-4 rounded-xl hover:bg-primary/90 transition-all transform hover:scale-[1.02] shadow-lg shadow-primary/25"
+                    >
                       Pesan Bus Ini
                     </a>
                   </div>

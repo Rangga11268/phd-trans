@@ -55,41 +55,49 @@ export default function Destinations() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {destinations.map((destination, index) => (
-            <div 
-              key={index} 
-              className="group relative bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-500 hover:transform hover:scale-105"
-            >
-              {/* Image */}
-              <div className="aspect-[4/5] relative overflow-hidden">
-                <Image
-                  src={destination.image}
-                  alt={destination.name}
-                  fill
-                  className="object-cover transform group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                
-                {/* Popular Badge */}
-                {destination.popular && (
-                  <div className="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                    Populer
-                  </div>
-                )}
-              </div>
-
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-2xl font-bold text-white mb-2">{destination.name}</h3>
-                <p className="text-gray-300 text-sm mb-4">{destination.description}</p>
-                
-                <div className="flex items-center gap-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span>Pesan Sekarang</span>
-                  <ArrowRight className="h-4 w-4" />
+          {destinations.map((destination, index) => {
+            const whatsappMessage = `Halo PHD Trans, saya tertarik dengan paket wisata ke *${destination.name}*. Bisa info lebih lanjut?`;
+            const whatsappLink = `https://wa.me/6281353343110?text=${encodeURIComponent(whatsappMessage)}`;
+            
+            return (
+              <a
+                key={index}
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-500 hover:transform hover:scale-105 cursor-pointer"
+              >
+                {/* Image */}
+                <div className="aspect-[4/5] relative overflow-hidden">
+                  <Image
+                    src={destination.image}
+                    alt={destination.name}
+                    fill
+                    className="object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                  
+                  {/* Popular Badge */}
+                  {destination.popular && (
+                    <div className="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                      Populer
+                    </div>
+                  )}
                 </div>
-              </div>
-            </div>
-          ))}
+
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-2xl font-bold text-white mb-2">{destination.name}</h3>
+                  <p className="text-gray-300 text-sm mb-4">{destination.description}</p>
+                  
+                  <div className="flex items-center gap-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>Pesan Sekarang</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
+                </div>
+              </a>
+            );
+          })}
         </div>
 
         <div className="text-center mt-12">

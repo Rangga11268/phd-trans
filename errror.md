@@ -1,76 +1,40 @@
-Dokumen Kebutuhan Halaman Web: Tentang Kami (About Us) - PHD Trans
-Tujuan: Menceritakan perjalanan PHD Trans dari usaha keluarga sederhana hingga menjadi pemain bus pariwisata premium ("Luxury in Motion"), serta menonjolkan standar pelayanan yang membedakan mereka dari kompetitor.
+Spesifikasi Unit: Jetbus 5 Medium Bus
+1. Kapasitas & Kenyamanan (Comfort)
 
-1. Informasi Utama Perusahaan (Company Profile)
-Nama Resmi: PT Putra Handayani Trans (PHD Trans).
+Total Seat: 41 Seats (Konfigurasi 2-2).
 
-Founder/Owner: Mas Andik Ruswandrio.
+Merk Kursi: Rimba Kencana (High Quality).
 
-Asal (Homebase): Nganjuk, Jawa Timur.
+AC: Denso (Tipe Nero), dingin merata hingga belakang.
 
-Tagline: "Your Comfort Is Our Priority" / "Luxury in Motion".
+Interior: Nuansa mewah dengan Louver AC dan penutup ducting lapis kulit sintetis (MBtech) warna hitam elegan.
 
-Warna Identitas: Purple (Ungu) / "Purple Gank".
+Lantai: Menggunakan Tarabus Flooring (Tipe Elegant Grey) – standar pameran GIIAS, anti-slip dan mewah.
 
-2. Konten Cerita (Storytelling)
-Programmer perlu membuat bagian Timeline atau Cerita Pendiri berdasarkan fakta berikut:
+2. Fasilitas Penunjang (Amenities)
 
-Awal Mula (2007): Dimulai oleh Ayah Mas Andik dengan unit Microbus Elf (belum pariwisata resmi).
+Dispenser Air: Terletak di belakang kursi pengemudi (Free refill kopi/teh/air).
 
-Generasi Baru (2015-2018): Mas Andik (saat itu masih SMA) mulai terlibat karena hobi/cinta bus (Bus Mania). Sering bolos sekolah demi melihat bus di terminal.
+Bagasi Kabin: Penutup bagasi atas (ducting) tertutup rapi, aman untuk barang bawaan.
 
-Titik Balik (2019): Resmi mendirikan PT (Perseroan Terbatas) meski sempat ditentang orang tua. Unit Big Bus pertama lahir (Julukan: "Ranger").
+3. Hiburan (Entertainment)
 
-Masa Sulit (2020 - Pandemi): Bertahan dengan strategi Open Trip dan merangkul komunitas Bus Mania agar kru tetap bisa makan.
+TV LED: Ukuran besar 32 Inch di bagian depan.
 
-Filosofi Nama: "Handayani" diambil dari nama Kakek dan usaha pupuk Ibunda, disematkan menjadi doa untuk kelangsungan bisnis.
+Audio System: Karaoke set.
 
-3. Nilai Jual Unik (Unique Selling Points)
-Fitur ini harus di-highlight dengan Icon atau Box khusus:
+Lighting System (Party Mode):
 
-"Pilot" Crew Concept:
+Lampu RGB (Warna-warni).
 
-Sopir/Driver di PHD Trans disebut PILOT.
+Lampu Disko.
 
-Menggunakan seragam rapi (jas/seragam pilot) untuk menaikkan wibawa dan kepercayaan penumpang.
+Lampu Laser di bagian belakang untuk suasana perjalanan malam yang meriah.
 
-Penumpang "Dilarang Haus":
+4. Eksterior & Keamanan
 
-Fasilitas Unlimited Refill (Kopi, Teh, Air Putih) di dalam bus layaknya "Kafe Berjalan".
+Sasis: Mercedes-Benz OF 917.
 
-Standar Unit Adiputro:
+Bodi: Jetbus 5 (Model Single Glass – pandangan ke depan luas).
 
-Loyal menggunakan bodi Jetbus buatan Adiputro (Malang) yang menjamin kenyamanan dan gengsi.
-
-Perawatan Ekstrem:
-
-Cek rutin setiap perjalanan dan servis berkala (ganti oli, dll) setiap 5.000 KM (lebih cepat dari standar umum) untuk performa prima.
-
-4. Aset Media (Assets)
-Video Profil: Gunakan cuplikan dari YouTube (https://youtu.be/zMTD9OTFuOw) sebagai Video Background di Hero Section atau Embedded Video di bagian cerita.
-
-Foto Kebutuhan:
-
-Foto Mas Andik (Owner).
-
-Foto Kru dengan seragam "Pilot".
-
-Foto Interior Bus (Dispenser/Coffee Maker).
-
-Foto Unit "Ranger" (Bus Pertama).
-
-5. Struktur Halaman (Sitemap)
-Hero Section: Video background bus berjalan + Tagline.
-
-CEO Message: Kutipan singkat Mas Andik tentang "Berawal dari Penggemar".
-
-History Timeline: 2007 (Elf) -> 2019 (PT & Big Bus) -> Sekarang (Ekspansi Surabaya).
-
-Our Values: 3 Poin (Safety, Comfort, Hospitality).
-
-Gallery: Foto armada & kru.
-
-CTA: Tombol "Sewa Sekarang".
-
-Kode Halaman "About Us"
-Berikut adalah implementasi kodingannya.
+Velg: Alcoa / Aluminium (Tampilan mengkilap dan membantu pengereman lebih baik).

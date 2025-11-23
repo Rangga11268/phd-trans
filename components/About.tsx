@@ -4,18 +4,18 @@ export default function About() {
   const features = [
     {
       icon: <Shield className="h-10 w-10 text-primary" />,
-      title: "Safety First",
-      description: "Our fleet is maintained to the highest standards, ensuring a safe journey for every passenger."
+      title: "Keselamatan Utama",
+      description: "Armada kami dirawat dengan standar tertinggi, menjamin perjalanan yang aman bagi setiap penumpang."
     },
     {
       icon: <Clock className="h-10 w-10 text-primary" />,
-      title: "Punctuality",
-      description: "We value your time. Our schedules are optimized to ensure you reach your destination on time."
+      title: "Tepat Waktu",
+      description: "Kami menghargai waktu Anda. Jadwal kami dioptimalkan untuk memastikan Anda tiba di tujuan tepat waktu."
     },
     {
       icon: <Star className="h-10 w-10 text-primary" />,
-      title: "Premium Comfort",
-      description: "Experience luxury with our modern amenities, spacious seating, and professional service."
+      title: "Kenyamanan Premium",
+      description: "Nikmati kemewahan dengan fasilitas modern, kursi luas, dan layanan profesional."
     }
   ];
 
@@ -24,11 +24,10 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Why Choose <span className="text-primary">PHD Trans</span>?
+            Mengapa Memilih <span className="text-primary">PHD Trans</span>?
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            We are dedicated to providing the best transportation experience in Indonesia. 
-            Our commitment to excellence sets us apart.
+            Kami berdedikasi untuk memberikan pengalaman transportasi wisata terbaik di Indonesia. Komitmen kami terhadap keunggulan membedakan kami.
           </p>
         </div>
 

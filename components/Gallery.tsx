@@ -14,10 +14,10 @@ export default function Gallery() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Our Premium <span className="text-primary">Fleet</span>
+            Armada <span className="text-primary">Premium</span> Kami
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Take a look at our modern and well-maintained buses designed for your comfort.
+            Lihat armada bus modern dan terawat kami yang dirancang untuk kenyamanan perjalanan wisata Anda.
           </p>
         </div>
 

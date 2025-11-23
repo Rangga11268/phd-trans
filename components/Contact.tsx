@@ -6,102 +6,99 @@ export default function Contact() {
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Contact Info */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Get in <span className="text-primary">Touch</span>
+              Hubungi <span className="text-primary">Kami</span>
             </h2>
-            <p className="text-gray-400 mb-10 leading-relaxed">
-              Ready to book your journey? Contact us today for inquiries, reservations, or any questions you might have. We are here to help 24/7.
+            <p className="text-gray-400 mb-12 text-lg">
+              Siap merencanakan perjalanan Anda? Hubungi kami untuk penawaran harga atau pertanyaan apa pun. Tim kami siap membantu Anda 24/7.
             </p>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="bg-white/5 p-3 rounded-lg">
-                  <MapPin className="h-6 w-6 text-primary" />
+            <div className="space-y-8">
+              <div className="flex items-start gap-6 group">
+                <div className="bg-white/5 p-4 rounded-2xl group-hover:bg-primary/20 transition-colors">
+                  <MapPin className="h-8 w-8 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-1">Visit Us</h4>
-                  <p className="text-gray-400">Jl. Raya Nganjuk No. 123, East Java, Indonesia</p>
+                  <h3 className="text-xl font-bold text-white mb-2">Lokasi Kami</h3>
+                  <p className="text-gray-400">Jl. Raya Nganjuk No. 123<br />Nganjuk, Jawa Timur, Indonesia</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="bg-white/5 p-3 rounded-lg">
-                  <Phone className="h-6 w-6 text-primary" />
+              <div className="flex items-start gap-6 group">
+                <div className="bg-white/5 p-4 rounded-2xl group-hover:bg-primary/20 transition-colors">
+                  <Phone className="h-8 w-8 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-1">Call Us</h4>
-                  <p className="text-gray-400">+62 812-3456-7890</p>
+                  <h3 className="text-xl font-bold text-white mb-2">Telepon</h3>
+                  <p className="text-gray-400">+62 812-3456-7890<br />+62 812-9876-5432</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="bg-white/5 p-3 rounded-lg">
-                  <Mail className="h-6 w-6 text-primary" />
+              <div className="flex items-start gap-6 group">
+                <div className="bg-white/5 p-4 rounded-2xl group-hover:bg-primary/20 transition-colors">
+                  <Mail className="h-8 w-8 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-1">Email Us</h4>
-                  <p className="text-gray-400">booking@phdtrans.com</p>
+                  <h3 className="text-xl font-bold text-white mb-2">Email</h3>
+                  <p className="text-gray-400">info@phdtrans.com<br />support@phdtrans.com</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10">
-            <h3 className="text-2xl font-bold text-white mb-6">Book a Trip</h3>
-            <form className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Contact Form */}
+          <div className="bg-white/5 p-8 md:p-10 rounded-3xl border border-white/10 backdrop-blur-sm">
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-1">Name</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
-                    placeholder="Your Name"
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Nama Lengkap</label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                    placeholder="Nama Anda"
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-400 mb-1">Phone</label>
-                  <input 
-                    type="tel" 
-                    id="phone" 
-                    className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">Nomor Telepon</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                     placeholder="+62..."
                   />
                 </div>
               </div>
-              
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-1">Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
-                  placeholder="your@email.com"
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">Alamat Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                  placeholder="email@contoh.com"
                 />
               </div>
-
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-1">Message</label>
-                <textarea 
-                  id="message" 
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">Pesan</label>
+                <textarea
+                  id="message"
                   rows={4}
-                  className="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
-                  placeholder="Tell us about your trip details..."
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                  placeholder="Ceritakan kebutuhan perjalanan Anda..."
                 ></textarea>
               </div>
-
-              <button 
-                type="submit" 
-                className="w-full bg-primary text-black font-bold py-4 rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2"
+              <button
+                type="submit"
+                className="w-full bg-primary text-black font-bold py-4 rounded-xl hover:bg-primary/90 transition-all transform hover:scale-[1.02]"
               >
-                <Send className="h-5 w-5" />
-                Send Message
+                Kirim Pesan
               </button>
             </form>
           </div>

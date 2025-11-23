@@ -6,26 +6,26 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 export default function FAQ() {
   const faqs = [
     {
-      question: "How do I book a ticket?",
-      answer: "You can book a ticket directly through our website by filling out the contact form, or by contacting us via WhatsApp or phone."
+      question: "Bagaimana cara memesan bus?",
+      answer: "Anda dapat memesan dengan menghubungi kami melalui WhatsApp, telepon, atau mengisi formulir di halaman Kontak. Tim kami akan segera merespons."
     },
     {
-      question: "What facilities are available on the bus?",
-      answer: "Our buses are equipped with AC, reclining seats, USB charging ports, free Wi-Fi, and a toilet for your convenience."
+      question: "Fasilitas apa saja yang tersedia?",
+      answer: "Armada kami dilengkapi dengan AC, kursi reclining, sistem audio/karaoke, TV, dan port USB charger. Beberapa kelas juga memiliki toilet dan bantal/selimut."
     },
     {
-      question: "Can I change my travel schedule?",
-      answer: "Yes, schedule changes are allowed up to 24 hours before departure, subject to seat availability."
+      question: "Apakah harga sudah termasuk BBM dan kru?",
+      answer: "Ya, harga sewa kami umumnya sudah termasuk BBM dan jasa pengemudi serta asisten. Biaya tol, parkir, dan makan kru biasanya ditanggung penyewa."
     },
     {
-      question: "Is there a refund policy?",
-      answer: "Refunds are available for cancellations made at least 48 hours before departure, with a small cancellation fee."
+      question: "Berapa minimal uang muka (DP) untuk booking?",
+      answer: "Kami memerlukan uang muka sebesar 30% untuk mengamankan jadwal pemesanan Anda. Pelunasan dapat dilakukan sebelum keberangkatan."
     }
   ];
 
   return (
     <div className="max-w-3xl mx-auto">
-      <h3 className="text-2xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h3>
+      <h3 className="text-2xl font-bold text-white mb-8 text-center">Pertanyaan Umum</h3>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <FAQItem key={index} question={faq.question} answer={faq.answer} />

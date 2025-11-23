@@ -9,10 +9,10 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-primary/5" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Contact <span className="text-primary">Us</span>
+            Hubungi <span className="text-primary">Kami</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            We are here to help. Reach out to us for bookings, information, or support.
+            Kami di sini untuk membantu merencanakan perjalanan sempurna Anda. Hubungi kami hari ini.
           </p>
         </div>
       </section>

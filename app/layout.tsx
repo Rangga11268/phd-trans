@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PHD Trans - Premium Bus Transport",
-  description: "Premium bus transportation services in Nganjuk. Experience comfort and luxury.",
+  title: "PHD Trans - Sewa Bus Pariwisata Nganjuk",
+  description: "Layanan sewa bus pariwisata premium di Nganjuk. Armada modern, fasilitas lengkap, dan pelayanan terbaik untuk perjalanan wisata Anda.",
 };
 
 export default function RootLayout({

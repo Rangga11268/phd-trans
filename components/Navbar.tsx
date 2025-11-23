@@ -1,38 +1,46 @@
 'use client';
 
 import Link from 'next/link';
-import { Bus, Menu, X } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center gap-2">
-            <div className="bg-primary p-2 rounded-lg">
-              <Bus className="h-6 w-6 text-black" />
-            </div>
-            <span className="text-2xl font-bold tracking-tighter text-white">
-              PHD <span className="text-primary">Trans</span>
-            </span>
+            <Link href="/" className="flex items-center gap-2">
+              <div className="relative h-10 w-10 md:h-12 md:w-12 rounded-lg overflow-hidden">
+                <Image
+                  src="/assets/img/logoPHD.jpg"
+                  alt="PHD Trans Logo"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <span className="text-xl md:text-2xl font-bold tracking-tighter text-white">
+                PHD <span className="text-primary">Trans</span>
+              </span>
+            </Link>
           </div>
           
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               <Link href="/" className="text-white hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Home
+                Beranda
               </Link>
               <Link href="/about" className="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                About
+                Tentang Kami
               </Link>
               <Link href="/fleet" className="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Fleet
+                Armada
               </Link>
               <Link href="/contact" className="bg-primary text-black hover:bg-primary/90 px-5 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105">
-                Book Now
+                Pesan Sekarang
               </Link>
             </div>
           </div>
@@ -57,28 +65,28 @@ export default function Navbar() {
               className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10"
               onClick={() => setIsOpen(false)}
             >
-              Home
+              Beranda
             </Link>
             <Link 
               href="/about" 
               className="text-gray-300 block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10 hover:text-white"
               onClick={() => setIsOpen(false)}
             >
-              About
+              Tentang Kami
             </Link>
             <Link 
               href="/fleet" 
               className="text-gray-300 block px-3 py-2 rounded-md text-base font-medium hover:bg-white/10 hover:text-white"
               onClick={() => setIsOpen(false)}
             >
-              Fleet
+              Armada
             </Link>
             <Link 
               href="/contact" 
               className="text-primary block px-3 py-2 rounded-md text-base font-bold hover:bg-white/10"
               onClick={() => setIsOpen(false)}
             >
-              Book Now
+              Pesan Sekarang
             </Link>
           </div>
         </div>

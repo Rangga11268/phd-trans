@@ -4,21 +4,21 @@ export default function Testimonials() {
   const reviews = [
     {
       name: "Budi Santoso",
-      role: "Business Traveler",
-      content: "The best bus service I've ever used. The seats are incredibly comfortable and the wifi is fast.",
+      role: "Travel Enthusiast",
+      content: "Pengalaman luar biasa bersama PHD Trans! Busnya sangat nyaman dan kru sangat profesional. Sangat direkomendasikan untuk perjalanan wisata.",
       rating: 5
     },
     {
       name: "Siti Aminah",
-      role: "Family Vacation",
-      content: "Very safe and clean. My kids loved the journey. Highly recommended for families.",
+      role: "Guru Sekolah",
+      content: "Kami menyewa bus untuk study tour sekolah dan semuanya berjalan lancar. Fasilitas karaoke sangat menghibur anak-anak.",
       rating: 5
     },
     {
-      name: "Rudi Hartono",
-      role: "Frequent Commuter",
-      content: "Always on time. The crew is professional and friendly. PHD Trans is my go-to choice.",
-      rating: 5
+      name: "Rahmat Hidayat",
+      role: "Event Organizer",
+      content: "Armada bersih, tepat waktu, dan pelayanan ramah. PHD Trans selalu menjadi pilihan utama kami untuk transportasi event.",
+      rating: 4
     }
   ];
 
@@ -27,10 +27,10 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            What Our <span className="text-primary">Passengers</span> Say
+            Apa Kata <span className="text-primary">Mereka</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Don't just take our word for it. Here is what our customers have to say about their experience with PHD Trans.
+            Dengarkan pengalaman pelanggan kami yang telah menikmati perjalanan bersama PHD Trans.
           </p>
         </div>
 

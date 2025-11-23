@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   title: "PHD Trans - Sewa Bus Pariwisata Nganjuk",
   description: "Layanan sewa bus pariwisata premium di Nganjuk. Armada modern, fasilitas lengkap, dan pelayanan terbaik untuk perjalanan wisata Anda.",
   icons: {
-    icon: '/assets/img/logoPHD.jpg',
-    shortcut: '/assets/img/logoPHD.jpg',
-    apple: '/assets/img/logoPHD.jpg',
+    icon: '/icon.jpg',
+    shortcut: '/icon.jpg',
+    apple: '/icon.jpg',
   },
 };
 

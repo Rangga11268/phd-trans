@@ -1,98 +1,201 @@
-import { Shield, Clock, Star, Users, Target, Award } from 'lucide-react';
+import { Shield, Clock, Star, Users, Target, Award, Coffee, Wrench, UserCheck, Bus } from 'lucide-react';
+import Image from 'next/image';
 
 export default function AboutPage() {
   return (
     <main className="pt-20 min-h-screen bg-slate-900">
-      {/* Header */}
-      <section className="relative py-20 bg-black overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Tentang <span className="text-primary">PT. PUTRA HANDAYANI TRANS</span>
+      {/* Hero Section */}
+      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/assets/img/tentangkami.jpg"
+            alt="PHD Trans Team"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/70" />
+        </div>
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in-up">
+            Tentang <span className="text-shiny-purple">PHD Trans</span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Mitra terpercaya Anda dalam transportasi wisata premium. Kami berkomitmen untuk memberikan keunggulan dalam setiap perjalanan.
+          <p className="text-xl md:text-2xl text-gray-200 font-light tracking-wide animate-fade-in-up delay-100">
+            "Your Comfort Is Our Priority"
           </p>
+          <div className="mt-8 inline-block px-6 py-2 rounded-full bg-primary/20 border border-primary/50 backdrop-blur-sm animate-fade-in-up delay-200">
+            <span className="text-primary font-bold tracking-wider">LUXURY IN MOTION</span>
+          </div>
         </div>
       </section>
 
-      {/* Story Section */}
+      {/* Company Profile & CEO Message */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-white mb-6">Cerita Kami</h2>
-              <div className="space-y-4 text-gray-300 leading-relaxed">
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold text-white mb-2">Profil Perusahaan</h2>
+                <div className="h-1 w-20 bg-primary rounded-full" />
+              </div>
+              
+              <div className="space-y-6 text-gray-300 leading-relaxed">
                 <p>
-                  Didirikan dengan visi untuk merevolusi perjalanan wisata bus di Indonesia, PHD Trans telah berkembang dari operator lokal kecil menjadi penyedia layanan transportasi pariwisata terkemuka di Jawa Timur.
+                  <strong className="text-white">PT Putra Handayani Trans (PHD Trans)</strong> adalah penyedia layanan transportasi bus pariwisata premium yang berbasis di <span className="text-primary">Nganjuk, Jawa Timur</span>.
                 </p>
                 <p>
-                  Kami memahami bahwa perjalanan bukan hanya tentang mencapai tujuan, tetapi tentang pengalaman sepanjang jalan. Itulah sebabnya kami berinvestasi besar-besaran dalam perawatan armada, pelatihan kru, dan fasilitas penumpang.
+                  Dikenal dengan identitas warna ungu khas atau <span className="text-purple-400 font-semibold">"Purple Gank"</span>, kami hadir untuk memberikan pengalaman perjalanan yang tak terlupakan.
                 </p>
-                <p>
-                  Hari ini, kami bangga melayani ribuan pelanggan yang puas, menghubungkan berbagai destinasi wisata dengan keamanan, kenyamanan, dan gaya.
-                </p>
+                
+                <div className="bg-white/5 p-6 rounded-2xl border-l-4 border-primary my-8">
+                  <p className="italic text-lg text-gray-200 mb-4">
+                    "Berawal dari hobi dan kecintaan pada bus, kami tumbuh menjadi penyedia layanan yang mengutamakan kenyamanan dan keselamatan penumpang layaknya keluarga sendiri."
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <div className="h-12 w-12 rounded-full bg-gray-700 overflow-hidden relative">
+                       {/* Placeholder for Founder Image if available, otherwise generic avatar */}
+                       <UserCheck className="h-full w-full p-2 text-gray-400" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-bold">Mas Andik Ruswandrio</h4>
+                      <p className="text-sm text-primary">Founder & Owner</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 mt-8">
+                  <div className="bg-white/5 p-4 rounded-xl border border-white/10">
+                    <p className="text-sm text-gray-400">Filosofi Nama</p>
+                    <p className="text-white font-semibold">"Handayani"</p>
+                    <p className="text-xs text-gray-500 mt-1">Doa dari nama Kakek & usaha Ibunda</p>
+                  </div>
+                  <div className="bg-white/5 p-4 rounded-xl border border-white/10">
+                    <p className="text-sm text-gray-400">Julukan Unit Pertama</p>
+                    <p className="text-white font-semibold">"Ranger"</p>
+                    <p className="text-xs text-gray-500 mt-1">Big Bus Pertama (2019)</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white/5 p-6 rounded-2xl border border-white/10 text-center">
-                <Users className="h-10 w-10 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-white">10k+</h3>
-                <p className="text-gray-400">Penumpang Bahagia</p>
+
+            {/* Timeline */}
+            <div className="relative pl-8 border-l border-white/10 space-y-12">
+              <div className="relative">
+                <div className="absolute -left-[41px] top-0 h-5 w-5 rounded-full bg-primary border-4 border-slate-900" />
+                <span className="text-primary font-bold text-sm mb-2 block">2007</span>
+                <h3 className="text-xl font-bold text-white mb-2">Awal Mula</h3>
+                <p className="text-gray-400 text-sm">Dimulai oleh Ayah Mas Andik dengan unit Microbus Elf, melayani perjalanan lokal sebelum resmi menjadi pariwisata.</p>
               </div>
-              <div className="bg-white/5 p-6 rounded-2xl border border-white/10 text-center">
-                <Award className="h-10 w-10 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-white">5+</h3>
-                <p className="text-gray-400">Tahun Pengalaman</p>
+              
+              <div className="relative">
+                <div className="absolute -left-[41px] top-0 h-5 w-5 rounded-full bg-primary border-4 border-slate-900" />
+                <span className="text-primary font-bold text-sm mb-2 block">2015 - 2018</span>
+                <h3 className="text-xl font-bold text-white mb-2">Generasi Baru</h3>
+                <p className="text-gray-400 text-sm">Mas Andik mulai terlibat karena kecintaan pada dunia bus (Bus Mania). Sering mengamati bus di terminal sepulang sekolah.</p>
               </div>
-              <div className="bg-white/5 p-6 rounded-2xl border border-white/10 text-center">
-                <Target className="h-10 w-10 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-white">100%</h3>
-                <p className="text-gray-400">Rekor Keselamatan</p>
+
+              <div className="relative">
+                <div className="absolute -left-[41px] top-0 h-5 w-5 rounded-full bg-primary border-4 border-slate-900" />
+                <span className="text-primary font-bold text-sm mb-2 block">2019</span>
+                <h3 className="text-xl font-bold text-white mb-2">Titik Balik</h3>
+                <p className="text-gray-400 text-sm">Resmi mendirikan PT Putra Handayani Trans. Lahirnya unit Big Bus pertama "Ranger" meski sempat menghadapi tantangan.</p>
               </div>
-              <div className="bg-white/5 p-6 rounded-2xl border border-white/10 text-center">
-                <Star className="h-10 w-10 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-white">4.9</h3>
-                <p className="text-gray-400">Rating Pelanggan</p>
+
+              <div className="relative">
+                <div className="absolute -left-[41px] top-0 h-5 w-5 rounded-full bg-primary border-4 border-slate-900" />
+                <span className="text-primary font-bold text-sm mb-2 block">2020 - Sekarang</span>
+                <h3 className="text-xl font-bold text-white mb-2">Bertahan & Bangkit</h3>
+                <p className="text-gray-400 text-sm">Melewati masa pandemi dengan strategi Open Trip dan merangkul komunitas. Kini terus berekspansi dengan standar pelayanan premium.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Vision Mission */}
-      <section className="py-20 bg-black/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
-              <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                <Target className="h-8 w-8 text-primary" />
-                Visi Kami
-              </h3>
-              <p className="text-gray-300">
-                Menjadi layanan transportasi bus pariwisata terkemuka dan terpercaya di Indonesia, menetapkan tolok ukur untuk keselamatan, kenyamanan, dan kepuasan pelanggan.
+      {/* Unique Selling Points */}
+      <section className="py-24 bg-black/40 relative overflow-hidden">
+        {/* Background Decorative */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-3xl pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Keunggulan <span className="text-shiny-purple">PHD Trans</span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Standar pelayanan tinggi yang membedakan kami dari yang lain.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* USP 1 */}
+            <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-primary/50 transition-all group hover:-translate-y-2">
+              <div className="bg-primary/20 w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                <UserCheck className="h-7 w-7 text-primary group-hover:text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">"Pilot" Crew</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Kru kami disebut PILOT, mengenakan seragam rapi untuk profesionalisme, wibawa, dan kepercayaan penumpang.
               </p>
             </div>
-            <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
-              <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                <Shield className="h-8 w-8 text-primary" />
-                Misi Kami
-              </h3>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">•</span>
-                  Memprioritaskan keselamatan penumpang di atas segalanya.
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">•</span>
-                  Menyediakan layanan yang konsisten, tepat waktu, dan andal.
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">•</span>
-                  Terus meningkatkan armada dan fasilitas kami untuk kenyamanan wisata.
-                </li>
-              </ul>
+
+            {/* USP 2 */}
+            <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-primary/50 transition-all group hover:-translate-y-2">
+              <div className="bg-primary/20 w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                <Coffee className="h-7 w-7 text-primary group-hover:text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Dilarang Haus</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Fasilitas Unlimited Refill (Kopi, Teh, Air Putih) di dalam bus. Nikmati sensasi "Kafe Berjalan" sepanjang perjalanan.
+              </p>
             </div>
+
+            {/* USP 3 */}
+            <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-primary/50 transition-all group hover:-translate-y-2">
+              <div className="bg-primary/20 w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                <Bus className="h-7 w-7 text-primary group-hover:text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Unit Adiputro</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Loyal menggunakan bodi Jetbus buatan Adiputro (Malang) yang menjamin kenyamanan, keamanan, dan gengsi tinggi.
+              </p>
+            </div>
+
+            {/* USP 4 */}
+            <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-primary/50 transition-all group hover:-translate-y-2">
+              <div className="bg-primary/20 w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                <Wrench className="h-7 w-7 text-primary group-hover:text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Perawatan Ekstrem</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Cek rutin dan servis berkala setiap 5.000 KM (lebih cepat dari standar) untuk memastikan performa armada selalu prima.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-gradient-to-r from-secondary to-primary p-12 rounded-3xl relative overflow-hidden">
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                Siap Merasakan Pengalaman Berbeda?
+              </h2>
+              <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+                Bergabunglah dengan ribuan penumpang yang telah menikmati kenyamanan dan kemewahan layanan PHD Trans.
+              </p>
+              <a 
+                href="/reservation" 
+                className="inline-block bg-white text-primary font-bold py-4 px-10 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              >
+                Sewa Sekarang
+              </a>
+            </div>
+            {/* Decorative Circles */}
+            <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-2xl" />
+            <div className="absolute bottom-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/2 translate-y-1/2 blur-2xl" />
           </div>
         </div>
       </section>

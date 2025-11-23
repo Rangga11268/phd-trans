@@ -1,15 +1,22 @@
-import { Phone, Mail, MapPin, Instagram, Facebook } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram, Facebook, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary text-white pt-20 pb-10 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="relative h-12 w-12 rounded-lg overflow-hidden">
+    <footer className="bg-slate-950 text-white pt-24 pb-12 border-t border-white/5 relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+          {/* Brand Column */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="relative h-12 w-12 rounded-xl overflow-hidden border border-white/10">
                 <Image
                   src="/assets/img/logoPHD.jpg"
                   alt="PHD Trans Logo"
@@ -21,55 +28,104 @@ export default function Footer() {
                 <span className="text-shiny">PHD</span> <span className="text-shiny-purple">Trans</span>
               </h3>
             </div>
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-gray-400 leading-relaxed text-sm">
               Layanan bus pariwisata premium di Nganjuk. Nikmati kenyamanan, keamanan, dan kemewahan di setiap perjalanan wisata Anda bersama armada modern kami.
             </p>
           </div>
           
+          {/* Contact Column */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-6">Hubungi Kami</h4>
+            <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+              <span className="w-8 h-1 bg-primary rounded-full"></span>
+              Hubungi Kami
+            </h4>
             <ul className="space-y-4">
-              <li className="flex items-center gap-3 text-gray-400">
-                <MapPin className="h-5 w-5 text-primary" />
-                <span>Nganjuk, Jawa Timur, Indonesia</span>
+              <li className="flex items-start gap-3 text-gray-400 group">
+                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-primary/20 transition-colors">
+                  <MapPin className="h-5 w-5 text-primary" />
+                </div>
+                <span className="text-sm leading-relaxed">Jl. Raya Nganjuk No. 123, Nganjuk, Jawa Timur, Indonesia</span>
               </li>
-              <li className="flex items-center gap-3 text-gray-400">
-                <Phone className="h-5 w-5 text-primary" />
-                <span>0813-5334-3110</span>
+              <li className="flex items-center gap-3 text-gray-400 group">
+                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-primary/20 transition-colors">
+                  <Phone className="h-5 w-5 text-primary" />
+                </div>
+                <span className="text-sm">0813-5334-3110</span>
               </li>
-              <li className="flex items-center gap-3 text-gray-400">
-                <Mail className="h-5 w-5 text-primary" />
-                <span>info@phdtrans.com</span>
+              <li className="flex items-center gap-3 text-gray-400 group">
+                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-primary/20 transition-colors">
+                  <Mail className="h-5 w-5 text-primary" />
+                </div>
+                <span className="text-sm">info@phdtrans.com</span>
               </li>
             </ul>
           </div>
           
+          {/* Quick Links Column */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-6">Tautan Cepat</h4>
-            <ul className="space-y-2 mb-6">
-              <li><Link href="/reservation" className="text-gray-400 hover:text-primary transition-colors">Reservasi</Link></li>
-              <li><Link href="/merchandise" className="text-gray-400 hover:text-primary transition-colors">Merchandise</Link></li>
-              <li><Link href="/terms" className="text-gray-400 hover:text-primary transition-colors">Syarat & Ketentuan</Link></li>
+            <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+              <span className="w-8 h-1 bg-primary rounded-full"></span>
+              Tautan Cepat
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/about" className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group">
+                  <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                  Tentang Kami
+                </Link>
+              </li>
+              <li>
+                <Link href="/fleet" className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group">
+                  <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                  Armada
+                </Link>
+              </li>
+              <li>
+                <Link href="/reservation" className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group">
+                  <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                  Reservasi
+                </Link>
+              </li>
+              <li>
+                <Link href="/merchandise" className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group">
+                  <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                  Merchandise
+                </Link>
+              </li>
             </ul>
           </div>
 
+          {/* Newsletter & Social Column */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-6">Ikuti Kami</h4>
+            <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+              <span className="w-8 h-1 bg-primary rounded-full"></span>
+              Ikuti Kami
+            </h4>
+            <p className="text-gray-400 text-sm mb-6">
+              Dapatkan info terbaru dan promo menarik dari kami.
+            </p>
+            
+            {/* Social Icons */}
             <div className="flex gap-4">
-              <a href="https://www.instagram.com/phd_trans/" target="_blank" rel="noopener noreferrer" className="bg-white/5 p-3 rounded-full hover:bg-primary hover:text-black transition-all text-white">
-                <Instagram className="h-6 w-6" />
+              <a href="https://www.instagram.com/phd_trans/" target="_blank" rel="noopener noreferrer" className="bg-white/5 p-3 rounded-xl hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 hover:text-white transition-all text-gray-400 group">
+                <Instagram className="h-5 w-5 group-hover:scale-110 transition-transform" />
               </a>
-              <a href="#" className="bg-white/5 p-3 rounded-full hover:bg-primary hover:text-black transition-all text-white">
-                <Facebook className="h-6 w-6" />
+              <a href="#" className="bg-white/5 p-3 rounded-xl hover:bg-blue-600 hover:text-white transition-all text-gray-400 group">
+                <Facebook className="h-5 w-5 group-hover:scale-110 transition-transform" />
               </a>
             </div>
           </div>
         </div>
         
-        <div className="border-t border-white/10 pt-8 text-center">
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} PHD Trans. All rights reserved.
+            © {new Date().getFullYear()} <span className="text-gray-300 font-semibold">PHD Trans</span>. All rights reserved.
           </p>
+          <div className="flex gap-6 text-sm text-gray-500">
+            <Link href="/terms" className="hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>

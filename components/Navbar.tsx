@@ -4,26 +4,42 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === '/';
+  const rafId = useRef<number | null>(null);
+
+  const handleScroll = useCallback(() => {
+    // Cancel any pending animation frame
+    if (rafId.current !== null) {
+      return;
+    }
+
+    rafId.current = requestAnimationFrame(() => {
+      const scrolled = window.scrollY > 10;
+      setIsScrolled(scrolled);
+      rafId.current = null;
+    });
+  }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+    // Set initial state
+    handleScroll();
+
+    // Use passive event listener for better scroll performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId.current !== null) {
+        cancelAnimationFrame(rafId.current);
       }
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${

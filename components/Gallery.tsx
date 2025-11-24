@@ -1,12 +1,13 @@
 import Image from 'next/image';
+import { memo } from 'react';
 
-export default function Gallery() {
+const BLUR_DATA_URL = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwABmQ//Z';
+
+function Gallery() {
   const images = [
     { src: '/assets/img/phdbus1.webp', alt: 'PHD Trans Luxury Bus 1', span: 'md:col-span-2 md:row-span-2' },
     { src: '/assets/img/phd2.webp', alt: 'PHD Trans Luxury Bus 2', span: 'md:col-span-1 md:row-span-1' },
     { src: '/assets/img/pgd3.webp', alt: 'PHD Trans Luxury Bus 3', span: 'md:col-span-1 md:row-span-1' },
-    // Using logo as a filler or branding element if needed, or just sticking to buses.
-    // Note: HEIC images are skipped as they are not supported in standard <img> tags.
   ];
 
   return (
@@ -31,7 +32,11 @@ export default function Gallery() {
                 src={img.src}
                 alt={img.alt}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
+                loading={index === 0 ? 'eager' : 'lazy'}
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <p className="text-white font-semibold text-lg">{img.alt}</p>
@@ -43,3 +48,5 @@ export default function Gallery() {
     </section>
   );
 }
+
+export default memo(Gallery);

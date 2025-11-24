@@ -1,19 +1,43 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+
 export default function Hero() {
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+
+  useEffect(() => {
+    // Delay video loading slightly to prioritize critical content
+    const timer = setTimeout(() => {
+      setShouldLoadVideo(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">
         <div className="absolute inset-0 bg-black/50 z-10" /> {/* Overlay */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/assets/video/vidio%20phd%202.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        {shouldLoadVideo ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover"
+            poster="/assets/img/phd2.webp"
+          >
+            <source src="/assets/video/vidio%20phd%202.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        ) : (
+          <div 
+            className="w-full h-full bg-cover bg-center"
+            style={{ backgroundImage: 'url(/assets/img/phd2.webp)' }}
+          />
+        )}
       </div>
 
       {/* Content */}

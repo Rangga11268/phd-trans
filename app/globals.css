@@ -28,6 +28,8 @@ body {
     animation: fadeInUp 0.8s ease-out forwards;
     opacity: 0;
     transform: translateY(20px);
+    /* Use GPU acceleration */
+    will-change: opacity, transform;
   }
   
   .delay-100 {
@@ -36,6 +38,10 @@ body {
   
   .delay-200 {
     animation-delay: 200ms;
+  }
+  
+  .delay-150 {
+    animation-delay: 150ms;
   }
 }
 
@@ -65,6 +71,9 @@ body {
   color: transparent;
   background-size: 200% auto;
   animation: shine 3s linear infinite;
+  /* GPU acceleration for gradient animation */
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .text-shiny-purple {
@@ -80,4 +89,18 @@ body {
   color: transparent;
   background-size: 200% auto;
   animation: shine 3s linear infinite;
+  /* GPU acceleration for gradient animation */
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
+
+/* Optimize transforms and transitions */
+.transition-transform,
+.group-hover\:scale-110,
+.hover\:scale-105 {
+  /* Use GPU acceleration for smooth transforms */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+

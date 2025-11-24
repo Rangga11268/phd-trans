@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { memo } from 'react';
 
-export default function FAQ() {
-  const faqs = [
+function FAQ() {
+  const faqs = useMemo(() => [
     {
       question: "Bagaimana cara memesan bus?",
       answer: "Anda dapat memesan dengan menghubungi kami melalui WhatsApp, telepon, atau mengisi formulir di halaman Kontak. Tim kami akan segera merespons."
@@ -21,7 +22,7 @@ export default function FAQ() {
       question: "Berapa minimal uang muka (DP) untuk booking?",
       answer: "Kami memerlukan uang muka sebesar 30% untuk mengamankan jadwal pemesanan Anda. Pelunasan dapat dilakukan sebelum keberangkatan."
     }
-  ];
+  ], []);
 
   return (
     <div className="max-w-3xl mx-auto">
@@ -34,6 +35,8 @@ export default function FAQ() {
     </div>
   );
 }
+
+export default memo(FAQ);
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);

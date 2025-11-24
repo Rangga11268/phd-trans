@@ -1,7 +1,8 @@
 import { Star } from 'lucide-react';
+import { memo, useMemo } from 'react';
 
-export default function Testimonials() {
-  const reviews = [
+function Testimonials() {
+  const reviews = useMemo(() => [
     {
       name: "Budi Santoso",
       role: "Travel Enthusiast",
@@ -20,7 +21,7 @@ export default function Testimonials() {
       content: "Armada bersih, tepat waktu, dan pelayanan ramah. PHD Trans selalu menjadi pilihan utama kami untuk transportasi event.",
       rating: 4
     }
-  ];
+  ], []);
 
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-black">
@@ -57,3 +58,5 @@ export default function Testimonials() {
     </section>
   );
 }
+
+export default memo(Testimonials);

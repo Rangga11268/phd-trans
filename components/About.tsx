@@ -1,7 +1,8 @@
 import { Shield, Clock, Star } from 'lucide-react';
+import { memo, useMemo } from 'react';
 
-export default function About() {
-  const features = [
+function About() {
+  const features = useMemo(() => [
     {
       icon: <Shield className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />,
       title: "Keselamatan Utama",
@@ -17,7 +18,7 @@ export default function About() {
       title: "Kenyamanan Premium",
       description: "Nikmati kemewahan dengan fasilitas modern, kursi luas, dan layanan profesional."
     }
-  ];
+  ], []);
 
   return (
     <section id="about" className="py-12 sm:py-16 lg:py-24 bg-slate-900">
@@ -51,3 +52,5 @@ export default function About() {
     </section>
   );
 }
+
+export default memo(About);

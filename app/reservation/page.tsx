@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { Phone, Calendar, CheckCircle, MessageSquare, Download } from 'lucide-react';
 import HowItWorks from '@/components/HowItWorks';
 
+const BLUR_DATA_URL = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwABmQ//Z';
+
 export default function ReservationPage() {
   return (
     <main className="pt-20 min-h-screen bg-slate-900">
@@ -12,8 +14,11 @@ export default function ReservationPage() {
             src="/assets/img/Reservasi1.jpg"
             alt="PHD Trans Reservation"
             fill
+            sizes="100vw"
             className="object-cover blur-sm"
             priority
+            placeholder="blur"
+            blurDataURL={BLUR_DATA_URL}
           />
           <div className="absolute inset-0 bg-black/70" />
         </div>
@@ -45,7 +50,11 @@ export default function ReservationPage() {
                   alt="Informasi Reservasi 1"
                   width={800}
                   height={1000}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="w-full h-auto object-contain"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <span className="bg-primary text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
@@ -65,7 +74,11 @@ export default function ReservationPage() {
                   alt="Informasi Reservasi 2"
                   width={800}
                   height={1000}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="w-full h-auto object-contain"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <span className="bg-primary text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">

@@ -140,7 +140,7 @@ export default function ReservationPage() {
                                 <CheckCircle className="h-5 w-5 text-primary" />
                               </div>
                               <div>
-                                <p className="font-bold text-slate-900 text-lg">Big Bus HDD</p>
+                                <p className="font-bold text-slate-900 text-lg">Big Bus SHD</p>
                                 <p className="text-sm text-gray-500">50 Seats • Adiputro Jetbus 3+</p>
                               </div>
                             </div>

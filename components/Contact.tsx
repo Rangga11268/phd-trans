@@ -190,6 +190,30 @@ export default function Contact() {
             </form>
           </motion.div>
         </div>
+
+        {/* Google Maps */}
+        <motion.div
+          variants={item}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="mt-12 sm:mt-16 lg:mt-20 p-2 sm:p-3 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary/50 transition-all duration-500 shadow-2xl relative z-10 group"
+        >
+          <div className="w-full h-[350px] sm:h-[450px] lg:h-[500px] rounded-2xl overflow-hidden relative">
+            <iframe
+              src="https://maps.google.com/maps?q=PT+PUTRA+HANDAYANI+TRANS&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full"
+            ></iframe>
+
+            {/* Optional: Overlay to prevent accidental scrolling, removed for better UX on this specific request as user wants map to be usable */}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

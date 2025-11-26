@@ -69,15 +69,15 @@ export default function Navbar() {
                   className="object-cover"
                 />
               </div>
-              <span className="text-xl md:text-2xl font-bold tracking-tighter">
-                <span className="text-shiny">PHD</span>{" "}
-                <span className="text-shiny-purple">Trans</span>
-              </span>
-              <span className="hidden sm:inline-block px-2 py-0.5 bg-primary/10 border border-primary/30 rounded-full ml-2">
-                <span className="text-primary font-bold text-[10px] tracking-widest">
+              <div className="flex flex-col">
+                <span className="text-xl md:text-2xl font-bold tracking-tighter leading-none">
+                  <span className="text-shiny">PHD</span>{" "}
+                  <span className="text-shiny-purple">Trans</span>
+                </span>
+                <span className="text-primary font-bold text-[10px] tracking-[0.2em] uppercase">
                   #PurpleGank
                 </span>
-              </span>
+              </div>
             </Link>
           </div>
 

@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   description:
     "Layanan sewa bus pariwisata premium di Nganjuk. Armada modern, fasilitas lengkap, dan pelayanan terbaik untuk perjalanan wisata Anda.",
   icons: {
-    icon: "/icon.jpg",
-    shortcut: "/icon.jpg",
-    apple: "/icon.jpg",
+    icon: "/assets/img/logonobg.png",
+    shortcut: "/assets/img/logonobg.png",
+    apple: "/assets/img/logonobg.png",
   },
 };
 

@@ -68,7 +68,7 @@ export default function Footer() {
             </p>
             <div className="inline-block px-4 py-1.5 bg-primary/10 border border-primary/30 rounded-full">
               <span className="text-primary font-bold text-xs tracking-widest">
-                #PurpleGang
+                #PurpleGank
               </span>
             </div>
           </motion.div>

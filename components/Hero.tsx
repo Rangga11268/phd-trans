@@ -77,7 +77,7 @@ export default function Hero() {
         >
           <span className="inline-block px-6 py-2 bg-primary/20 border border-primary/50 rounded-full backdrop-blur-sm">
             <span className="text-primary font-bold text-sm tracking-widest">
-              #PurpleGang
+              #PurpleGank
             </span>
           </span>
         </motion.div>

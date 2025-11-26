@@ -73,6 +73,11 @@ export default function Navbar() {
                 <span className="text-shiny">PHD</span>{" "}
                 <span className="text-shiny-purple">Trans</span>
               </span>
+              <span className="hidden sm:inline-block px-2 py-0.5 bg-primary/10 border border-primary/30 rounded-full ml-2">
+                <span className="text-primary font-bold text-[10px] tracking-widest">
+                  #PurpleGank
+                </span>
+              </span>
             </Link>
           </div>
 

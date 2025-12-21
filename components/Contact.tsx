@@ -24,7 +24,6 @@ export default function Contact() {
       id="contact"
       className="py-12 sm:py-16 lg:py-24 bg-slate-900 relative overflow-hidden"
     >
-      {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -32,7 +31,6 @@ export default function Contact() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
-          {/* Contact Info */}
           <motion.div
             variants={container}
             initial="hidden"
@@ -113,7 +111,6 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -191,7 +188,6 @@ export default function Contact() {
           </motion.div>
         </div>
 
-        {/* Google Maps */}
         <motion.div
           variants={item}
           initial="hidden"
@@ -210,8 +206,6 @@ export default function Contact() {
               referrerPolicy="no-referrer-when-downgrade"
               className="w-full h-full"
             ></iframe>
-
-            {/* Optional: Overlay to prevent accidental scrolling, removed for better UX on this specific request as user wants map to be usable */}
           </div>
         </motion.div>
       </div>

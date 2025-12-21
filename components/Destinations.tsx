@@ -55,7 +55,6 @@ export default function Destinations() {
 
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-black relative overflow-hidden">
-      {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/20 rounded-full blur-3xl pointer-events-none" />
 
@@ -119,7 +118,6 @@ export default function Destinations() {
                 className="group relative bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-500 cursor-pointer"
                 whileHover={{ y: -10 }}
               >
-                {/* Image */}
                 <div className="aspect-[4/5] relative overflow-hidden">
                   <Image
                     src={destination.image}
@@ -129,7 +127,6 @@ export default function Destinations() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
 
-                  {/* Popular Badge */}
                   {destination.popular && (
                     <div className="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg shadow-primary/20">
                       Populer
@@ -137,7 +134,6 @@ export default function Destinations() {
                   )}
                 </div>
 
-                {/* Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
                     {destination.name}

@@ -10,7 +10,7 @@ export default function Preloader() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500); // Slightly longer to show off the animation
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -24,7 +24,6 @@ export default function Preloader() {
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950 overflow-hidden"
         >
-          {/* Background Effects */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
@@ -39,7 +38,6 @@ export default function Preloader() {
           </div>
 
           <div className="relative flex flex-col items-center z-10">
-            {/* Logo Container */}
             <motion.div
               initial={{ scale: 0.5, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -56,7 +54,6 @@ export default function Preloader() {
                 />
               </div>
 
-              {/* Spinning Ring */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
@@ -69,7 +66,6 @@ export default function Preloader() {
               />
             </motion.div>
 
-            {/* Text Animation */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

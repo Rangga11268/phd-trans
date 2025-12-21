@@ -66,7 +66,6 @@ export default function Safety() {
 
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-slate-900 relative overflow-hidden">
-      {/* Background Pattern */}
       <div className="absolute inset-0 bg-[url('/assets/img/pattern.png')] opacity-5" />
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
 
@@ -133,7 +132,6 @@ export default function Safety() {
           })}
         </motion.div>
 
-        {/* Trust Badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}

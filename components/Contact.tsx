@@ -1,7 +1,47 @@
 "use client";
 
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Map as MapIcon } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+
+const MapComponent = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <div
+      className="w-full h-[350px] sm:h-[450px] lg:h-[500px] rounded-[2rem] overflow-hidden relative"
+      onMouseEnter={() => setIsLoaded(true)}
+      onClick={() => setIsLoaded(true)}
+    >
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-white/5 flex flex-col items-center justify-center cursor-pointer group-hover:bg-white/10 transition-colors z-10">
+          <div className="p-4 rounded-full bg-primary/20 text-primary mb-4 animate-pulse">
+            <MapIcon className="w-8 h-8" />
+          </div>
+          <p className="text-white font-bold uppercase tracking-widest text-sm">
+            Click or Hover to View Map
+          </p>
+        </div>
+      )}
+
+      {isLoaded ? (
+        <iframe
+          src="https://maps.google.com/maps?q=PT+PUTRA+HANDAYANI+TRANS&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700"
+        ></iframe>
+      ) : (
+        /* Static Image Placeholder if available, or just the gradient/div above */
+        <div className="absolute inset-0 bg-[#0f172a]" />
+      )}
+    </div>
+  );
+};
 
 export default function Contact() {
   const container = {
@@ -211,18 +251,8 @@ export default function Contact() {
           viewport={{ once: true }}
           className="mt-12 sm:mt-20 p-2 sm:p-3 rounded-[2.5rem] bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary/50 transition-all duration-500 shadow-2xl relative z-10 group"
         >
-          <div className="w-full h-[350px] sm:h-[450px] lg:h-[500px] rounded-[2rem] overflow-hidden relative grayscale group-hover:grayscale-0 transition-all duration-700">
-            <iframe
-              src="https://maps.google.com/maps?q=PT+PUTRA+HANDAYANI+TRANS&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full"
-            ></iframe>
-          </div>
+          {/* Map Facade / Lazy Loader */}
+          <MapComponent />
         </motion.div>
       </div>
     </section>

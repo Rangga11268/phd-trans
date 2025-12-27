@@ -1,9 +1,13 @@
 "use client";
 
 import { Users, MapPin, Award, Clock } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
+import { useInView } from "framer-motion";
 
 export default function Achievement() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const [counts, setCounts] = useState({
     trips: 0,
     passengers: 0,
@@ -12,6 +16,8 @@ export default function Achievement() {
   });
 
   useEffect(() => {
+    if (!isInView) return;
+
     const targets = {
       trips: 500,
       passengers: 10000,
@@ -81,7 +87,10 @@ export default function Achievement() {
       <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/10 blur-[100px]" />
       <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-accent/5 blur-[80px]" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div
+        ref={ref}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+      >
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-3 sm:mb-4 px-4 tracking-tight">
             Dipercaya oleh <span className="text-shiny-purple">Ribuan</span>{" "}

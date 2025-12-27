@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import {
   motion,
   useScroll,
@@ -24,10 +24,13 @@ const ScrambleTitle = ({
 }) => {
   const [display, setDisplay] = useState(text);
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+";
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const scramble = useCallback(() => {
     let iteration = 0;
-    const interval = setInterval(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+
+    intervalRef.current = setInterval(() => {
       setDisplay(
         text
           .split("")
@@ -41,20 +44,25 @@ const ScrambleTitle = ({
       );
 
       if (iteration >= text.length) {
-        clearInterval(interval);
+        if (intervalRef.current) clearInterval(intervalRef.current);
       }
 
-      iteration += 1 / 3;
-    }, 30);
-    return () => clearInterval(interval);
+      iteration += 1 / 2; // Slower iteration for better performance
+    }, 40); // 40ms instead of 30ms to reduce CPU load
   }, [text, chars]);
 
   useEffect(() => {
     if (autoStart) scramble();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
   }, [autoStart, scramble]);
 
   return (
-    <span onMouseEnter={scramble} className={className}>
+    <span
+      onMouseEnter={scramble}
+      className={`${className} font-mono`} // Use mono to prevent layout shift
+    >
       {display}
     </span>
   );
@@ -85,12 +93,16 @@ const ScrambleLoop = ({ text }: { text: string }) => {
       }
 
       iteration += 1 / 3;
-    }, 30);
+    }, 40); // Optimized interval
 
     return () => clearInterval(interval);
   }, [text]);
 
-  return <span>{display}</span>;
+  return (
+    <span className="font-mono inline-block min-w-[200px] text-center">
+      {display}
+    </span>
+  );
 };
 
 export default function Hero() {
@@ -98,7 +110,7 @@ export default function Hero() {
   const y = useTransform(scrollY, [0, 500], [0, 250]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-  // Mouse Move Effect for Spotlight & Parallax
+  // Mouse Move Effect - Optimized: Only run on desktop
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springConfig = { damping: 25, stiffness: 150 };
@@ -109,14 +121,15 @@ export default function Hero() {
   const moveX = useTransform(springX, [0, 1], [-20, 20]);
   const moveY = useTransform(springY, [0, 1], [-20, 20]);
   const moveXReverse = useTransform(springX, [0, 1], [20, -20]);
-  const moveYReverse = useTransform(springY, [0, 1], [20, -20]);
+  const moveYReverse = useTransform(springY, [0, 1], [-10, 10]); // Reduced vertical movement
 
   // Card Tilt
-  const rotateX = useTransform(springY, [0, 1], [10, -10]);
-  const rotateY = useTransform(springX, [0, 1], [-10, 10]);
+  const rotateX = useTransform(springY, [0, 1], [5, -5]); // Reduced tilt
+  const rotateY = useTransform(springX, [0, 1], [-5, 5]);
 
   // Dynamic Text State
   const [textIndex, setTextIndex] = useState(0);
+  // Phrases moved outside or memoized (defined here as constant for simplicity in this replacement)
   const phrases = [
     "Luxury Travel",
     "Premium Fleet",
@@ -125,87 +138,100 @@ export default function Hero() {
   ];
 
   useEffect(() => {
+    // Media query to check for desktop
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+
+    if (!isDesktop) return; // Skip mouse listeners on mobile
+
     const handleMouseMove = (e: MouseEvent) => {
-      const { innerWidth, innerHeight } = window;
-      mouseX.set(e.clientX / innerWidth);
-      mouseY.set(e.clientY / innerHeight);
+      // Use requestAnimationFrame for smoother performance
+      requestAnimationFrame(() => {
+        const { innerWidth, innerHeight } = window;
+        mouseX.set(e.clientX / innerWidth);
+        mouseY.set(e.clientY / innerHeight);
+      });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
 
-    // Text Rotation Timer
-    const textTimer = setInterval(() => {
-      setTextIndex((prev) => (prev + 1) % phrases.length);
-    }, 4000);
-
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      clearInterval(textTimer);
     };
   }, [mouseX, mouseY]);
 
-  // Spotlight Gradient
-  const spotlight = useMotionTemplate`radial-gradient(600px circle at ${useTransform(
+  // Separate effect for text rotation
+  useEffect(() => {
+    const textTimer = setInterval(() => {
+      setTextIndex((prev) => (prev + 1) % phrases.length);
+    }, 4000);
+    return () => clearInterval(textTimer);
+  }, []); // phrases is constant in this scope
+
+  // Spotlight Gradient - Reduced size for performance
+  const spotlight = useMotionTemplate`radial-gradient(400px circle at ${useTransform(
     springX,
     (v) => v * 100
   )}% ${useTransform(
     springY,
     (v) => v * 100
-  )}%, rgba(112,0,255,0.15), transparent 80%)`;
+  )}%, rgba(112,0,255,0.1), transparent 80%)`;
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-[#030014] flex items-center">
-      {/* Dynamic Spotlight */}
+      {/* Dynamic Spotlight - Desktop Only & Hardware Accelerated */}
       <motion.div
-        className="absolute inset-0 z-20 pointer-events-none mix-blend-screen"
+        className="absolute inset-0 z-20 pointer-events-none mix-blend-screen hidden md:block will-change-transform" // Optimized
         style={{ background: spotlight }}
       />
 
       {/* Abstract Neon Void Background */}
-      <motion.div style={{ y }} className="absolute inset-0 w-full h-full">
+      <motion.div
+        style={{ y }}
+        className="absolute inset-0 w-full h-full will-change-transform"
+      >
         {/* Grain Overlay */}
         <div
           className="absolute inset-0 z-20 opacity-[0.12] pointer-events-none mix-blend-overlay"
           style={{ backgroundImage: "url('/assets/noise.png')" }}
         />
 
-        {/* Animated Gradient Blobs */}
+        {/* Animated Gradient Blobs - Optimized with Will-Change and Reduced Blur on Mobile */}
         <motion.div
           animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-            rotate: [0, 45, 0],
+            scale: [1, 1.1, 1], // Reduced scale range
+            opacity: [0.3, 0.4, 0.3],
+            rotate: [0, 20, 0], // Reduced rotation
           }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[-20%] left-[-10%] w-[80vw] h-[80vw] bg-primary/20 rounded-full blur-[120px] mix-blend-screen"
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }} // Linear is cheaper
+          className="absolute top-[-20%] left-[-10%] w-[80vw] h-[80vw] bg-primary/20 rounded-full blur-[80px] md:blur-[120px] mix-blend-screen will-change-transform"
         />
         <motion.div
           animate={{
             scale: [1, 1.1, 1],
-            x: [-20, 20, -20],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-          className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-accent/20 rounded-full blur-[100px] mix-blend-screen"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            y: [-50, 50, -50],
-            opacity: [0.1, 0.3, 0.1],
+            x: [-10, 10, -10],
+            opacity: [0.2, 0.3, 0.2],
           }}
           transition={{
             duration: 12,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: "linear",
+            delay: 1,
+          }}
+          className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-accent/20 rounded-full blur-[60px] md:blur-[100px] mix-blend-screen will-change-transform"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            y: [-20, 20, -20],
+            opacity: [0.1, 0.2, 0.1],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "linear",
             delay: 2,
           }}
-          className="absolute top-[30%] left-[40%] w-[40vw] h-[40vw] bg-purple-600/20 rounded-full blur-[150px] mix-blend-screen"
+          className="absolute top-[30%] left-[40%] w-[40vw] h-[40vw] bg-purple-600/20 rounded-full blur-[90px] md:blur-[150px] mix-blend-screen will-change-transform"
         />
 
         {/* Gradient Mesh Overlay */}
@@ -229,7 +255,7 @@ export default function Hero() {
             {/* Glitch Layers */}
             <h1 className="relative font-display font-bold text-[18vw] lg:text-[10vw] leading-[0.8] tracking-tighter text-transparent uppercase select-none group cursor-default">
               {/* Back Layer (Hollow) */}
-              <div className="absolute inset-0 translate-x-1 translate-y-1 opacity-20 blur-[2px]">
+              <div className="absolute inset-0 translate-x-1 translate-y-1 opacity-20 blur-[1px]">
                 <span className="block text-stroke-white">PHD</span>
               </div>
 
@@ -243,9 +269,10 @@ export default function Hero() {
               </div>
 
               <div className="relative z-10">
+                {/* Replaced expensive drop-shadow with text-shadow via style or class if available, using standard shadow for now to reduce paint cost */}
                 <ScrambleTitle
                   text="TRANS"
-                  className="block text-primary drop-shadow-[0_0_50px_rgba(112,0,255,0.5)] animate-pulse-slow"
+                  className="block text-primary animate-pulse-slow drop-shadow-lg"
                   autoStart={true}
                 />
               </div>
@@ -261,7 +288,7 @@ export default function Hero() {
               <span className="w-8 h-[1px] bg-primary/50" />
               Defining
             </span>
-            <span className="text-white font-bold relative min-w-[200px] text-center lg:text-left">
+            <span className="text-white font-bold relative min-w-[200px] text-center lg:text-left h-[30px] overflow-hidden">
               <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-primary/50 skew-x-12" />
               <AnimatePresence mode="wait">
                 <motion.span
@@ -312,7 +339,7 @@ export default function Hero() {
           {/* The Card Container */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="relative w-full max-w-md aspect-video bg-black/40 rounded-2xl border border-white/10 backdrop-blur-md shadow-2xl overflow-hidden group"
+            className="relative w-full max-w-md aspect-video bg-black/40 rounded-2xl border border-white/10 backdrop-blur-md shadow-2xl overflow-hidden group will-change-transform"
           >
             {/* Video/Image Content */}
             <div className="absolute inset-0 z-0">
@@ -354,7 +381,7 @@ export default function Hero() {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute -z-10 w-[120%] h-[120%] border border-primary/20 rounded-full border-dashed"
+            className="absolute -z-10 w-[120%] h-[120%] border border-primary/20 rounded-full border-dashed will-change-transform"
           />
         </motion.div>
       </div>
@@ -366,17 +393,6 @@ export default function Hero() {
         }
         .perspective-1000 {
           perspective: 1000px;
-        }
-        @keyframes scanline {
-          0% {
-            transform: translateY(-100%);
-          }
-          100% {
-            transform: translateY(100%);
-          }
-        }
-        .animate-scanline {
-          animation: scanline 2s linear infinite;
         }
         @media (max-width: 768px) {
           .text-stroke-white {

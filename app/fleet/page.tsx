@@ -367,6 +367,7 @@ export default function FleetPage() {
             fill
             className="object-cover opacity-60 scale-105"
             priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         </div>
@@ -392,7 +393,7 @@ export default function FleetPage() {
               key={index}
               className={`flex flex-col ${
                 index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
-              } gap-8 lg:gap-12 items-center group`}
+              } gap-8 lg:gap-12 items-center group will-change-transform`}
             >
               {/* Image Card */}
               <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-primary/5">
@@ -400,7 +401,8 @@ export default function FleetPage() {
                   src={bus.image}
                   alt={bus.name}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform"
                 />
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
               </div>
@@ -511,6 +513,7 @@ export default function FleetPage() {
                         src={facility.image}
                         alt={facility.name}
                         fill
+                        sizes="(max-width: 768px) 100vw, 80vw"
                         className="object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />

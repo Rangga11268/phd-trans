@@ -30,11 +30,12 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-950 text-white pt-24 pb-12 border-t border-white/5 relative overflow-hidden">
+    <footer className="bg-[#020617] text-white pt-24 pb-12 border-t border-white/5 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-[100px] opacity-50" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-[100px] opacity-50" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -48,7 +49,7 @@ export default function Footer() {
           {/* Brand Column */}
           <motion.div variants={item} className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="relative h-12 w-12 rounded-xl overflow-hidden border border-white/10">
+              <div className="relative h-12 w-12 rounded-xl overflow-hidden border border-white/10 shadow-[0_0_15px_rgba(112,0,255,0.3)]">
                 <Image
                   src="/assets/img/logoPHD.jpg"
                   alt="PHD Trans Logo"
@@ -56,7 +57,7 @@ export default function Footer() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-bold">
+              <h3 className="text-2xl font-display font-bold tracking-tighter">
                 <span className="text-shiny">PHD</span>{" "}
                 <span className="text-shiny-purple">Trans</span>
               </h3>
@@ -75,84 +76,70 @@ export default function Footer() {
 
           {/* Contact Column */}
           <motion.div variants={item}>
-            <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-8 h-1 bg-primary rounded-full"></span>
+            <h4 className="font-display text-xl font-bold text-white mb-6 flex items-center gap-2">
+              <span className="w-8 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></span>
               Hubungi Kami
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-gray-400 group">
-                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-primary/20 transition-colors">
+                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-primary/20 transition-colors border border-white/5 group-hover:border-primary/30">
                   <MapPin className="h-5 w-5 text-primary" />
                 </div>
-                <span className="text-sm leading-relaxed">
+                <span className="text-sm leading-relaxed group-hover:text-white transition-colors">
                   Jl. Raya Nganjuk No. 123, Nganjuk, Jawa Timur, Indonesia
                 </span>
               </li>
               <li className="flex items-center gap-3 text-gray-400 group">
-                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-primary/20 transition-colors">
+                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-primary/20 transition-colors border border-white/5 group-hover:border-primary/30">
                   <Phone className="h-5 w-5 text-primary" />
                 </div>
-                <span className="text-sm">0813-5334-3110</span>
+                <span className="text-sm group-hover:text-white transition-colors">
+                  0813-5334-3110
+                </span>
               </li>
               <li className="flex items-center gap-3 text-gray-400 group">
-                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-primary/20 transition-colors">
+                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-primary/20 transition-colors border border-white/5 group-hover:border-primary/30">
                   <Mail className="h-5 w-5 text-primary" />
                 </div>
-                <span className="text-sm">info@phdtrans.com</span>
+                <span className="text-sm group-hover:text-white transition-colors">
+                  info@phdtrans.com
+                </span>
               </li>
             </ul>
           </motion.div>
 
           {/* Quick Links Column */}
           <motion.div variants={item}>
-            <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-8 h-1 bg-primary rounded-full"></span>
+            <h4 className="font-display text-xl font-bold text-white mb-6 flex items-center gap-2">
+              <span className="w-8 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></span>
               Tautan Cepat
             </h4>
             <ul className="space-y-3">
-              <li>
-                <Link
-                  href="/about"
-                  className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group"
-                >
-                  <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                  Tentang Kami
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/fleet"
-                  className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group"
-                >
-                  <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                  Armada
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/reservation"
-                  className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group"
-                >
-                  <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                  Reservasi
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/merchandise"
-                  className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group"
-                >
-                  <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                  Merchandise
-                </Link>
-              </li>
+              {[
+                { name: "Tentang Kami", href: "/about" },
+                { name: "Armada", href: "/fleet" },
+                { name: "Reservasi", href: "/reservation" },
+                { name: "Merchandise", href: "/merchandise" },
+              ].map((link, idx) => (
+                <li key={idx}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-primary transition-all flex items-center gap-2 group"
+                  >
+                    <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-accent" />
+                    <span className="group-hover:translate-x-1 transition-transform">
+                      {link.name}
+                    </span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
           {/* Newsletter & Social Column */}
           <motion.div variants={item}>
-            <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-8 h-1 bg-primary rounded-full"></span>
+            <h4 className="font-display text-xl font-bold text-white mb-6 flex items-center gap-2">
+              <span className="w-8 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></span>
               Ikuti Kami
             </h4>
             <p className="text-gray-400 text-sm mb-6">
@@ -165,14 +152,14 @@ export default function Footer() {
                 href="https://www.instagram.com/phd_trans/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/5 p-3 rounded-xl hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 hover:text-white transition-all text-gray-400 group"
+                className="bg-white/5 p-3 rounded-xl hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 hover:text-white transition-all text-gray-400 group border border-white/5 hover:border-transparent hover:shadow-lg hover:shadow-purple-500/30"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5 group-hover:scale-110 transition-transform" />
               </a>
               <a
                 href="#"
-                className="bg-white/5 p-3 rounded-xl hover:bg-blue-600 hover:text-white transition-all text-gray-400 group"
+                className="bg-white/5 p-3 rounded-xl hover:bg-blue-600 hover:text-white transition-all text-gray-400 group border border-white/5 hover:border-transparent hover:shadow-lg hover:shadow-blue-500/30"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5 group-hover:scale-110 transition-transform" />
@@ -181,7 +168,7 @@ export default function Footer() {
                 href="https://www.tiktok.com/@phdtrans"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/5 p-3 rounded-xl hover:bg-black hover:text-white transition-all text-gray-400 group"
+                className="bg-white/5 p-3 rounded-xl hover:bg-black hover:text-white transition-all text-gray-400 group border border-white/5 hover:border-transparent hover:shadow-lg hover:shadow-gray-800/50"
                 aria-label="TikTok"
               >
                 <Music className="h-5 w-5 group-hover:scale-110 transition-transform" />
@@ -206,13 +193,13 @@ export default function Footer() {
           <div className="flex gap-6 text-sm text-gray-500">
             <Link
               href="/terms"
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary transition-colors hover:underline decoration-primary underline-offset-4"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary transition-colors hover:underline decoration-primary underline-offset-4"
             >
               Terms of Service
             </Link>

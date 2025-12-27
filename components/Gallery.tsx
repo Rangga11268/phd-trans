@@ -44,17 +44,17 @@ function Gallery() {
   return (
     <section
       id="fleet"
-      className="py-12 sm:py-16 lg:py-24 bg-black relative overflow-hidden"
+      className="py-12 sm:py-16 lg:py-24 bg-[#050014] relative overflow-hidden"
     >
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 px-4"
+            className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white mb-4 sm:mb-6 px-4"
           >
             Armada <span className="text-shiny-purple">Premium</span> Kami
           </motion.h2>
@@ -63,7 +63,7 @@ function Gallery() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto px-4"
+            className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto px-4 font-sans font-light"
           >
             Lihat armada bus modern dan terawat kami yang dirancang untuk
             kenyamanan perjalanan wisata Anda.
@@ -75,13 +75,13 @@ function Gallery() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 auto-rows-[250px] sm:auto-rows-[280px] md:auto-rows-[300px]"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 auto-rows-[250px] sm:auto-rows-[280px] md:auto-rows-[300px]"
         >
           {images.map((img, index) => (
             <motion.div
               key={index}
               variants={item}
-              className={`relative rounded-2xl overflow-hidden group ${img.span} border border-white/5 hover:border-primary/50 transition-colors duration-500`}
+              className={`relative rounded-3xl overflow-hidden group ${img.span} border border-white/10 hover:border-primary/50 transition-all duration-500 shadow-2xl`}
             >
               <Image
                 src={img.src}
@@ -93,12 +93,14 @@ function Gallery() {
                 placeholder="blur"
                 blurDataURL={BLUR_DATA_URL}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <p className="text-white font-bold text-xl mb-1">{img.alt}</p>
-                  <p className="text-primary text-sm font-medium">
-                    Lihat Detail
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                <div className="transform scale-90 group-hover:scale-100 transition-transform duration-500 text-center p-6">
+                  <p className="text-white font-display font-bold text-2xl lg:text-3xl mb-2 drop-shadow-lg">
+                    {img.alt}
                   </p>
+                  <div className="inline-block px-6 py-2 border border-white/50 text-white rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white hover:text-primary transition-colors cursor-pointer">
+                    Lihat Detail
+                  </div>
                 </div>
               </div>
             </motion.div>

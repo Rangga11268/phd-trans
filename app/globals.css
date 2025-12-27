@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020617; /* Slate 950 - Deeper, richer background */
-  --foreground: #f8fafc;
-  --primary: #8b5cf6; /* Violet 500 - More vibrant */
-  --primary-dark: #7c3aed; /* Violet 600 */
-  --secondary: #1e1b4b; /* Indigo 950 - Deep rich indigo */
-  --accent: #d946ef; /* Fuchsia 500 - Pop color */
+  --background: #030014; /* Deep Void Purple */
+  --foreground: #ffffff;
+  --primary: #7000ff; /* Electric Indigo */
+  --primary-dark: #6000d6;
+  --secondary: #0a0521; /* Darker Void */
+  --accent: #00ff94; /* Spring Green */
+  --accent-hot: #ff0080; /* Razor Pink */
 }
 
 @theme inline {
@@ -16,7 +17,9 @@
   --color-primary-dark: var(--primary-dark);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --color-accent-hot: var(--accent-hot);
+  --font-display: var(--font-syne), display;
+  --font-sans: var(--font-manrope), sans-serif;
 }
 
 body {

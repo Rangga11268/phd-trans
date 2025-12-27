@@ -48,7 +48,7 @@ export default function Achievement() {
     }, interval);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [isInView]);
 
   const stats = [
     {

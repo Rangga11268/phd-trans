@@ -8,6 +8,8 @@ import {
   Facebook,
   ArrowRight,
   Music,
+  Github,
+  Code2,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -183,14 +185,45 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+          className="border-t border-white/10 pt-8 flex flex-col lg:flex-row justify-between items-center gap-6"
         >
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 text-sm order-2 lg:order-1">
             © {new Date().getFullYear()}{" "}
             <span className="text-gray-300 font-semibold">PHD Trans</span>. All
             rights reserved.
           </p>
-          <div className="flex gap-6 text-sm text-gray-500">
+
+          {/* Author Credit */}
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="order-1 lg:order-2 group"
+          >
+            <a
+              href="https://github.com/Rangga11268"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-6 py-2 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all hover:shadow-[0_0_20px_rgba(112,0,255,0.2)]"
+            >
+              <div className="flex -space-x-2">
+                <div className="p-1.5 rounded-lg bg-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                  <Code2 className="h-4 w-4" />
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-bold leading-none mb-1">
+                  Digital Architect
+                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-display font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-accent transition-all">
+                    Darell Rangga
+                  </span>
+                  <Github className="h-3.5 w-3.5 text-gray-500 group-hover:text-white transition-colors" />
+                </div>
+              </div>
+            </a>
+          </motion.div>
+
+          <div className="flex gap-6 text-sm text-gray-500 order-3">
             <Link
               href="/terms"
               className="hover:text-primary transition-colors hover:underline decoration-primary underline-offset-4"

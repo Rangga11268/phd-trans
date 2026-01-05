@@ -11,7 +11,7 @@ export default function Preloader() {
     // Timer for loading duration
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+    }, 1500); // Reduced from 2500ms for better performance score
 
     return () => clearTimeout(timer);
   }, []);

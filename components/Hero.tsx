@@ -11,6 +11,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { Shield, Star, Zap, Play } from "lucide-react";
+import Image from "next/image";
 
 // Interactive Scramble Component for Main Title
 const ScrambleTitle = ({
@@ -27,6 +28,12 @@ const ScrambleTitle = ({
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const scramble = useCallback(() => {
+    // Skip scramble on mobile to reduce main-thread work
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      setDisplay(text);
+      return;
+    }
+
     let iteration = 0;
     if (intervalRef.current) clearInterval(intervalRef.current);
 
@@ -47,8 +54,8 @@ const ScrambleTitle = ({
         if (intervalRef.current) clearInterval(intervalRef.current);
       }
 
-      iteration += 1 / 2; // Slower iteration for better performance
-    }, 40); // 40ms instead of 30ms to reduce CPU load
+      iteration += 1 / 2;
+    }, 50); // Increased interval to 50ms to reduce CPU load
   }, [text, chars]);
 
   useEffect(() => {
@@ -74,6 +81,12 @@ const ScrambleLoop = ({ text }: { text: string }) => {
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+";
 
   useEffect(() => {
+    // Skip loop scramble on mobile
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      setDisplay(text);
+      return;
+    }
+
     let iteration = 0;
     const interval = setInterval(() => {
       setDisplay(
@@ -93,7 +106,7 @@ const ScrambleLoop = ({ text }: { text: string }) => {
       }
 
       iteration += 1 / 3;
-    }, 40); // Optimized interval
+    }, 60); // Optimized interval for tagline loop
 
     return () => clearInterval(interval);
   }, [text]);
@@ -137,14 +150,20 @@ export default function Hero() {
     "First Class",
   ];
 
+  // Separate state for mobile to avoid rendering video on small screens
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
-    // Media query to check for desktop
-    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
 
-    if (!isDesktop) return; // Skip mouse listeners on mobile
-
+    // Mouse Move Effect - Optimized: Only run on desktop
     const handleMouseMove = (e: MouseEvent) => {
-      // Use requestAnimationFrame for smoother performance
+      if (window.innerWidth < 768) return;
+
       requestAnimationFrame(() => {
         const { innerWidth, innerHeight } = window;
         mouseX.set(e.clientX / innerWidth);
@@ -155,6 +174,7 @@ export default function Hero() {
     window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
+      window.removeEventListener("resize", checkMobile);
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [mouseX, mouseY]);
@@ -342,16 +362,33 @@ export default function Hero() {
             className="relative w-full max-w-md aspect-video bg-black/40 rounded-2xl border border-white/10 backdrop-blur-md shadow-2xl overflow-hidden group will-change-transform"
           >
             {/* Video/Image Content */}
-            <div className="absolute inset-0 z-0">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-110"
-              >
-                <source src="/assets/video/vidio phd 2.mp4" type="video/mp4" />
-              </video>
+            <div className="absolute inset-0 z-0 bg-[#030014]">
+              {!isMobile ? (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  poster="/assets/img/phdbus1.webp"
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-110"
+                >
+                  <source
+                    src="/assets/video/vidio phd 2.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              ) : (
+                <div className="relative w-full h-full">
+                  <Image
+                    src="/assets/img/phdbus1.webp"
+                    alt="PHD Trans Premium Bus"
+                    fill
+                    className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-110"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                </div>
+              )}
               {/* Overlay Gradient */}
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent mix-blend-overlay" />
             </div>

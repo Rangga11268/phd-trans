@@ -71,7 +71,8 @@ body {
   background-clip: text;
   color: transparent;
   background-size: 200% auto;
-  animation: shine 4s linear infinite;
+  animation: shine 6s linear infinite; /* Slower animation for better performance */
+  will-change: background-position;
 }
 
 .text-shiny-purple {
@@ -86,7 +87,8 @@ body {
   background-clip: text;
   color: transparent;
   background-size: 200% auto;
-  animation: shine 4s linear infinite;
+  animation: shine 6s linear infinite;
+  will-change: background-position;
 }
 
 /* Scrollbar */

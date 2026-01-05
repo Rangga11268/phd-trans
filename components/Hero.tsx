@@ -159,8 +159,10 @@ export default function Hero() {
 
   // Separate state for mobile to avoid rendering video on small screens
   const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -223,7 +225,7 @@ export default function Hero() {
         />
 
         {/* Animated Gradient Blobs - Desktop Only for Performance */}
-        {!isMobile && (
+        {mounted && !isMobile && (
           <>
             <motion.div
               animate={{
@@ -286,27 +288,27 @@ export default function Hero() {
             {/* Glitch Layers */}
             <h1 className="relative font-display font-bold text-[18vw] lg:text-[10vw] leading-[0.8] tracking-tighter text-transparent uppercase select-none group cursor-default">
               {/* Back Layer (Hollow) */}
-              <div className="absolute inset-0 translate-x-1 translate-y-1 opacity-20 blur-[1px]">
+              <span className="absolute inset-0 translate-x-1 translate-y-1 opacity-20 blur-[1px] block">
                 <span className="block text-stroke-white">PHD</span>
-              </div>
+              </span>
 
               {/* Main Layer */}
-              <div className="relative z-10">
+              <span className="relative z-10 block">
                 <ScrambleTitle
                   text="PHD"
                   className="block text-stroke-white hover:text-white transition-colors duration-500"
                   autoStart={true}
                 />
-              </div>
+              </span>
 
-              <div className="relative z-10">
+              <span className="relative z-10 block">
                 {/* Replaced expensive drop-shadow with text-shadow via style or class if available, using standard shadow for now to reduce paint cost */}
                 <ScrambleTitle
                   text="TRANS"
                   className="block text-primary animate-pulse-slow drop-shadow-lg"
                   autoStart={true}
                 />
-              </div>
+              </span>
             </h1>
           </motion.div>
 
@@ -374,38 +376,28 @@ export default function Hero() {
           >
             {/* Video/Image Content - Image is SSR-friendly for LCP, Video is Client-only */}
             <div className="absolute inset-0 z-0 bg-[#030014]">
-              {/* Show image by default for SSR and Mobile */}
-              <div className="relative w-full h-full lg:hidden group-hover:block">
-                <Image
-                  src="/assets/img/phdbus1.webp"
-                  alt="PHD Trans Premium Bus"
-                  fill
-                  className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-110"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-              </div>
+              {/* Show image by default for SSR and Mobile / Fallback */}
+              <Image
+                src="/assets/img/phdbus1.webp"
+                alt="PHD Trans Premium Bus"
+                fill
+                className={`object-cover transition-opacity duration-500 scale-110 ${
+                  mounted && !isMobile
+                    ? "lg:opacity-0"
+                    : "opacity-80 group-hover:opacity-100"
+                }`}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
 
               {/* Video only on Desktop Client */}
-              {!isMobile && (
+              {mounted && !isMobile && (
                 <div className="hidden lg:block absolute inset-0">
                   <VideoComponent
                     poster="/assets/img/phdbus1.webp"
                     src="/assets/video/vidio phd 2.mp4"
                   />
                 </div>
-              )}
-
-              {/* Always show image on mobile/fallback */}
-              {isMobile && (
-                <Image
-                  src="/assets/img/phdbus1.webp"
-                  alt="PHD Trans Premium Bus"
-                  fill
-                  className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-110"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
               )}
 
               {/* Overlay Gradient */}

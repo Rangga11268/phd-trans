@@ -91,6 +91,15 @@ body {
   will-change: background-position;
 }
 
+@media (max-width: 768px) {
+  .text-shiny,
+  .text-shiny-purple {
+    animation: none !important;
+    background-size: 100% auto !important;
+    will-change: auto !important;
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

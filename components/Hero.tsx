@@ -12,6 +12,13 @@ import {
 } from "framer-motion";
 import { Shield, Star, Zap, Play } from "lucide-react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+// Client-only video component to prevent payload on mobile SSR
+const VideoComponent = dynamic<{ src: string; poster: string }>(
+  () => import("@/components/VideoComponent"),
+  { ssr: false }
+);
 
 // Interactive Scramble Component for Main Title
 const ScrambleTitle = ({
@@ -215,44 +222,48 @@ export default function Hero() {
           style={{ backgroundImage: "url('/assets/noise.png')" }}
         />
 
-        {/* Animated Gradient Blobs - Optimized with Will-Change and Reduced Blur on Mobile */}
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1], // Reduced scale range
-            opacity: [0.3, 0.4, 0.3],
-            rotate: [0, 20, 0], // Reduced rotation
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }} // Linear is cheaper
-          className="absolute top-[-20%] left-[-10%] w-[80vw] h-[80vw] bg-primary/20 rounded-full blur-[80px] md:blur-[120px] mix-blend-screen will-change-transform"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            x: [-10, 10, -10],
-            opacity: [0.2, 0.3, 0.2],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "linear",
-            delay: 1,
-          }}
-          className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-accent/20 rounded-full blur-[60px] md:blur-[100px] mix-blend-screen will-change-transform"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            y: [-20, 20, -20],
-            opacity: [0.1, 0.2, 0.1],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "linear",
-            delay: 2,
-          }}
-          className="absolute top-[30%] left-[40%] w-[40vw] h-[40vw] bg-purple-600/20 rounded-full blur-[90px] md:blur-[150px] mix-blend-screen will-change-transform"
-        />
+        {/* Animated Gradient Blobs - Desktop Only for Performance */}
+        {!isMobile && (
+          <>
+            <motion.div
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.3, 0.4, 0.3],
+                rotate: [0, 20, 0],
+              }}
+              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+              className="absolute top-[-20%] left-[-10%] w-[80vw] h-[80vw] bg-primary/20 rounded-full blur-[120px] mix-blend-screen will-change-transform"
+            />
+            <motion.div
+              animate={{
+                scale: [1, 1.1, 1],
+                x: [-10, 10, -10],
+                opacity: [0.2, 0.3, 0.2],
+              }}
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: "linear",
+                delay: 1,
+              }}
+              className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-accent/20 rounded-full blur-[100px] mix-blend-screen will-change-transform"
+            />
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                y: [-20, 20, -20],
+                opacity: [0.1, 0.2, 0.1],
+              }}
+              transition={{
+                duration: 18,
+                repeat: Infinity,
+                ease: "linear",
+                delay: 2,
+              }}
+              className="absolute top-[30%] left-[40%] w-[40vw] h-[40vw] bg-purple-600/20 rounded-full blur-[150px] mix-blend-screen will-change-transform"
+            />
+          </>
+        )}
 
         {/* Gradient Mesh Overlay */}
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/0 via-black/10 to-[#030014]" />
@@ -361,34 +372,42 @@ export default function Hero() {
             whileHover={{ scale: 1.05 }}
             className="relative w-full max-w-md aspect-video bg-black/40 rounded-2xl border border-white/10 backdrop-blur-md shadow-2xl overflow-hidden group will-change-transform"
           >
-            {/* Video/Image Content */}
+            {/* Video/Image Content - Image is SSR-friendly for LCP, Video is Client-only */}
             <div className="absolute inset-0 z-0 bg-[#030014]">
-              {!isMobile ? (
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  poster="/assets/img/phdbus1.webp"
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-110"
-                >
-                  <source
+              {/* Show image by default for SSR and Mobile */}
+              <div className="relative w-full h-full lg:hidden group-hover:block">
+                <Image
+                  src="/assets/img/phdbus1.webp"
+                  alt="PHD Trans Premium Bus"
+                  fill
+                  className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-110"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+
+              {/* Video only on Desktop Client */}
+              {!isMobile && (
+                <div className="hidden lg:block absolute inset-0">
+                  <VideoComponent
+                    poster="/assets/img/phdbus1.webp"
                     src="/assets/video/vidio phd 2.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-              ) : (
-                <div className="relative w-full h-full">
-                  <Image
-                    src="/assets/img/phdbus1.webp"
-                    alt="PHD Trans Premium Bus"
-                    fill
-                    className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-110"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
                   />
                 </div>
               )}
+
+              {/* Always show image on mobile/fallback */}
+              {isMobile && (
+                <Image
+                  src="/assets/img/phdbus1.webp"
+                  alt="PHD Trans Premium Bus"
+                  fill
+                  className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-110"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+              )}
+
               {/* Overlay Gradient */}
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent mix-blend-overlay" />
             </div>
@@ -414,12 +433,14 @@ export default function Hero() {
             <div className="absolute inset-0 bg-[linear-gradient(transparent_0%,rgba(255,255,255,0.05)_50%,transparent_100%)] bg-[length:100%_4px] pointer-events-none opacity-50" />
           </motion.div>
 
-          {/* Floating Orbits/Decorations */}
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute -z-10 w-[120%] h-[120%] border border-primary/20 rounded-full border-dashed will-change-transform"
-          />
+          {/* Floating Orbits/Decorations - Desktop Only */}
+          {!isMobile && (
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute -z-10 w-[120%] h-[120%] border border-primary/20 rounded-full border-dashed will-change-transform"
+            />
+          )}
         </motion.div>
       </div>
 

@@ -67,7 +67,7 @@ export default function Safety() {
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-[#0a051d] relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/assets/img/pattern.png')] opacity-[0.03]" />
-      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
+      <div className="hidden md:block absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">

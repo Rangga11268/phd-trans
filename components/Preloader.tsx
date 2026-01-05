@@ -7,11 +7,17 @@ import Image from "next/image";
 export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
 
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
     // Timer for loading duration
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500); // Reduced from 2500ms for better performance score
+    const timer = setTimeout(
+      () => {
+        setIsLoading(false);
+      },
+      window.innerWidth < 768 ? 1000 : 1500
+    );
 
     return () => clearTimeout(timer);
   }, []);
@@ -25,17 +31,23 @@ export default function Preloader() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          {/* Ambient Purple Glow Background */}
-          <div className="absolute inset-0 z-0 overflow-hidden">
-            <motion.div
-              animate={{
-                opacity: [0.3, 0.6, 0.3],
-                scale: [1, 1.2, 1],
-              }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#7000FF]/20 rounded-full blur-[150px] mix-blend-screen"
-            />
-          </div>
+          {/* Ambient Purple Glow Background - Desktop Only */}
+          {!isMobile && (
+            <div className="absolute inset-0 z-0 overflow-hidden">
+              <motion.div
+                animate={{
+                  opacity: [0.3, 0.6, 0.3],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#7000FF]/20 rounded-full blur-[150px] mix-blend-screen"
+              />
+            </div>
+          )}
 
           <div className="relative z-10 flex flex-col items-center justify-center">
             {/* Logo Container with Rings */}

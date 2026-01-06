@@ -122,7 +122,7 @@ export default function ReservationPage() {
 
                 <div className="flex flex-col md:flex-row min-h-[450px]">
                   <div className="flex-[2] p-8 md:p-12 bg-slate-50 relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-[0.03] bg-[url('/assets/img/pattern.png')] bg-repeat" />
+                    <div className="absolute inset-0 bg-dot-pattern opacity-[0.05]" />
 
                     <div className="relative z-10">
                       <div className="flex justify-between items-start mb-10">
@@ -227,7 +227,7 @@ export default function ReservationPage() {
 
                   <div className="flex-[1.2] bg-[#0a051d] p-8 md:p-12 text-white flex flex-col justify-between relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                    <div className="absolute inset-0 bg-[url('/assets/img/pattern.png')] opacity-[0.05]" />
+                    <div className="absolute inset-0 bg-dot-pattern opacity-[0.05]" />
 
                     <div className="relative z-10">
                       <h4 className="text-xl font-bold mb-8 flex items-center gap-3 font-display">

@@ -60,7 +60,7 @@ export default function HowItWorks() {
 
   return (
     <section className="py-24 bg-[#020617] relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/assets/img/pattern.png')] opacity-[0.03]" />
+      <div className="absolute inset-0 bg-dot-pattern opacity-40" />
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
 

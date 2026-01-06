@@ -84,7 +84,7 @@ export default function Achievement() {
 
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-[#030014] relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/assets/img/pattern.png')] opacity-[0.02]" />
+      <div className="absolute inset-0 bg-dot-pattern opacity-40" />
       <div className="hidden md:block absolute top-0 right-0 w-1/3 h-full bg-primary/10 blur-[100px]" />
       <div className="hidden md:block absolute bottom-0 left-0 w-1/3 h-1/2 bg-accent/5 blur-[80px]" />
 

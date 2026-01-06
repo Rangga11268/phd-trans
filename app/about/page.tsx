@@ -189,7 +189,7 @@ export default function AboutPage() {
       <section className="py-24 bg-black/40 relative overflow-hidden">
         {/* Background Decorative */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-3xl pointer-events-none" />
-        <div className="absolute inset-0 bg-[url('/assets/img/pattern.png')] opacity-[0.03]" />
+        <div className="absolute inset-0 bg-dot-pattern opacity-40" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">

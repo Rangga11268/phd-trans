@@ -31,7 +31,7 @@ function Testimonials() {
 
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-[#030014] relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/assets/img/pattern.png')] opacity-[0.05]" />
+      <div className="absolute inset-0 bg-dot-pattern opacity-40" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">

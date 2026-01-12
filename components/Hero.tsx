@@ -41,7 +41,8 @@ export default function Hero() {
           fill
           className="object-cover opacity-60"
           priority
-          quality={100}
+          sizes="100vw"
+          quality={75}
         />
         {/* Sophisticated Gradients */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />

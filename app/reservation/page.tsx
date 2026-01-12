@@ -18,7 +18,7 @@ export default function ReservationPage() {
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/assets/img/Reservasi1.jpg"
+            src="/assets/img/Reservasi1.webp"
             alt="PHD Trans Reservation"
             fill
             sizes="100vw"
@@ -55,7 +55,7 @@ export default function ReservationPage() {
               <div className="absolute -inset-2 bg-gradient-to-r from-primary to-purple-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-60 transition duration-500"></div>
               <div className="relative bg-[#0a051d] rounded-3xl overflow-hidden border border-white/10 transform transition-transform duration-500 group-hover:scale-[1.02] group-hover:-rotate-1">
                 <Image
-                  src="/assets/img/Reservasi1.jpg"
+                  src="/assets/img/Reservasi1.webp"
                   alt="Informasi Reservasi 1"
                   width={800}
                   height={1000}
@@ -78,7 +78,7 @@ export default function ReservationPage() {
               <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-primary rounded-3xl blur-xl opacity-20 group-hover:opacity-60 transition duration-500"></div>
               <div className="relative bg-[#0a051d] rounded-3xl overflow-hidden border border-white/10 transform transition-transform duration-500 group-hover:scale-[1.02] group-hover:rotate-1">
                 <Image
-                  src="/assets/img/Reservasi 2.jpg"
+                  src="/assets/img/Reservasi 2.webp"
                   alt="Informasi Reservasi 2"
                   width={800}
                   height={1000}

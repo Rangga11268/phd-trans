@@ -71,7 +71,7 @@ export default function MerchandisePage() {
       <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/assets/img/Merch1.jpg"
+            src="/assets/img/Merch1.webp"
             alt="PHD Trans Official Merch"
             fill
             className="object-cover opacity-60"
@@ -136,7 +136,7 @@ export default function MerchandisePage() {
             <div className="space-y-6">
               <div className="relative aspect-square rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-white/5 group">
                 <Image
-                  src="/assets/img/Merch1.jpg"
+                  src="/assets/img/Merch1.webp"
                   alt="Kaos Depan"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -147,9 +147,9 @@ export default function MerchandisePage() {
               </div>
               <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
                 {[
-                  "/assets/img/Merch2.jpg",
-                  "/assets/img/Merch3.jpg",
-                  "/assets/img/Merch4.jpg",
+                  "/assets/img/Merch2.webp",
+                  "/assets/img/Merch3.webp",
+                  "/assets/img/Merch4.webp",
                 ].map((src, idx) => (
                   <div
                     key={idx}

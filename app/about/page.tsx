@@ -19,7 +19,7 @@ export default function AboutPage() {
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/assets/img/tentangkami.jpg"
+            src="/assets/img/tentangkami.webp"
             alt="PHD Trans Team"
             fill
             className="object-cover"

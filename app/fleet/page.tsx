@@ -93,91 +93,91 @@ export default function FleetPage() {
           description:
             "Sistem pendingin udara premium yang menjaga suhu kabin tetap nyaman sepanjang perjalanan",
           icon: <Snowflake className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/AC dingin.jpg",
+          image: "/assets/img/fasilitas/AC dingin.webp",
         },
         {
           name: "Kursi Premium",
           description:
             "Kursi premium berkualitas tinggi dengan desain ergonomis untuk kenyamanan maksimal",
           icon: <ArmchairIcon className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/KursiPremium.jpg",
+          image: "/assets/img/fasilitas/KursiPremium.webp",
         },
         {
           name: "Kursi Tour Leader",
           description:
             "Kursi khusus Tour Leader (TL) untuk koordinator rombongan dengan akses mudah ke pengemudi",
           icon: <ArmchairIcon className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/bangkuTL.jpg",
+          image: "/assets/img/fasilitas/bangkuTL.webp",
         },
         {
           name: "Smart TV Depan",
           description:
             "Layar LED TV di bagian depan untuk hiburan dan informasi selama perjalanan",
           icon: <Monitor className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/TV.jpg",
+          image: "/assets/img/fasilitas/TV.webp",
         },
         {
           name: "TV Belakang",
           description:
             "Layar TV tambahan di belakang untuk jangkauan hiburan yang lebih luas",
           icon: <Tv className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/TVBelakang.jpg",
+          image: "/assets/img/fasilitas/TVBelakang.webp",
         },
         {
           name: "Sound System Premium",
           description:
             "Sistem audio berkualitas tinggi dengan speaker yang jernih untuk musik dan karaoke",
           icon: <Disc className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/speaker 1.jpg",
+          image: "/assets/img/fasilitas/speaker 1.webp",
         },
         {
           name: "Coolbox",
           description:
             "Pendingin portable untuk menyimpan minuman dan makanan tetap segar selama perjalanan",
           icon: <Coffee className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/coolbox.jpg",
+          image: "/assets/img/fasilitas/coolbox.webp",
         },
         {
           name: "LED Tab Interior",
           description:
             "Lampu LED tablet dekoratif untuk pencahayaan interior yang modern dan nyaman",
           icon: <Zap className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/led Tab.jpg",
+          image: "/assets/img/fasilitas/led Tab.webp",
         },
         {
           name: "Disco Light",
           description:
             "Lampu disco warna-warni untuk suasana perjalanan yang meriah dan fun",
           icon: <Disc className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/lampuDisco.jpg",
+          image: "/assets/img/fasilitas/lampuDisco.webp",
         },
         {
           name: "Dispenser",
           description:
             "Dispenser air untuk menjaga hidrasi selama perjalanan panjang",
           icon: <Coffee className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/dispenser.jpg",
+          image: "/assets/img/fasilitas/dispenser.webp",
         },
         {
           name: "Bagasi Luas",
           description:
             "Ruang penyimpanan bagasi yang luas dan aman untuk barang bawaan Anda",
           icon: <Package className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/bagasi 1.jpg",
+          image: "/assets/img/fasilitas/bagasi 1.webp",
         },
         {
           name: "APAR (Alat Pemadam)",
           description:
             "Alat pemadam api ringan untuk keamanan dan keselamatan penumpang",
           icon: <Briefcase className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/apar.jpg",
+          image: "/assets/img/fasilitas/apar.webp",
         },
         {
           name: "Emergency Hammer",
           description:
             "Pemecah kaca darurat untuk keselamatan dalam kondisi emergency",
           icon: <Zap className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/pemecahKaca.jpg",
+          image: "/assets/img/fasilitas/pemecahKaca.webp",
         },
       ],
     },
@@ -200,91 +200,91 @@ export default function FleetPage() {
           description:
             "Sistem pendingin udara premium yang menjaga suhu kabin tetap nyaman sepanjang perjalanan",
           icon: <Snowflake className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/AC dingin.jpg",
+          image: "/assets/img/fasilitas/AC dingin.webp",
         },
         {
           name: "Kursi Premium",
           description:
             "Kursi premium berkualitas tinggi dengan desain ergonomis untuk kenyamanan maksimal",
           icon: <ArmchairIcon className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/KursiPremium.jpg",
+          image: "/assets/img/fasilitas/KursiPremium.webp",
         },
         {
           name: "Kursi Tour Leader & Legrest",
           description:
             "Kursi premium dengan legrest untuk relaksasi maksimal plus kursi khusus Tour Leader (TL)",
           icon: <ArmchairIcon className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/bangkuTL.jpg",
+          image: "/assets/img/fasilitas/bangkuTL.webp",
         },
         {
           name: "Smart TV Depan",
           description:
             "Layar LED TV di bagian depan untuk hiburan dan informasi selama perjalanan",
           icon: <Monitor className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/TV.jpg",
+          image: "/assets/img/fasilitas/TV.webp",
         },
         {
           name: "TV Belakang",
           description:
             "Layar TV tambahan di belakang untuk jangkauan hiburan yang lebih luas",
           icon: <Tv className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/TVBelakang.jpg",
+          image: "/assets/img/fasilitas/TVBelakang.webp",
         },
         {
           name: "Sound System Premium",
           description:
             "Sistem audio berkualitas tinggi dengan speaker yang jernih untuk musik dan karaoke",
           icon: <Disc className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/speaker 1.jpg",
+          image: "/assets/img/fasilitas/speaker 1.webp",
         },
         {
           name: "Coolbox",
           description:
             "Pendingin portable untuk menyimpan minuman dan makanan tetap segar selama perjalanan",
           icon: <Coffee className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/coolbox.jpg",
+          image: "/assets/img/fasilitas/coolbox.webp",
         },
         {
           name: "LED Tab Interior",
           description:
             "Lampu LED tablet dekoratif untuk pencahayaan interior yang modern dan nyaman",
           icon: <Zap className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/led Tab.jpg",
+          image: "/assets/img/fasilitas/led Tab.webp",
         },
         {
           name: "Disco Light",
           description:
             "Lampu disco warna-warni untuk suasana perjalanan yang meriah dan fun",
           icon: <Disc className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/lampuDisco.jpg",
+          image: "/assets/img/fasilitas/lampuDisco.webp",
         },
         {
           name: "Dispenser",
           description:
             "Dispenser air untuk menjaga hidrasi selama perjalanan panjang",
           icon: <Coffee className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/dispenser.jpg",
+          image: "/assets/img/fasilitas/dispenser.webp",
         },
         {
           name: "Bagasi Luas",
           description:
             "Ruang penyimpanan bagasi yang luas dan aman untuk barang bawaan Anda",
           icon: <Package className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/bagasi 1.jpg",
+          image: "/assets/img/fasilitas/bagasi 1.webp",
         },
         {
           name: "APAR (Alat Pemadam)",
           description:
             "Alat pemadam api ringan untuk keamanan dan keselamatan penumpang",
           icon: <Briefcase className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/apar.jpg",
+          image: "/assets/img/fasilitas/apar.webp",
         },
         {
           name: "Emergency Hammer",
           description:
             "Pemecah kaca darurat untuk keselamatan dalam kondisi emergency",
           icon: <Zap className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/pemecahKaca.jpg",
+          image: "/assets/img/fasilitas/pemecahKaca.webp",
         },
       ],
     },
@@ -308,49 +308,49 @@ export default function FleetPage() {
           description:
             "Sistem AC Denso tipe Nero yang dingin merata hingga belakang untuk kenyamanan maksimal",
           icon: <Snowflake className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/AC dingin.jpg",
+          image: "/assets/img/fasilitas/AC dingin.webp",
         },
         {
           name: "Kursi Rimba Kencana",
           description:
             "41 kursi high quality dari Rimba Kencana dengan konfigurasi 2-2, desain ergonomis untuk kenyamanan maksimal",
           icon: <ArmchairIcon className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/KursiPremium.jpg",
+          image: "/assets/img/fasilitas/KursiPremium.webp",
         },
         {
           name: "LED TV 32 Inch",
           description:
             "Layar LED TV besar 32 inch di bagian depan untuk hiburan berkualitas",
           icon: <Monitor className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/TV.jpg",
+          image: "/assets/img/fasilitas/TV.webp",
         },
         {
           name: "Karaoke System",
           description:
             "Sistem audio berkualitas tinggi dengan karaoke set untuk hiburan",
           icon: <Disc className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/speaker 1.jpg",
+          image: "/assets/img/fasilitas/speaker 1.webp",
         },
         {
           name: "Party Lighting System",
           description:
             "Lampu RGB warna-warni, disco light, dan laser untuk suasana malam yang meriah",
           icon: <Zap className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/lampuDisco.jpg",
+          image: "/assets/img/fasilitas/lampuDisco.webp",
         },
         {
           name: "Dispenser Air",
           description:
             "Free refill kopi, teh, dan air putih di belakang kursi pengemudi",
           icon: <Coffee className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/dispenser.jpg",
+          image: "/assets/img/fasilitas/dispenser.webp",
         },
         {
           name: "Bagasi Luas",
           description:
             "Bagasi kabin dengan penutup ducting tertutup rapi, aman untuk barang bawaan",
           icon: <Package className="h-6 w-6" />,
-          image: "/assets/img/fasilitas/bagasi 1.jpg",
+          image: "/assets/img/fasilitas/bagasi 1.webp",
         },
       ],
     },

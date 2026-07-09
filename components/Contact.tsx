@@ -50,7 +50,7 @@ export default function Contact() {
   return (
     <section
       id="booking"
-      className="py-12 sm:py-16 lg:py-24 bg-[#f1f5f9] relative overflow-hidden"
+      className="py-12 sm:py-16 lg:py-24 bg-surface relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-dot-pattern opacity-20" />
 
@@ -67,10 +67,10 @@ export default function Contact() {
               Pesan Sekarang
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 mb-4 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4 px-4">
             Siap <span className="text-shiny-purple">Berwisata?</span>
           </h2>
-          <p className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto px-4 font-light">
+          <p className="text-base sm:text-lg text-muted-text max-w-2xl mx-auto px-4 font-light">
             Isi dulu, nanti kita lanjut chat di WA. Gampang, cepat, tanpa ribet!
           </p>
         </motion.div>
@@ -86,7 +86,7 @@ export default function Contact() {
           >
             <motion.div
               variants={item}
-              className="bg-white border border-gray-200 rounded-[2.5rem] p-6 sm:p-8 lg:p-10 shadow-lg relative overflow-hidden"
+              className="bg-card border border-card-border rounded-[2.5rem] p-6 sm:p-8 lg:p-10 shadow-lg relative overflow-hidden"
             >
               <form onSubmit={handleSubmit} className="relative z-10 space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
@@ -100,7 +100,7 @@ export default function Contact() {
                       required
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-400 font-medium"
+                      className="w-full bg-surface border border-card-border rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-muted-text font-medium"
                       placeholder="Masukkan nama Anda"
                     />
                   </div>
@@ -114,7 +114,7 @@ export default function Contact() {
                       required
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-400 font-medium"
+                      className="w-full bg-surface border border-card-border rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-muted-text font-medium"
                       placeholder="0813-xxxx-xxxx"
                     />
                   </div>
@@ -130,7 +130,7 @@ export default function Contact() {
                       type="text"
                       value={form.destination}
                       onChange={(e) => setForm({ ...form, destination: e.target.value })}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-400 font-medium"
+                      className="w-full bg-surface border border-card-border rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-muted-text font-medium"
                       placeholder="Cth: Bali, Bromo, Jogja..."
                     />
                   </div>
@@ -143,7 +143,7 @@ export default function Contact() {
                       type="date"
                       value={form.date}
                       onChange={(e) => setForm({ ...form, date: e.target.value })}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-400 font-medium"
+                      className="w-full bg-surface border border-card-border rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-muted-text font-medium"
                     />
                   </div>
                 </div>
@@ -156,10 +156,10 @@ export default function Contact() {
                   <select
                     value={form.armada}
                     onChange={(e) => setForm({ ...form, armada: e.target.value })}
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium appearance-none cursor-pointer"
+                    className="w-full bg-surface border border-card-border rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium appearance-none cursor-pointer"
                   >
                     {armadaOptions.map((opt) => (
-                      <option key={opt} value={opt === armadaOptions[0] ? "" : opt} className="bg-white text-gray-900">
+                      <option key={opt} value={opt === armadaOptions[0] ? "" : opt} className="bg-card text-foreground">
                         {opt}
                       </option>
                     ))}
@@ -174,7 +174,7 @@ export default function Contact() {
                   Pesan via WhatsApp — Gratis
                 </button>
 
-                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-gray-500 pt-2">
+                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-muted-text pt-2">
                   <span className="flex items-center gap-1"><Zap className="h-3 w-3 text-accent" /> Respon &lt; 5 menit</span>
                   <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> 24 jam</span>
                   <span className="flex items-center gap-1"><CheckCircle className="h-3 w-3" /> Tanpa ribet</span>
@@ -194,11 +194,11 @@ export default function Contact() {
             {/* Business Info Card */}
             <motion.div
               variants={item}
-              className="bg-white border border-gray-200 rounded-[2.5rem] p-6 sm:p-8 shadow-lg group hover:border-primary/40 transition-all"
+              className="bg-card border border-card-border rounded-[2.5rem] p-6 sm:p-8 shadow-lg group hover:border-primary/40 transition-all"
             >
               <div className="flex items-center gap-2 mb-4">
                 <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                <h3 className="text-xl font-display font-bold text-gray-900">
+                <h3 className="text-xl font-display font-bold text-foreground">
                   PT. PUTRA HANDAYANI TRANS
                 </h3>
                 <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
@@ -207,11 +207,11 @@ export default function Contact() {
                 Bus Pariwisata
               </p>
               <div className="space-y-2 mb-6">
-                <div className="flex items-center gap-3 text-gray-600">
+                <div className="flex items-center gap-3 text-muted-text">
                   <Bus className="h-5 w-5 text-primary flex-shrink-0" />
                   <span>Big Bus 50+1 TL Seat</span>
                 </div>
-                <div className="flex items-center gap-3 text-gray-600">
+                <div className="flex items-center gap-3 text-muted-text">
                   <Bus className="h-5 w-5 text-primary flex-shrink-0" />
                   <span>Big Bus 32 Legrest + 6 Seat</span>
                 </div>
@@ -230,7 +230,7 @@ export default function Contact() {
             {/* Contact Details */}
             <motion.div
               variants={item}
-              className="bg-white border border-gray-200 rounded-[2.5rem] p-6 sm:p-8 shadow-lg"
+              className="bg-card border border-card-border rounded-[2.5rem] p-6 sm:p-8 shadow-lg"
             >
               <div className="space-y-4">
                 <div className="flex items-center gap-4 group">
@@ -238,10 +238,10 @@ export default function Contact() {
                     <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-base sm:text-lg text-gray-900 font-bold">
+                    <p className="text-base sm:text-lg text-foreground font-bold">
                       0813-5334-3110
                     </p>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-muted-text">
                       Call / WA / SMS
                     </p>
                   </div>
@@ -252,7 +252,7 @@ export default function Contact() {
                     <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm sm:text-base text-gray-500 leading-relaxed">
+                    <p className="text-sm sm:text-base text-muted-text leading-relaxed">
                       Nganjuk, Jawa Timur, Indonesia
                     </p>
                   </div>

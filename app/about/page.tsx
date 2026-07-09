@@ -14,7 +14,7 @@ import Image from "next/image";
 
 export default function AboutPage() {
   return (
-    <main className="pt-20 min-h-screen bg-[#f5f7fa] text-gray-900">
+    <main className="pt-20 min-h-screen bg-background text-foreground">
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -25,14 +25,14 @@ export default function AboutPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-white/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-background/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-foreground mb-6">
             Tentang <span className="text-shiny-purple">PHD Trans</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 font-light tracking-wide font-sans">
+          <p className="text-xl md:text-2xl text-muted-text font-light tracking-wide font-sans">
             "Your Comfort Is Our Priority"
           </p>
           <div className="mt-8 inline-block px-8 py-3 rounded-full bg-primary/10 border border-primary/30">
@@ -44,20 +44,20 @@ export default function AboutPage() {
       </section>
 
       {/* Company Profile & CEO Message */}
-      <section className="py-20 relative overflow-hidden bg-white">
+      <section className="py-20 relative overflow-hidden bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="mb-8">
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
                   Profil Perusahaan
                 </h2>
                 <div className="h-1.5 w-24 bg-gradient-to-r from-primary to-primary rounded-full" />
               </div>
 
-              <div className="space-y-6 text-gray-600 leading-relaxed font-light text-lg">
+              <div className="space-y-6 text-muted-text leading-relaxed font-light text-lg">
                 <p>
-                  <strong className="text-gray-900 font-medium">
+                    <strong className="text-foreground font-medium">
                     PT Putra Handayani Trans (PHD Trans)
                   </strong>{" "}
                   adalah penyedia layanan transportasi bus pariwisata premium
@@ -88,9 +88,9 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div className="bg-gray-50 p-8 rounded-3xl border border-gray-200 hover:border-primary/50 transition-all relative overflow-hidden group">
+                <div className="bg-surface p-8 rounded-3xl border border-card-border hover:border-primary/50 transition-all relative overflow-hidden group">
                   <div className="absolute top-0 left-0 w-2 h-full bg-primary" />
-                  <p className="italic text-xl text-gray-700 mb-6 font-serif leading-relaxed relative z-10">
+                  <p className="italic text-xl text-foreground mb-6 font-serif leading-relaxed relative z-10">
                     "Berawal dari hobi dan kecintaan pada bus, kami tumbuh
                     menjadi penyedia layanan yang mengutamakan kenyamanan dan
                     keselamatan penumpang layaknya keluarga sendiri."
@@ -98,11 +98,11 @@ export default function AboutPage() {
                   <div className="flex items-center gap-4 relative z-10">
                     <div className="h-14 w-14 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 overflow-hidden relative border-2 border-primary shadow-lg p-1">
                       <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center">
-                        <UserCheck className="h-6 w-6 text-gray-500" />
+                        <UserCheck className="h-6 w-6 text-muted-text" />
                       </div>
                     </div>
                     <div>
-                      <h4 className="text-gray-900 font-bold text-lg font-display">
+                      <h4 className="text-foreground font-bold text-lg font-display">
                         Mas Andik Ruswandrio
                       </h4>
                       <p className="text-sm text-primary font-medium tracking-wide">
@@ -113,23 +113,23 @@ export default function AboutPage() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mt-8">
-                  <div className="bg-gray-50 p-6 rounded-2xl border border-gray-200 hover:border-primary/30 transition-colors">
-                    <p className="text-sm text-gray-500 mb-1">Filosofi Nama</p>
-                    <p className="text-gray-900 font-bold text-xl font-display">
+                  <div className="bg-surface p-6 rounded-2xl border border-card-border hover:border-primary/30 transition-colors">
+                    <p className="text-sm text-muted-text mb-1">Filosofi Nama</p>
+                    <p className="text-foreground font-bold text-xl font-display">
                       "Handayani"
                     </p>
-                    <p className="text-xs text-gray-400 mt-2">
+                    <p className="text-xs text-muted-text mt-2">
                       Doa dari nama Kakek & usaha Ibunda
                     </p>
                   </div>
-                  <div className="bg-gray-50 p-6 rounded-2xl border border-gray-200 hover:border-primary/30 transition-colors">
-                    <p className="text-sm text-gray-500 mb-1">
+                  <div className="bg-surface p-6 rounded-2xl border border-card-border hover:border-primary/30 transition-colors">
+                    <p className="text-sm text-muted-text mb-1">
                       Julukan Unit Pertama
                     </p>
-                    <p className="text-gray-900 font-bold text-xl font-display">
+                    <p className="text-foreground font-bold text-xl font-display">
                       "Ranger"
                     </p>
-                    <p className="text-xs text-gray-400 mt-2">
+                    <p className="text-xs text-muted-text mt-2">
                       Big Bus Pertama (2019)
                     </p>
                   </div>
@@ -138,7 +138,7 @@ export default function AboutPage() {
             </div>
 
             {/* Timeline */}
-            <div className="relative pl-8 sm:pl-12 border-l border-gray-200 space-y-16 py-8">
+            <div className="relative pl-8 sm:pl-12 border-l border-card-border space-y-16 py-8">
               {[
                 {
                   year: "2007",
@@ -168,10 +168,10 @@ export default function AboutPage() {
                   <span className="text-primary font-bold text-sm mb-3 block tracking-widest uppercase">
                     {item.year}
                   </span>
-                  <h3 className="text-2xl font-display font-bold text-gray-900 mb-3 group-hover:text-primary transition-all">
+                  <h3 className="text-2xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-all">
                     {item.title}
                   </h3>
-                  <p className="text-gray-500 text-base leading-relaxed">
+                  <p className="text-muted-text text-base leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -182,13 +182,13 @@ export default function AboutPage() {
       </section>
 
       {/* Unique Selling Points */}
-      <section className="py-24 bg-[#f1f5f9] relative overflow-hidden">
+      <section className="py-24 bg-surface relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
               Keunggulan <span className="text-shiny-purple">PHD Trans</span>
             </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+            <p className="text-muted-text max-w-2xl mx-auto text-lg">
               Standar pelayanan tinggi yang membedakan kami dari yang lain.
             </p>
           </div>
@@ -218,15 +218,15 @@ export default function AboutPage() {
             ].map((usp, idx) => (
               <div
                 key={idx}
-                className="bg-white p-8 rounded-3xl border border-gray-200 hover:border-primary/50 transition-all group hover:-translate-y-2 hover:shadow-lg"
+                className="bg-card p-8 rounded-3xl border border-card-border hover:border-primary/50 transition-all group hover:-translate-y-2 hover:shadow-lg"
               >
                 <div className="bg-primary/5 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 border border-primary/10">
                   <usp.icon className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-display font-bold text-gray-900 mb-4">
+                <h3 className="text-xl font-display font-bold text-foreground mb-4">
                   {usp.title}
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">
+                <p className="text-muted-text text-sm leading-relaxed">
                   {usp.desc}
                 </p>
               </div>
@@ -236,15 +236,15 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-card">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-primary/5 p-12 sm:p-16 rounded-[3rem] relative overflow-hidden border border-primary/20 shadow-lg group">
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-display font-bold text-gray-900 mb-6 leading-tight">
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6 leading-tight">
                 Siap Merasakan <br />
                 <span className="text-shiny-purple">Pengalaman Berbeda?</span>
               </h2>
-              <p className="text-gray-600 text-lg sm:text-xl mb-10 max-w-2xl mx-auto font-light">
+              <p className="text-muted-text text-lg sm:text-xl mb-10 max-w-2xl mx-auto font-light">
                 Bergabunglah dengan ribuan penumpang yang telah menikmati
                 kenyamanan dan kemewahan layanan PHD Trans.
               </p>

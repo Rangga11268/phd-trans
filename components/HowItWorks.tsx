@@ -60,14 +60,14 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-24 bg-[#f1f5f9] relative overflow-hidden">
+    <section className="py-24 bg-surface relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-display font-bold text-gray-900 mb-6"
+            className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6"
           >
             Cara <span className="text-shiny-purple">Pemesanan</span>
           </motion.h2>
@@ -76,7 +76,7 @@ export default function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-gray-500 max-w-2xl mx-auto text-lg font-light"
+            className="text-muted-text max-w-2xl mx-auto text-lg font-light"
           >
             Proses booking yang mudah dan transparan. Hanya 5 langkah sederhana!
           </motion.p>
@@ -101,7 +101,7 @@ export default function HowItWorks() {
                 >
                   <div className="flex justify-center mb-10 relative">
                     <div
-                      className={`w-32 h-32 rounded-full bg-white border-4 border-gray-100 flex items-center justify-center relative z-10 shadow-xl group-hover:scale-110 transition-transform duration-500`}
+                      className={`w-32 h-32 rounded-full bg-card border-4 border-surface flex items-center justify-center relative z-10 shadow-xl group-hover:scale-110 transition-transform duration-500`}
                     >
                       <div
                         className={`absolute inset-0 rounded-full bg-gradient-to-br ${step.color} opacity-10 blur-md group-hover:opacity-20 transition-opacity duration-500`}
@@ -119,11 +119,11 @@ export default function HowItWorks() {
                     </div>
                   </div>
 
-                  <div className="bg-white p-6 rounded-3xl border border-gray-200 group-hover:border-primary/30 transition-all duration-500 group-hover:shadow-lg h-full">
-                    <h3 className="text-lg font-bold text-gray-900 mb-3 text-center font-display group-hover:text-primary transition-colors">
+                  <div className="bg-card p-6 rounded-3xl border border-card-border group-hover:border-primary/30 transition-all duration-500 group-hover:shadow-lg h-full">
+                    <h3 className="text-lg font-bold text-foreground mb-3 text-center font-display group-hover:text-primary transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-gray-500 text-sm leading-relaxed text-center font-light">
+                    <p className="text-muted-text text-sm leading-relaxed text-center font-light">
                       {step.description}
                     </p>
                   </div>
@@ -157,16 +157,16 @@ export default function HowItWorks() {
                     <Icon className="h-7 w-7 text-white" />
                   </div>
 
-                  <div className="flex-1 bg-white p-6 rounded-2xl border border-gray-200 hover:border-primary/30 transition-all shadow-sm">
+                  <div className="flex-1 bg-card p-6 rounded-2xl border border-card-border hover:border-primary/30 transition-all shadow-sm">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="bg-primary/10 px-3 py-1 rounded-full text-primary font-bold text-xs uppercase tracking-wider">
                         Step {step.number}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 font-display">
+                    <h3 className="text-xl font-bold text-foreground mb-2 font-display">
                       {step.title}
                     </h3>
-                    <p className="text-gray-500 text-sm leading-relaxed font-light">
+                    <p className="text-muted-text text-sm leading-relaxed font-light">
                       {step.description}
                     </p>
                   </div>
@@ -182,11 +182,11 @@ export default function HowItWorks() {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <div className="inline-block bg-white p-10 rounded-[3rem] border border-gray-200 shadow-lg relative overflow-hidden group">
+          <div className="inline-block bg-card p-10 rounded-[3rem] border border-card-border shadow-lg relative overflow-hidden group">
             <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
             <div className="relative z-10">
-              <p className="text-gray-600 mb-8 text-xl font-light">
+              <p className="text-muted-text mb-8 text-xl font-light">
                 Siap memulai perjalanan impian Anda?
               </p>
               <a

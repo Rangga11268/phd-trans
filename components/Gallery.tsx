@@ -46,7 +46,7 @@ function Gallery() {
   return (
     <section
       id="fleet"
-      className="py-12 sm:py-16 lg:py-24 bg-[#f8f9fa] relative overflow-hidden"
+      className="py-12 sm:py-16 lg:py-24 bg-surface relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
@@ -54,7 +54,7 @@ function Gallery() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-gray-900 mb-4 sm:mb-6 px-4"
+            className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-foreground mb-4 sm:mb-6 px-4"
           >
             Armada <span className="text-shiny-purple">Premium</span> Kami
           </motion.h2>
@@ -63,7 +63,7 @@ function Gallery() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto px-4 font-sans font-light"
+            className="text-base sm:text-lg text-muted-text max-w-2xl mx-auto px-4 font-sans font-light"
           >
             Lihat armada bus modern dan terawat kami yang dirancang untuk
             kenyamanan perjalanan wisata Anda.
@@ -81,7 +81,7 @@ function Gallery() {
             <motion.div
               key={index}
               variants={item}
-              className={`relative rounded-3xl overflow-hidden group ${img.span} border border-gray-200 hover:border-primary/50 transition-all duration-500 shadow-lg`}
+              className={`relative rounded-3xl overflow-hidden group ${img.span} border border-card-border hover:border-primary/50 transition-all duration-500 shadow-lg`}
             >
               <Image
                 src={img.src}

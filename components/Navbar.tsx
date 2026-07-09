@@ -145,16 +145,16 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 z-[95] w-[280px] bg-white border-l border-gray-200 shadow-2xl lg:hidden flex flex-col"
+              className="fixed top-0 right-0 bottom-0 z-[95] w-[280px] bg-card border-l border-card-border shadow-2xl lg:hidden flex flex-col"
             >
               {/* Menu Header */}
-              <div className="flex items-center justify-between p-4 border-b border-gray-100">
-                <span className="text-sm font-bold text-gray-400 uppercase tracking-wider">
+              <div className="flex items-center justify-between p-4 border-b border-card-border">
+                <span className="text-sm font-bold text-muted-text uppercase tracking-wider">
                   Menu
                 </span>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all"
+                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-surface text-muted-text hover:text-primary transition-all"
                 >
                   <X size={18} />
                 </button>
@@ -174,11 +174,11 @@ export default function Navbar() {
                       <Link
                         href={link.href}
                         onClick={() => setIsOpen(false)}
-                        className={`flex items-center justify-between px-4 py-4 rounded-xl transition-all ${
-                          isActive
-                            ? "bg-primary/5 border border-primary/20 text-primary"
-                            : "text-gray-600 hover:bg-primary/5 hover:text-primary"
-                        }`}
+                          className={`flex items-center justify-between px-4 py-4 rounded-xl transition-all ${
+                            isActive
+                              ? "bg-primary/5 border border-primary/20 text-primary"
+                              : "text-muted-text hover:bg-primary/5 hover:text-primary"
+                          }`}
                       >
                         <span className="text-base font-semibold">
                           {link.label}
@@ -193,7 +193,7 @@ export default function Navbar() {
               </div>
 
               {/* Menu Footer CTA */}
-              <div className="p-4 border-t border-gray-100">
+              <div className="p-4 border-t border-card-border">
                 <Link
                   href="/reservation"
                   onClick={() => setIsOpen(false)}
@@ -202,7 +202,7 @@ export default function Navbar() {
                   Pesan Sekarang
                   <ArrowRight size={18} />
                 </Link>
-                <p className="text-center text-xs text-gray-400 mt-4">
+                <p className="text-center text-xs text-muted-text mt-4">
                   © 2024 PT Putra Handayani Trans
                 </p>
               </div>

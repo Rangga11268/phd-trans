@@ -62,7 +62,7 @@ const itemAnim = {
 
 export default function Achievement() {
   return (
-    <section className="py-12 sm:py-16 lg:py-24 bg-[#f1f5f9] relative overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-24 bg-surface relative overflow-hidden">
       <div className="absolute inset-0 bg-dot-pattern opacity-20" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -78,11 +78,11 @@ export default function Achievement() {
               Masalah & Solusi
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 mb-4 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4 px-4">
             Jangan Biarkan <span className="text-shiny-purple">Liburan</span>{" "}
             Rusak
           </h2>
-          <p className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto px-4 font-light">
+          <p className="text-base sm:text-lg text-muted-text max-w-2xl mx-auto px-4 font-light">
             Setiap masalah punya solusinya. Bersama PHD Trans, perjalanan Anda
             pasti nyaman dan berkesan.
           </p>
@@ -105,16 +105,16 @@ export default function Achievement() {
                 className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-3 sm:gap-4 items-stretch"
               >
                 {/* Problem Card */}
-                <div className="bg-red-50 p-4 sm:p-5 rounded-2xl border border-red-200 hover:border-red-300 transition-all group">
+                <div className="bg-red-500/5 p-4 sm:p-5 rounded-2xl border border-red-500/15 hover:border-red-500/30 transition-all group">
                   <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-red-100 text-red-500 group-hover:scale-110 transition-transform flex-shrink-0">
+                    <div className="p-2.5 rounded-xl bg-red-500/10 text-red-500 group-hover:scale-110 transition-transform flex-shrink-0">
                       <ProblemIcon className="h-5 w-5" />
                     </div>
                     <div>
                       <span className="text-[10px] font-bold text-red-500 uppercase tracking-widest block mb-0.5">
                         Masalah
                       </span>
-                      <p className="text-sm sm:text-base text-gray-800 font-medium leading-snug">
+                      <p className="text-sm sm:text-base text-foreground font-medium leading-snug">
                         {item.problem}
                       </p>
                     </div>
@@ -136,9 +136,9 @@ export default function Achievement() {
                     </div>
                     <div>
                       <span className="text-[10px] font-bold text-primary uppercase tracking-widest block mb-0.5">
-                        Solusi PHD Trans
+                        Solusi
                       </span>
-                      <p className="text-sm sm:text-base text-gray-800 font-medium leading-snug">
+                      <p className="text-sm sm:text-base text-foreground font-medium leading-snug">
                         {item.solution}
                       </p>
                     </div>

@@ -14,7 +14,7 @@ const BLUR_DATA_URL =
 
 export default function ReservationPage() {
   return (
-    <main className="pt-20 min-h-screen bg-[#f5f7fa]">
+    <main className="pt-20 min-h-screen bg-background">
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -25,14 +25,14 @@ export default function ReservationPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-white/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-background/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-display font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-6xl font-display font-bold text-foreground mb-6">
             Informasi <span className="text-shiny-purple">Reservasi</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-4 font-sans font-light">
+          <p className="text-xl text-muted-text max-w-2xl mx-auto mb-4 font-sans font-light">
             Simak informasi lengkap mengenai layanan dan armada kami melalui
             brosur di bawah ini.
           </p>
@@ -46,11 +46,11 @@ export default function ReservationPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="relative group">
-              <div className="relative bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
+              <div className="relative bg-card rounded-3xl overflow-hidden border border-card-border shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
                 <Image
                   src="/assets/img/ContactUs.webp"
                   alt="Informasi Reservasi 1"
@@ -70,7 +70,7 @@ export default function ReservationPage() {
             </div>
 
             <div className="relative group">
-              <div className="relative bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
+              <div className="relative bg-card rounded-3xl overflow-hidden border border-card-border shadow-lg transform transition-transform duration-500 group-hover:scale-[1.02]">
                 <Image
                   src="/assets/img/ContactUs2.webp"
                   alt="Informasi Reservasi 2"
@@ -92,16 +92,16 @@ export default function ReservationPage() {
         </div>
       </section>
 
-      <section className="py-24 relative overflow-hidden bg-[#f1f5f9]">
+      <section className="py-24 relative overflow-hidden bg-surface">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full max-h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">
               Contoh{" "}
               <span className="text-shiny-purple">Voucher Reservasi</span>
             </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-lg font-light">
+            <p className="text-muted-text max-w-2xl mx-auto text-lg font-light">
               Dokumen resmi perjalanan wisata Anda yang menjamin kenyamanan dan
               keamanan armada pilihan.
             </p>
@@ -109,11 +109,11 @@ export default function ReservationPage() {
 
           <div className="flex justify-center">
             <div className="relative w-full max-w-4xl group perspective-1000">
-              <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl transform transition-transform duration-500 group-hover:rotate-1 group-hover:scale-[1.02]">
+              <div className="relative bg-card rounded-3xl overflow-hidden shadow-2xl transform transition-transform duration-500 group-hover:rotate-1 group-hover:scale-[1.02]">
                 <div className="h-4 bg-gradient-to-r from-primary/50 via-primary to-primary/50" />
 
                 <div className="flex flex-col md:flex-row min-h-[450px]">
-                  <div className="flex-[2] p-8 md:p-12 bg-slate-50 relative overflow-hidden">
+                  <div className="flex-[2] p-8 md:p-12 bg-surface relative overflow-hidden">
                     <div className="absolute inset-0 bg-dot-pattern opacity-[0.05]" />
 
                     <div className="relative z-10">
@@ -128,7 +128,7 @@ export default function ReservationPage() {
                             />
                           </div>
                           <div>
-                            <h3 className="font-bold text-slate-900 text-2xl tracking-tight font-display">
+                            <h3 className="font-bold text-foreground text-2xl tracking-tight font-display">
                               PHD Trans
                             </h3>
                             <p className="text-primary text-sm font-bold tracking-widest uppercase">
@@ -140,7 +140,7 @@ export default function ReservationPage() {
                           <div className="inline-block bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-xs font-bold border border-green-200 uppercase tracking-wide">
                             Confirmed
                           </div>
-                          <p className="text-slate-400 text-xs mt-2 font-mono">
+                          <p className="text-muted-text text-xs mt-2 font-mono">
                             #BOOK-2024-8829
                           </p>
                         </div>
@@ -148,17 +148,17 @@ export default function ReservationPage() {
 
                       <div className="space-y-8">
                         <div>
-                          <p className="text-xs text-slate-400 uppercase tracking-widest mb-2 font-semibold">
+                          <p className="text-xs text-muted-text uppercase tracking-widest mb-2 font-semibold">
                             Penyewa / Rombongan
                           </p>
-                          <h4 className="font-bold text-slate-900 text-3xl font-display">
+                          <h4 className="font-bold text-foreground text-3xl font-display">
                             Keluarga Besar SMAN 1 Nganjuk
                           </h4>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                           <div>
-                            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2 font-semibold">
+                            <p className="text-xs text-muted-text uppercase tracking-widest mb-2 font-semibold">
                               Unit Armada
                             </p>
                             <div className="flex items-center gap-3">
@@ -166,17 +166,17 @@ export default function ReservationPage() {
                                 <CheckCircle className="h-6 w-6 text-primary" />
                               </div>
                               <div>
-                                <p className="font-bold text-slate-900 text-lg">
+                                <p className="font-bold text-foreground text-lg">
                                   Big Bus SHD
                                 </p>
-                                <p className="text-sm text-slate-500">
-                                  50 Seats • Adiputro Jetbus 3+
+                                <p className="text-sm text-muted-text">
+                                   50 Seats • Adiputro Jetbus 3+
                                 </p>
                               </div>
                             </div>
                           </div>
                           <div>
-                            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2 font-semibold">
+                            <p className="text-xs text-muted-text uppercase tracking-widest mb-2 font-semibold">
                               Durasi Wisata
                             </p>
                             <div className="flex items-center gap-3">
@@ -184,10 +184,10 @@ export default function ReservationPage() {
                                 <Calendar className="h-6 w-6 text-primary" />
                               </div>
                               <div>
-                                <p className="font-bold text-slate-900 text-lg">
+                                <p className="font-bold text-foreground text-lg">
                                   4 Hari 3 Malam
                                 </p>
-                                <p className="text-sm text-slate-500">
+                                <p className="text-sm text-muted-text">
                                   25 - 28 Desember 2024
                                 </p>
                               </div>
@@ -196,11 +196,11 @@ export default function ReservationPage() {
                         </div>
 
                         <div>
-                          <p className="text-xs text-slate-400 uppercase tracking-widest mb-2 font-semibold">
+                          <p className="text-xs text-muted-text uppercase tracking-widest mb-2 font-semibold">
                             Rute Perjalanan
                           </p>
-                          <div className="flex items-center gap-6 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-                            <span className="font-bold text-slate-700 font-display text-lg">
+                          <div className="flex items-center gap-6 bg-card p-5 rounded-2xl border border-surface shadow-sm">
+                            <span className="font-bold text-foreground font-display text-lg">
                               NGANJUK
                             </span>
                             <div className="flex-1 h-0.5 bg-gray-200 relative">
@@ -221,11 +221,11 @@ export default function ReservationPage() {
                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
                     <div className="relative z-10">
-                      <h4 className="text-xl font-bold mb-8 flex items-center gap-3 font-display text-gray-900">
+                      <h4 className="text-xl font-bold mb-8 flex items-center gap-3 font-display text-foreground">
                         <span className="w-1.5 h-8 bg-primary rounded-full" />
                         Fasilitas
                       </h4>
-                      <ul className="space-y-4 text-gray-600 text-sm mb-8">
+                      <ul className="space-y-4 text-muted-text text-sm mb-8">
                         <li className="flex items-center gap-3">
                           <div className="bg-primary/10 p-1 rounded-full">
                             <CheckCircle className="h-3 w-3 text-primary" />
@@ -259,11 +259,11 @@ export default function ReservationPage() {
                       </ul>
                     </div>
 
-                    <div className="relative z-10 pt-8 border-t border-gray-200">
-                      <p className="text-xs text-gray-500 mb-2 uppercase tracking-widest font-semibold">
+                    <div className="relative z-10 pt-8 border-t border-card-border">
+                      <p className="text-xs text-muted-text mb-2 uppercase tracking-widest font-semibold">
                         Butuh Bantuan?
                       </p>
-                      <div className="flex items-center gap-3 text-gray-900 font-bold text-lg font-display">
+                      <div className="flex items-center gap-3 text-foreground font-bold text-lg font-display">
                         <Phone className="h-5 w-5 text-primary" />
                         0813-5334-3110
                       </div>
@@ -280,15 +280,15 @@ export default function ReservationPage() {
 
       <FAQ />
 
-      <section className="py-20 bg-white border-t border-gray-200">
+      <section className="py-20 bg-card border-t border-card-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <div className="inline-block mb-10">
-              <h2 className="text-3xl md:text-5xl font-display font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
                 Siap Memesan <span className="text-shiny-purple">Sekarang</span>
                 ?
               </h2>
-              <p className="text-gray-600 mb-10 text-lg max-w-2xl mx-auto leading-relaxed font-light">
+              <p className="text-muted-text mb-10 text-lg max-w-2xl mx-auto leading-relaxed font-light">
                 Jangan ragu untuk menghubungi kami jika ada pertanyaan atau
                 ingin melakukan pemesanan. Tim kami siap membantu Anda 24/7.
               </p>

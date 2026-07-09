@@ -16,7 +16,7 @@ export default function Hero() {
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-[#f5f7fa]">
+    <section className="relative min-h-screen w-full overflow-hidden bg-background">
       {/* Cinematic Background */}
       <motion.div style={{ y }} className="absolute inset-0 z-0">
         <Image
@@ -28,8 +28,8 @@ export default function Hero() {
           sizes="100vw"
           quality={85}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/70 to-white/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-transparent to-white/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/70 to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-transparent to-background/50" />
       </motion.div>
 
       {/* Content */}
@@ -40,18 +40,18 @@ export default function Hero() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-3 sm:gap-4 px-4 py-2 rounded-full bg-white/80 border border-gray-200 backdrop-blur-xl shadow-sm mb-8 sm:mb-12"
+            className="inline-flex items-center gap-3 sm:gap-4 px-4 py-2 rounded-full bg-card/80 border border-card-border backdrop-blur-xl shadow-sm mb-8 sm:mb-12"
           >
             <div className="flex items-center gap-1">
               {[1, 2, 3, 4, 5].map((i) => (
                 <Star key={i} className="w-3 h-3 text-yellow-400 fill-yellow-400" />
               ))}
             </div>
-            <span className="text-xs text-gray-500 font-medium">
-              <span className="text-gray-900 font-bold">4.9</span> dari 500+ ulasan
+            <span className="text-xs text-muted-text font-medium">
+              <span className="text-foreground font-bold">4.9</span> dari 500+ ulasan
             </span>
-            <span className="hidden sm:inline w-px h-4 bg-gray-200" />
-            <span className="hidden sm:flex items-center gap-1.5 text-xs text-gray-500">
+            <span className="hidden sm:inline w-px h-4 bg-card-border" />
+            <span className="hidden sm:flex items-center gap-1.5 text-xs text-muted-text">
               <MapPin className="w-3 h-3 text-primary" />
               Nganjuk, Jawa Timur
             </span>
@@ -79,7 +79,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold text-gray-900 leading-[1.05] tracking-tight mb-4 sm:mb-6"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold text-foreground leading-[1.05] tracking-tight mb-4 sm:mb-6"
               >
                 Perjalanan{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
@@ -94,7 +94,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-sm sm:text-base md:text-lg text-gray-500 max-w-lg leading-relaxed mb-6 sm:mb-8"
+                className="text-sm sm:text-base md:text-lg text-muted-text max-w-lg leading-relaxed mb-6 sm:mb-8"
               >
                 Armada Jetbus Adiputro terbaru dengan standar kenyamanan tertinggi
                 di Nganjuk. Siap menemani setiap momen spesial Anda.
@@ -117,7 +117,7 @@ export default function Hero() {
                 <a
                   href="https://wa.me/6281353343110?text=Halo%20PHD%20Trans!%20Saya%20mau%20konsultasi%20pesan%20bus%20untuk%20perjalanan.%20Mohon%20bantuannya%20%F0%9F%99%8F"
                   target="_blank"
-                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-white border border-gray-200 text-gray-700 font-bold text-sm sm:text-base rounded-2xl hover:border-primary/30 hover:text-primary transition-all shadow-sm hover:shadow-md"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-card border border-card-border text-foreground font-bold text-sm sm:text-base rounded-2xl hover:border-primary/30 hover:text-primary transition-all shadow-sm hover:shadow-md"
                 >
                   Konsultasi Dulu
                 </a>
@@ -136,16 +136,16 @@ export default function Hero() {
                 return (
                   <div
                     key={i}
-                    className="group bg-white rounded-2xl p-5 pl-6 flex items-center gap-5 border border-gray-200 shadow-sm hover:border-primary/30 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                    className="group bg-card rounded-2xl p-5 pl-6 flex items-center gap-5 border border-card-border shadow-sm hover:border-primary/30 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
                   >
                     <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:scale-110 transition-transform duration-300">
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-2xl font-display font-bold text-gray-900">
+                      <div className="text-2xl font-display font-bold text-foreground">
                         {stat.value}
                       </div>
-                      <div className="text-xs text-gray-500 uppercase tracking-wider">
+                      <div className="text-xs text-muted-text uppercase tracking-wider">
                         {stat.label}
                       </div>
                     </div>
@@ -153,11 +153,11 @@ export default function Hero() {
                 );
               })}
 
-              <div className="mt-2 p-4 rounded-2xl bg-white border border-gray-200 border-dashed hover:border-primary/30 transition-all duration-300 shadow-sm">
+              <div className="mt-2 p-4 rounded-2xl bg-card border border-card-border border-dashed hover:border-primary/30 transition-all duration-300 shadow-sm">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-sm text-gray-500">Armada siap berangkat</span>
+                    <span className="text-sm text-muted-text">Armada siap berangkat</span>
                   </div>
                   <span className="text-xs text-primary font-bold">Available</span>
                 </div>
@@ -173,7 +173,7 @@ export default function Hero() {
             className="hidden sm:flex flex-col items-center mt-12 sm:mt-16 lg:mt-20"
           >
             <span className="w-px h-8 bg-gradient-to-b from-primary to-transparent" />
-            <span className="text-[9px] uppercase tracking-[0.3em] text-gray-400 mt-2 font-mono">
+            <span className="text-[9px] uppercase tracking-[0.3em] text-muted-text mt-2 font-mono">
               Scroll untuk lihat selengkapnya
             </span>
           </motion.div>
@@ -185,7 +185,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
-        className="lg:hidden fixed bottom-0 left-0 right-0 z-20 bg-white/90 backdrop-blur-xl border-t border-gray-200 px-4 py-3 shadow-sm"
+        className="lg:hidden fixed bottom-0 left-0 right-0 z-20 bg-card/90 backdrop-blur-xl border-t border-card-border px-4 py-3 shadow-sm"
       >
         <div className="flex items-center justify-around max-w-md mx-auto">
           {stats.map((stat, i) => {
@@ -194,8 +194,8 @@ export default function Hero() {
               <div key={i} className="flex items-center gap-2">
                 <Icon className="w-4 h-4 text-primary" />
                 <span>
-                  <span className="text-sm font-bold text-gray-900">{stat.value}</span>
-                  <span className="text-[10px] text-gray-500 ml-1">{stat.label}</span>
+                  <span className="text-sm font-bold text-foreground">{stat.value}</span>
+                  <span className="text-[10px] text-muted-text ml-1">{stat.label}</span>
                 </span>
               </div>
             );

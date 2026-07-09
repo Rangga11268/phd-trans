@@ -26,7 +26,7 @@ export default function Preloader() {
     <AnimatePresence mode="wait">
       {isLoading && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-white overflow-hidden"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-card overflow-hidden"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
@@ -100,7 +100,7 @@ export default function Preloader() {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-4xl md:text-5xl font-display font-bold text-gray-900 tracking-widest"
+                className="text-4xl md:text-5xl font-display font-bold text-foreground tracking-widest"
               >
                 PHD{" "}
                 <span className="text-[#9D00FF] drop-shadow-[0_0_10px_rgba(157,0,255,0.5)]">
@@ -124,7 +124,7 @@ export default function Preloader() {
             transition={{ duration: 0.8, ease: [0.87, 0, 0.13, 1] }}
           />
           <motion.div
-            className="absolute inset-0 bg-white z-50 pointer-events-none"
+            className="absolute inset-0 bg-card z-50 pointer-events-none"
             initial={{ scaleY: 0, transformOrigin: "bottom" }}
             exit={{ scaleY: 1, transformOrigin: "bottom" }}
             transition={{

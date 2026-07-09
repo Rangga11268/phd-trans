@@ -67,7 +67,7 @@ export default function Safety() {
   };
 
   return (
-    <section className="py-12 sm:py-16 lg:py-24 bg-white relative overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-24 bg-card relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 sm:mb-16">
           <motion.div
@@ -86,7 +86,7 @@ export default function Safety() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 mb-4 px-4"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4 px-4"
           >
             <span className="text-shiny-purple">Safety</span> First, Always
           </motion.h2>
@@ -95,7 +95,7 @@ export default function Safety() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-base sm:text-lg lg:text-xl text-gray-500 max-w-3xl mx-auto px-4 leading-relaxed"
+            className="text-base sm:text-lg lg:text-xl text-muted-text max-w-3xl mx-auto px-4 leading-relaxed"
           >
             Ini jaminan kami agar Anda bisa tidur nyenyak selama perjalanan.
             Karena keselamatan bukan tawar-menawar.
@@ -113,7 +113,7 @@ export default function Safety() {
             <div className="p-6 sm:p-8 rounded-[3rem] bg-primary/5 border border-primary/10 inline-block mb-6">
               <Shield className="h-16 w-16 sm:h-20 sm:w-20 text-primary" />
             </div>
-            <p className="text-gray-500 text-base sm:text-lg max-w-md leading-relaxed">
+            <p className="text-muted-text text-base sm:text-lg max-w-md leading-relaxed">
               Setiap armada PHD Trans melewati pemeriksaan ketat dan standar
               keselamatan tertinggi. Karena Anda layak yang terbaik.
             </p>
@@ -140,16 +140,16 @@ export default function Safety() {
                 >
                   {/* Timeline dot */}
                   <div className="absolute -left-8 sm:-left-10 top-1 w-[34px] sm:w-[42px] flex justify-center">
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border-2 border-primary flex items-center justify-center">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-card border-2 border-primary flex items-center justify-center">
                       <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary" />
                     </div>
                   </div>
                   {/* Content */}
                   <div className="pl-4">
-                    <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1">
+                    <h3 className="text-base sm:text-lg font-bold text-foreground mb-1">
                       {feature.title}
                     </h3>
-                    <p className="text-sm text-gray-500 leading-relaxed">
+                    <p className="text-sm text-muted-text leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
@@ -172,10 +172,10 @@ export default function Safety() {
                 <Shield className="h-12 w-12 sm:h-16 sm:w-16 text-primary" />
               </div>
               <div className="text-center sm:text-left">
-                <h4 className="text-gray-900 font-display font-bold text-2xl sm:text-3xl mb-2">
+                <h4 className="text-foreground font-display font-bold text-2xl sm:text-3xl mb-2">
                   100% Keamanan Terjamin
                 </h4>
-                <p className="text-gray-500 text-base sm:text-lg mb-4">
+                <p className="text-muted-text text-base sm:text-lg mb-4">
                   Perjalanan Anda adalah prioritas utama kami
                 </p>
                 <a

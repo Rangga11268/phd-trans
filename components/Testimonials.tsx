@@ -45,15 +45,15 @@ const reviews = [
 
 export default function Testimonials() {
   return (
-    <section className="py-12 sm:py-16 lg:py-24 bg-white relative overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-24 bg-card relative overflow-hidden">
       <div className="absolute inset-0 bg-dot-pattern opacity-20" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 mb-4 sm:mb-6 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4 sm:mb-6 px-4">
             Apa Kata <span className="text-shiny-purple">Mereka</span>
           </h2>
-          <p className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto px-4 font-light">
+          <p className="text-base sm:text-lg text-muted-text max-w-2xl mx-auto px-4 font-light">
             Dengarkan pengalaman pelanggan kami yang telah menikmati perjalanan
             bersama PHD Trans.
           </p>
@@ -63,7 +63,7 @@ export default function Testimonials() {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="bg-white p-8 sm:p-10 rounded-3xl border border-gray-200 hover:border-primary/50 transition-all hover:-translate-y-2 hover:shadow-lg duration-300"
+              className="bg-card p-8 sm:p-10 rounded-3xl border border-card-border hover:border-primary/50 transition-all hover:-translate-y-2 hover:shadow-lg duration-300"
             >
               <div className="flex gap-1 mb-6">
                 {[...Array(review.rating)].map((_, i) => (
@@ -73,7 +73,7 @@ export default function Testimonials() {
                   />
                 ))}
               </div>
-              <p className="text-base sm:text-lg text-gray-600 mb-8 italic leading-relaxed font-light">
+              <p className="text-base sm:text-lg text-muted-text mb-8 italic leading-relaxed font-light">
                 &ldquo;{review.content}&rdquo;
               </p>
               <div className="flex items-center gap-4">
@@ -81,7 +81,7 @@ export default function Testimonials() {
                   {review.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="text-lg text-gray-900 font-bold font-display tracking-tight">
+                  <h4 className="text-lg text-foreground font-bold font-display tracking-tight">
                     {review.name}
                   </h4>
                   <p className="text-sm text-primary uppercase tracking-wider font-bold text-[10px]">
@@ -94,7 +94,7 @@ export default function Testimonials() {
         </div>
 
         <div className="text-center mt-12 sm:mt-16">
-          <p className="text-gray-500 text-base sm:text-lg mb-6">
+          <p className="text-muted-text text-base sm:text-lg mb-6">
             Masih ragu? Chat kami sekarang dan buktikan sendiri!
           </p>
           <a

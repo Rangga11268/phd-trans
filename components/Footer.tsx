@@ -8,21 +8,22 @@ import {
   Facebook,
   ArrowRight,
   Music,
-  Github,
-  Code2,
+  ArrowUp,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const container = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
@@ -32,204 +33,202 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-white text-gray-900 pt-24 pb-12 border-t border-gray-200 relative overflow-hidden">
+    <footer className="bg-card text-foreground pt-20 pb-6 border-t border-card-border relative overflow-hidden">
+      {/* Background Typography */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full select-none pointer-events-none opacity-[0.03]">
+        <h1 className="font-display font-black text-[25vw] text-foreground leading-[0.7] text-center tracking-tighter">
+          PHD
+        </h1>
+      </div>
+
+      {/* Glow Effect */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -mr-40 -mt-20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* BIG CTA */}
         <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20"
+          className="flex flex-col lg:flex-row items-start lg:items-end justify-between mb-16 gap-8"
         >
-          {/* Brand Column */}
-          <motion.div variants={item} className="space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="relative h-12 w-12 rounded-xl overflow-hidden border border-white/10 shadow-[0_0_15px_rgba(112,0,255,0.3)]">
-                <Image
-                  src="/assets/img/logoPHD.jpg"
-                  alt="PHD Trans Logo"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-display font-bold tracking-tighter">
-                <span className="text-shiny">PHD</span>{" "}
-                <span className="text-shiny-purple">Trans</span>
-              </h3>
-            </div>
-            <p className="text-gray-500 leading-relaxed text-sm">
-              Layanan bus pariwisata premium di Nganjuk. Nikmati kenyamanan,
-              keamanan, dan kemewahan di setiap perjalanan wisata Anda bersama
-              armada modern kami.
-            </p>
-            <div className="inline-block px-4 py-1.5 bg-primary/10 border border-primary/30 rounded-full">
-              <span className="text-primary font-bold text-xs tracking-widest">
-                #PurpleGank
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Contact Column */}
-          <motion.div variants={item}>
-            <h4 className="font-display text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <span className="w-8 h-1 bg-gradient-to-r from-primary to-primary rounded-full"></span>
-              Hubungi Kami
-            </h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-gray-500 group">
-                <div className="bg-primary/5 p-2 rounded-lg group-hover:bg-primary/10 transition-colors border border-primary/10 group-hover:border-primary/30">
-                  <MapPin className="h-5 w-5 text-primary" />
-                </div>
-                <span className="text-sm leading-relaxed group-hover:text-gray-900 transition-colors">
-                  Jl. Raya Nganjuk No. 123, Nganjuk, Jawa Timur, Indonesia
-                </span>
-              </li>
-              <li className="flex items-center gap-3 text-gray-500 group">
-                <div className="bg-primary/5 p-2 rounded-lg group-hover:bg-primary/10 transition-colors border border-primary/10 group-hover:border-primary/30">
-                  <Phone className="h-5 w-5 text-primary" />
-                </div>
-                <span className="text-sm group-hover:text-gray-900 transition-colors">
-                  0813-5334-3110
-                </span>
-              </li>
-              <li className="flex items-center gap-3 text-gray-500 group">
-                <div className="bg-primary/5 p-2 rounded-lg group-hover:bg-primary/10 transition-colors border border-primary/10 group-hover:border-primary/30">
-                  <Mail className="h-5 w-5 text-primary" />
-                </div>
-                <span className="text-sm group-hover:text-gray-900 transition-colors">
-                  info@phdtrans.com
-                </span>
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Quick Links Column */}
-          <motion.div variants={item}>
-            <h4 className="font-display text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <span className="w-8 h-1 bg-gradient-to-r from-primary to-primary rounded-full"></span>
-              Tautan Cepat
-            </h4>
-            <ul className="space-y-3">
-              {[
-                { name: "Tentang Kami", href: "/about" },
-                { name: "Armada", href: "/fleet" },
-                { name: "Reservasi", href: "/reservation" },
-                { name: "Merchandise", href: "/merchandise" },
-              ].map((link, idx) => (
-                <li key={idx}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-primary transition-all flex items-center gap-2 group"
-                  >
-                    <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-accent" />
-                    <span className="group-hover:translate-x-1 transition-transform">
-                      {link.name}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Newsletter & Social Column */}
-          <motion.div variants={item}>
-              <h4 className="font-display text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <span className="w-8 h-1 bg-gradient-to-r from-primary to-primary rounded-full"></span>
-              Ikuti Kami
-            </h4>
-            <p className="text-gray-500 text-sm mb-6">
-              Dapatkan info terbaru dan promo menarik dari kami.
-            </p>
-
-            {/* Social Icons */}
-            <div className="flex gap-4">
-              <a
-                href="https://www.instagram.com/phd_trans/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-primary/5 p-3 rounded-xl hover:bg-primary hover:text-white transition-all text-gray-500 group border border-primary/10 hover:border-transparent hover:shadow-lg"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5 group-hover:scale-110 transition-transform" />
-              </a>
-              <a
-                href="#"
-                className="bg-primary/5 p-3 rounded-xl hover:bg-primary hover:text-white transition-all text-gray-500 group border border-primary/10 hover:border-transparent hover:shadow-lg"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5 group-hover:scale-110 transition-transform" />
-              </a>
-              <a
-                href="https://www.tiktok.com/@phdtrans"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-primary/5 p-3 rounded-xl hover:bg-gray-900 hover:text-white transition-all text-gray-500 group border border-primary/10 hover:border-transparent hover:shadow-lg"
-                aria-label="TikTok"
-              >
-                <Music className="h-5 w-5 group-hover:scale-110 transition-transform" />
-              </a>
-            </div>
-          </motion.div>
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-2">
+              Siap Berwisata?
+            </h2>
+            <p className="text-muted-text">Mulai petualangan Anda bersama PHD Trans</p>
+          </div>
+          <a
+            href="https://wa.me/6281353343110"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:bg-primary-dark hover:shadow-lg"
+          >
+            Pesan Sekarang
+            <ArrowRight
+              size={20}
+              className="group-hover:translate-x-1 transition-transform"
+            />
+          </a>
         </motion.div>
+
+        <div className="border-t border-card-border pt-12 mb-12">
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"
+          >
+            {/* Brand */}
+            <motion.div variants={item} className="space-y-5">
+              <div className="flex items-center gap-3">
+                <div className="relative h-10 w-10 rounded-xl overflow-hidden border border-card-border">
+                  <Image
+                    src="/assets/img/logoPHD.jpg"
+                    alt="PHD Trans Logo"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <span className="text-xl font-display font-bold text-foreground">
+                  PHD<span className="text-primary">TRANS</span>
+                </span>
+              </div>
+              <p className="text-muted-text text-sm leading-relaxed max-w-xs">
+                Layanan bus pariwisata premium di Nganjuk. Armada Jetbus Adiputro terbaru dengan standar kenyamanan tertinggi.
+              </p>
+              <div className="flex gap-3">
+                <a
+                  href="https://www.instagram.com/phd_trans/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center text-muted-text hover:bg-primary hover:text-white hover:border-primary transition-all"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={16} />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center text-muted-text hover:bg-primary hover:text-white hover:border-primary transition-all"
+                  aria-label="Facebook"
+                >
+                  <Facebook size={16} />
+                </a>
+                <a
+                  href="https://www.tiktok.com/@phdtrans"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center text-muted-text hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all"
+                  aria-label="TikTok"
+                >
+                  <Music size={16} />
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Armada */}
+            <motion.div variants={item}>
+              <h4 className="font-display font-bold text-foreground mb-5 text-sm uppercase tracking-widest">
+                Armada
+              </h4>
+              <ul className="space-y-3 text-sm">
+                {[
+                  { name: "Big Bus 50+1 TL Seat", href: "/fleet" },
+                  { name: "Big Bus 32 Legrest", href: "/fleet" },
+                  { name: "Medium Bus Jetbus 5", href: "/fleet" },
+                ].map((link, idx) => (
+                  <li key={idx}>
+                    <Link
+                      href={link.href}
+                      className="text-muted-text hover:text-primary transition-colors flex items-center gap-2 group"
+                    >
+                      <ArrowRight size={12} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Navigasi */}
+            <motion.div variants={item}>
+              <h4 className="font-display font-bold text-foreground mb-5 text-sm uppercase tracking-widest">
+                Navigasi
+              </h4>
+              <ul className="space-y-3 text-sm">
+                {[
+                  { name: "Beranda", href: "/" },
+                  { name: "Tentang", href: "/about" },
+                  { name: "Reservasi", href: "/reservation" },
+                  { name: "Merchandise", href: "/merchandise" },
+                ].map((link, idx) => (
+                  <li key={idx}>
+                    <Link
+                      href={link.href}
+                      className="text-muted-text hover:text-primary transition-colors flex items-center gap-2 group"
+                    >
+                      <ArrowRight size={12} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Kontak */}
+            <motion.div variants={item}>
+              <h4 className="font-display font-bold text-foreground mb-5 text-sm uppercase tracking-widest">
+                Kontak
+              </h4>
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-start gap-3 text-muted-text">
+                  <MapPin size={16} className="text-primary mt-0.5 shrink-0" />
+                  <span>Nganjuk, Jawa Timur, Indonesia</span>
+                </li>
+                <li className="flex items-center gap-3 text-muted-text">
+                  <Phone size={16} className="text-primary shrink-0" />
+                  <a href="https://wa.me/6281353343110" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                    0813-5334-3110
+                  </a>
+                </li>
+                <li className="flex items-center gap-3 text-muted-text">
+                  <Mail size={16} className="text-primary shrink-0" />
+                  <a href="mailto:info@phdtrans.com" className="hover:text-primary transition-colors">
+                    info@phdtrans.com
+                  </a>
+                </li>
+              </ul>
+            </motion.div>
+          </motion.div>
+        </div>
 
         {/* Bottom Bar */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="border-t border-white/10 pt-8 flex flex-col lg:flex-row justify-between items-center gap-6"
+          transition={{ delay: 0.3 }}
+          className="border-t border-card-border pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-muted-text uppercase tracking-widest font-bold"
         >
-              <p className="text-gray-400 text-sm order-2 lg:order-1">
-                © {new Date().getFullYear()}{" "}
-                <span className="text-gray-700 font-semibold">PHD Trans</span>. All
-                rights reserved.
-              </p>
+          <span>
+            &copy; {new Date().getFullYear()} PT Putra Handayani Trans. All rights reserved.
+          </span>
 
-          {/* Author Credit */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            className="order-1 lg:order-2 group"
-          >
-            <a
-              href="https://github.com/Rangga11268"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-6 py-2 rounded-2xl bg-primary/5 border border-primary/10 hover:border-primary/50 transition-all hover:shadow-md"
-            >
-              <div className="flex -space-x-2">
-                <div className="p-1.5 rounded-lg bg-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                  <Code2 className="h-4 w-4" />
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold leading-none mb-1">
-                  Digital Architect
-                </span>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-display font-bold text-gray-900 group-hover:text-primary transition-all">
-                    Darell Rangga
-                  </span>
-                  <Github className="h-3.5 w-3.5 text-gray-500 group-hover:text-white transition-colors" />
-                </div>
-              </div>
-            </a>
-          </motion.div>
-
-          <div className="flex gap-6 text-sm text-gray-500 order-3">
-            <Link
-              href="/terms"
-              className="hover:text-primary transition-colors hover:underline decoration-primary underline-offset-4"
-            >
-              Privacy Policy
+          <div className="flex items-center gap-6">
+            <Link href="/terms" className="hover:text-primary transition-colors">
+              Privacy
             </Link>
-            <Link
-              href="/terms"
-              className="hover:text-primary transition-colors hover:underline decoration-primary underline-offset-4"
-            >
-              Terms of Service
+            <Link href="/terms" className="hover:text-primary transition-colors">
+              Terms
             </Link>
+            <button
+              onClick={scrollToTop}
+              className="hover:text-primary transition-colors flex items-center gap-1"
+            >
+              <ArrowUp size={12} />
+              Back to Top
+            </button>
           </div>
         </motion.div>
       </div>

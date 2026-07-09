@@ -36,7 +36,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
+    <section className="relative py-24 bg-card overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <motion.div
@@ -55,7 +55,7 @@ export default function FAQ() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-display font-bold text-gray-900 mb-6"
+            className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6"
           >
             Pertanyaan <span className="text-shiny-purple">Umum</span>
           </motion.h2>
@@ -64,7 +64,7 @@ export default function FAQ() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-gray-500 text-lg leading-relaxed font-light"
+            className="text-muted-text text-lg leading-relaxed font-light"
           >
             Temukan jawaban atas pertanyaan yang sering diajukan mengenai
             layanan kami.
@@ -107,7 +107,7 @@ function FAQItem({
       className={`group rounded-2xl border transition-all duration-300 overflow-hidden ${
         isOpen
           ? "bg-primary/5 border-primary/50 shadow-lg"
-          : "bg-white border-gray-200 hover:border-gray-300"
+          : "bg-card border-card-border hover:border-card-border/60"
       }`}
     >
       <button
@@ -116,7 +116,7 @@ function FAQItem({
       >
         <span
           className={`text-lg font-bold font-display transition-colors duration-300 ${
-            isOpen ? "text-primary" : "text-gray-800 group-hover:text-primary"
+            isOpen ? "text-primary" : "text-foreground group-hover:text-primary"
           }`}
         >
           {faq.question}
@@ -125,7 +125,7 @@ function FAQItem({
           className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
             isOpen
               ? "bg-primary text-white rotate-180"
-              : "bg-gray-100 text-gray-400 group-hover:bg-primary/10"
+              : "bg-surface text-muted-text group-hover:bg-primary/10"
           }`}
         >
           {isOpen ? (
@@ -145,8 +145,8 @@ function FAQItem({
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <div className="px-6 pb-6 pt-2">
-              <div className="h-px w-full bg-gray-200 mb-4" />
-              <p className="text-gray-600 leading-relaxed font-light text-base">
+              <div className="h-px w-full bg-card-border mb-4" />
+              <p className="text-muted-text leading-relaxed font-light text-base">
                 {faq.answer}
               </p>
             </div>

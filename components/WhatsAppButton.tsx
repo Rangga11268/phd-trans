@@ -24,7 +24,7 @@ export default function WhatsAppButton() {
       }`}
       aria-label="Chat with us on WhatsApp"
     >
-      <div className="absolute -top-12 right-0 bg-white/10 backdrop-blur-md border border-white/10 rounded-xl px-3 py-1.5 text-xs text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+      <div className="absolute -top-12 right-0 bg-background/80 backdrop-blur-md border border-card-border rounded-xl px-3 py-1.5 text-xs text-foreground whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
         <HelpCircle className="h-3 w-3 inline mr-1" /> Ada yang bisa kami bantu?
       </div>
       <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-20 group-hover:opacity-40" />

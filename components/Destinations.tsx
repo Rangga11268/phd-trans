@@ -44,7 +44,7 @@ export default function Destinations() {
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 bg-card relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -53,13 +53,13 @@ export default function Destinations() {
           className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6"
         >
           <div>
-            <h2 className="font-display font-bold text-5xl md:text-6xl text-gray-900 mb-2">
+            <h2 className="font-display font-bold text-5xl md:text-6xl text-foreground mb-2">
               POPULAR{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
                 DESTINATIONS
               </span>
             </h2>
-            <p className="text-gray-500 font-sans max-w-md">
+            <p className="text-muted-text font-sans max-w-md">
               Curated experiences for the discerning traveler. Explore Indonesia
               with style.
             </p>
@@ -82,7 +82,7 @@ export default function Destinations() {
               whileInView={{ opacity: 1 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className={`relative group rounded-3xl overflow-hidden border border-gray-200 ${dest.colSpan} ${dest.rowSpan}`}
+              className={`relative group rounded-3xl overflow-hidden border border-card-border ${dest.colSpan} ${dest.rowSpan}`}
             >
               <Image
                 src={dest.image}

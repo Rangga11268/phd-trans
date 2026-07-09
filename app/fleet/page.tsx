@@ -311,7 +311,7 @@ export default function FleetPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#f5f7fa]">
+    <main className="min-h-screen bg-background">
       {/* Cinematic Header */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -323,13 +323,13 @@ export default function FleetPage() {
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent" />
         </div>
         <div className="relative z-10 text-center px-4">
-          <h1 className="font-display font-bold text-6xl md:text-8xl text-gray-900 mb-4 tracking-tighter">
+          <h1 className="font-display font-bold text-6xl md:text-8xl text-foreground mb-4 tracking-tighter">
             OUR <span className="text-primary">FLEET</span>
           </h1>
-          <p className="text-gray-600 font-sans text-lg max-w-2xl mx-auto border-t border-gray-200 pt-6 mt-2">
+          <p className="text-muted-text font-sans text-lg max-w-2xl mx-auto border-t border-card-border pt-6 mt-2">
             Experience the pinnacle of ground transportation. Modern. Safe.
             Premium.
           </p>
@@ -350,7 +350,7 @@ export default function FleetPage() {
               } gap-8 lg:gap-12 items-center group`}
             >
               {/* Image Card */}
-              <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-3xl overflow-hidden border border-gray-200 shadow-lg">
+              <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-3xl overflow-hidden border border-card-border shadow-lg">
                 <Image
                   src={bus.image}
                   alt={bus.name}
@@ -370,11 +370,11 @@ export default function FleetPage() {
                   </span>
                 </div>
 
-                <h3 className="font-display font-bold text-4xl text-gray-900 group-hover:text-primary transition-colors">
+                <h3 className="font-display font-bold text-4xl text-foreground group-hover:text-primary transition-colors">
                   {bus.name}
                 </h3>
 
-                <p className="text-gray-500 leading-relaxed text-lg">
+                <p className="text-muted-text leading-relaxed text-lg">
                   {bus.description}
                 </p>
 
@@ -382,7 +382,7 @@ export default function FleetPage() {
                   {bus.features.map((feature, idx) => (
                     <span
                       key={idx}
-                      className="px-4 py-2 rounded-full border border-gray-200 bg-gray-50 text-sm text-gray-600"
+                      className="px-4 py-2 rounded-full border border-card-border bg-surface text-sm text-muted-text"
                     >
                       {feature}
                     </span>
@@ -404,27 +404,27 @@ export default function FleetPage() {
                 {/* Facility Strip */}
                 <div className="pt-4">
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="h-px flex-1 bg-gray-200" />
-                    <span className="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Fasilitas</span>
-                    <div className="h-px flex-1 bg-gray-200" />
+                    <div className="h-px flex-1 bg-card-border" />
+                    <span className="text-[10px] text-muted-text uppercase tracking-widest font-bold">Fasilitas</span>
+                    <div className="h-px flex-1 bg-card-border" />
                   </div>
                   <div className="overflow-x-auto scrollbar-thin -mx-2 px-2">
                     <div className="flex gap-2 min-w-max pb-1">
                       {bus.facilityDetails.map((facility, idx) => (
                         <div
                           key={idx}
-                          className="flex flex-col items-center gap-1.5 p-2.5 rounded-xl bg-gray-50 border border-gray-200 hover:border-primary/30 hover:bg-primary/5 transition-all min-w-[72px] cursor-default group"
+                          className="flex flex-col items-center gap-1.5 p-2.5 rounded-xl bg-surface border border-card-border hover:border-primary/30 hover:bg-primary/5 transition-all min-w-[72px] cursor-default group"
                         >
                           <div className="text-primary group-hover:scale-110 transition-transform">
                             {facility.icon}
                           </div>
-                          <span className="text-[10px] text-gray-500 text-center leading-tight group-hover:text-gray-800 transition-colors">
+                          <span className="text-[10px] text-muted-text text-center leading-tight group-hover:text-foreground transition-colors">
                             {facility.name}
                           </span>
                         </div>
                       ))}
                       <div className="flex items-center pl-1 opacity-50">
-                        <ChevronRight className="w-4 h-4 text-gray-400" />
+                        <ChevronRight className="w-4 h-4 text-muted-text" />
                       </div>
                     </div>
                   </div>

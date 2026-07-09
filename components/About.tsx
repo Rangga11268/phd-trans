@@ -73,7 +73,7 @@ function About() {
   return (
     <section
       id="about"
-      className="py-12 sm:py-16 lg:py-24 bg-white relative overflow-hidden"
+      className="py-12 sm:py-16 lg:py-24 bg-card relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 sm:mb-16">
@@ -92,7 +92,7 @@ function About() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 mb-4 px-4"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4 px-4"
           >
             Mengapa Memilih <span className="text-shiny-purple">PHD Trans</span>
             ?
@@ -103,7 +103,7 @@ function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-base sm:text-lg text-gray-500 max-w-3xl mx-auto px-4 leading-relaxed font-light"
+            className="text-base sm:text-lg text-muted-text max-w-3xl mx-auto px-4 leading-relaxed font-light"
           >
             Tidak ingin perjalanan liburan Anda rusak karena bus yang tidak nyaman?
             Tenang, PHD Trans hadir dengan standar premium yang siap memanjakan Anda.
@@ -132,7 +132,7 @@ function About() {
                 6 Alasan Memilih Kami
               </span>
             </div>
-            <p className="text-gray-700 text-lg sm:text-xl leading-relaxed max-w-lg">
+            <p className="text-foreground text-lg sm:text-xl leading-relaxed max-w-lg">
               Kami gak cuma jual bus. Kami jual ketenangan pikiran, kenyamanan
               sepanjang jalan, dan pengalaman yang bakal Anda kenang.
             </p>
@@ -155,18 +155,18 @@ function About() {
                   className="relative pl-10 group"
                 >
                   {/* Left accent bar */}
-                  <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-200 group-hover:bg-primary transition-colors" />
+                  <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-card-border group-hover:bg-primary transition-colors" />
 
                   {/* Icon */}
-                  <div className="absolute left-[-13px] top-0 w-[26px] h-[26px] rounded-full bg-white border-2 border-gray-200 group-hover:border-primary transition-colors flex items-center justify-center">
+                  <div className="absolute left-[-13px] top-0 w-[26px] h-[26px] rounded-full bg-card border-2 border-card-border group-hover:border-primary transition-colors flex items-center justify-center">
                     <Icon className="h-3 w-3 text-primary" />
                   </div>
 
                   <div className="pl-4 pb-6">
-                    <h3 className="text-base font-bold text-gray-900 mb-1 group-hover:text-primary transition-colors">
+                    <h3 className="text-base font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                       {feature.title}
                     </h3>
-                    <p className="text-sm text-gray-500 leading-relaxed">
+                    <p className="text-sm text-muted-text leading-relaxed">
                       {feature.description}
                     </p>
                   </div>

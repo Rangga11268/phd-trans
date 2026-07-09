@@ -2,14 +2,14 @@ import Link from 'next/link';
 
 export default function TermsPage() {
   return (
-    <main className="pt-20 min-h-screen bg-[#f5f7fa]">
+    <main className="pt-20 min-h-screen bg-background">
       {/* Header */}
-      <section className="relative py-20 bg-white overflow-hidden border-b border-gray-200">
+      <section className="relative py-20 bg-card overflow-hidden border-b border-card-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Syarat & <span className="text-primary">Ketentuan</span>
           </h1>
-          <p className="text-xl text-gray-500 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-text max-w-2xl mx-auto">
             Mohon baca syarat dan ketentuan ini dengan seksama sebelum memesan layanan kami.
           </p>
         </div>
@@ -18,12 +18,12 @@ export default function TermsPage() {
       {/* Content */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white p-8 md:p-12 rounded-2xl border border-gray-200 shadow-lg space-y-12">
+          <div className="bg-card p-8 md:p-12 rounded-2xl border border-card-border shadow-lg space-y-12">
             
             {/* Section 1 */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Pemesanan & Reservasi</h2>
-              <ul className="list-disc list-inside text-gray-600 space-y-2 leading-relaxed">
+              <h2 className="text-2xl font-bold text-foreground mb-4">1. Pemesanan & Reservasi</h2>
+              <ul className="list-disc list-inside text-muted-text space-y-2 leading-relaxed">
                 <li>Pemesanan dapat dilakukan melalui website, WhatsApp, atau telepon.</li>
                 <li>Uang muka (DP) sebesar 30% diperlukan untuk mengamankan jadwal Anda.</li>
                 <li>Pelunasan pembayaran harus dilakukan paling lambat 3 hari sebelum tanggal keberangkatan.</li>
@@ -33,8 +33,8 @@ export default function TermsPage() {
 
             {/* Section 2 */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Pembatalan & Pengembalian Dana</h2>
-              <ul className="list-disc list-inside text-gray-600 space-y-2 leading-relaxed">
+              <h2 className="text-2xl font-bold text-foreground mb-4">2. Pembatalan & Pengembalian Dana</h2>
+              <ul className="list-disc list-inside text-muted-text space-y-2 leading-relaxed">
                 <li>Pembatalan lebih dari 7 hari sebelum keberangkatan: Pengembalian DP 100%.</li>
                 <li>Pembatalan 3-7 hari sebelum keberangkatan: Pengembalian DP 50%.</li>
                 <li>Pembatalan kurang dari 3 hari sebelum keberangkatan: Tidak ada pengembalian dana.</li>
@@ -44,8 +44,8 @@ export default function TermsPage() {
 
             {/* Section 3 */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Tata Tertib Penumpang</h2>
-              <ul className="list-disc list-inside text-gray-600 space-y-2 leading-relaxed">
+              <h2 className="text-2xl font-bold text-foreground mb-4">3. Tata Tertib Penumpang</h2>
+              <ul className="list-disc list-inside text-muted-text space-y-2 leading-relaxed">
                 <li>Dilarang keras merokok di dalam bus.</li>
                 <li>Penumpang bertanggung jawab atas barang bawaan pribadi. PHD Trans tidak bertanggung jawab atas kehilangan atau kerusakan.</li>
                 <li>Kerusakan interior atau peralatan bus yang disebabkan oleh penumpang akan dikenakan biaya penggantian.</li>
@@ -55,14 +55,14 @@ export default function TermsPage() {
 
             {/* Section 4 */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Keadaan Kahar (Force Majeure)</h2>
-              <p className="text-gray-600 leading-relaxed">
+              <h2 className="text-2xl font-bold text-foreground mb-4">4. Keadaan Kahar (Force Majeure)</h2>
+              <p className="text-muted-text leading-relaxed">
                 PHD Trans tidak bertanggung jawab atas keterlambatan atau pembatalan yang disebabkan oleh kejadian di luar kendali kami, seperti bencana alam, cuaca buruk, penutupan jalan, atau kerusakan mekanis mendadak. Dalam kasus tersebut, kami akan berusaha memberikan solusi alternatif atau pengembalian dana penuh.
               </p>
             </div>
 
-            <div className="pt-8 border-t border-gray-200 text-center">
-              <p className="text-gray-500 mb-6">
+            <div className="pt-8 border-t border-card-border text-center">
+              <p className="text-muted-text mb-6">
                 Dengan memesan layanan kami, Anda menyatakan telah membaca, memahami, dan menyetujui syarat dan ketentuan ini.
               </p>
               <Link href="/contact" className="inline-block bg-primary text-white font-bold px-8 py-3 rounded-full hover:bg-primary-dark transition-all">

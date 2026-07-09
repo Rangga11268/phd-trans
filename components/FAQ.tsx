@@ -36,19 +36,14 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative py-24 bg-[#020617] overflow-hidden">
-      {/* Background Ambience */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
-      <div className="absolute inset-0 bg-dot-pattern opacity-40" />
-
+    <section className="relative py-24 bg-white overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/20 mb-6"
           >
             <HelpCircle className="h-4 w-4 text-primary" />
             <span className="text-primary font-bold text-xs tracking-widest uppercase">
@@ -60,7 +55,7 @@ export default function FAQ() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-display font-bold text-white mb-6"
+            className="text-3xl md:text-5xl font-display font-bold text-gray-900 mb-6"
           >
             Pertanyaan <span className="text-shiny-purple">Umum</span>
           </motion.h2>
@@ -69,7 +64,7 @@ export default function FAQ() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-gray-400 text-lg leading-relaxed font-light"
+            className="text-gray-500 text-lg leading-relaxed font-light"
           >
             Temukan jawaban atas pertanyaan yang sering diajukan mengenai
             layanan kami.
@@ -111,8 +106,8 @@ function FAQItem({
       transition={{ delay: index * 0.1 }}
       className={`group rounded-2xl border transition-all duration-300 overflow-hidden ${
         isOpen
-          ? "bg-white/[0.05] border-primary/50 shadow-[0_0_20px_rgba(112,0,255,0.15)]"
-          : "bg-white/[0.02] border-white/5 hover:border-white/10"
+          ? "bg-primary/5 border-primary/50 shadow-lg"
+          : "bg-white border-gray-200 hover:border-gray-300"
       }`}
     >
       <button
@@ -121,7 +116,7 @@ function FAQItem({
       >
         <span
           className={`text-lg font-bold font-display transition-colors duration-300 ${
-            isOpen ? "text-white" : "text-gray-300 group-hover:text-white"
+            isOpen ? "text-primary" : "text-gray-800 group-hover:text-primary"
           }`}
         >
           {faq.question}
@@ -130,7 +125,7 @@ function FAQItem({
           className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
             isOpen
               ? "bg-primary text-white rotate-180"
-              : "bg-white/10 text-gray-400 group-hover:bg-white/20"
+              : "bg-gray-100 text-gray-400 group-hover:bg-primary/10"
           }`}
         >
           {isOpen ? (
@@ -150,8 +145,8 @@ function FAQItem({
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <div className="px-6 pb-6 pt-2">
-              <div className="h-px w-full bg-white/5 mb-4" />
-              <p className="text-gray-400 leading-relaxed font-light text-base">
+              <div className="h-px w-full bg-gray-200 mb-4" />
+              <p className="text-gray-600 leading-relaxed font-light text-base">
                 {faq.answer}
               </p>
             </div>

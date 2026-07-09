@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -97,14 +98,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var theme = localStorage.getItem('phd-theme');
+                if (theme) {
+                  document.documentElement.setAttribute('data-theme', theme);
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${syne.variable} ${manrope.variable} antialiased bg-background text-foreground font-sans selection:bg-primary/30 selection:text-white`}
       >
-        <Preloader />
-        <Navbar />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <Preloader />
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

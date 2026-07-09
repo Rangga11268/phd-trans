@@ -2,23 +2,19 @@
 
 import Image from "next/image";
 import {
-  Wifi,
   Zap,
   Coffee,
   Tv,
   Disc,
   Snowflake,
   Briefcase,
-  X,
   Monitor,
-  Plug,
-  Bath,
   Package,
   ArmchairIcon,
   ArrowRight,
+  ChevronRight,
 } from "lucide-react";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface FacilityDetail {
   name: string;
@@ -37,48 +33,6 @@ interface Bus {
 }
 
 export default function FleetPage() {
-  const [selectedBus, setSelectedBus] = useState<Bus | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [showAllFacilities, setShowAllFacilities] = useState(false);
-
-  // Close modal on ESC key
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isModalOpen) closeModal();
-    };
-    if (isModalOpen) {
-      document.addEventListener("keydown", handleEscape);
-      document.body.style.overflow = "hidden";
-    }
-    return () => {
-      document.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = "unset";
-    };
-  }, [isModalOpen]);
-
-  // Auto-slide carousel
-  useEffect(() => {
-    if (!isModalOpen || !selectedBus) return;
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) =>
-        prev === selectedBus.facilityDetails.length - 1 ? 0 : prev + 1
-      );
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [isModalOpen, selectedBus]);
-
-  const openModal = (bus: Bus) => {
-    setSelectedBus(bus);
-    setIsModalOpen(true);
-    setCurrentSlide(0);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setTimeout(() => setSelectedBus(null), 300);
-  };
-
   const buses: Bus[] = [
     {
       id: 1,
@@ -357,7 +311,7 @@ export default function FleetPage() {
   ];
 
   return (
-    <main className="bg-background min-h-screen">
+    <main className="min-h-screen bg-[#f5f7fa]">
       {/* Cinematic Header */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -365,17 +319,17 @@ export default function FleetPage() {
             src="/assets/img/phdbus1.webp"
             alt="PHD Trans Fleet"
             fill
-            className="object-cover opacity-60 scale-105"
+            className="object-cover scale-105"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/40 to-transparent" />
         </div>
         <div className="relative z-10 text-center px-4">
-          <h1 className="font-display font-bold text-6xl md:text-8xl text-white mb-4 tracking-tighter">
+          <h1 className="font-display font-bold text-6xl md:text-8xl text-gray-900 mb-4 tracking-tighter">
             OUR <span className="text-primary">FLEET</span>
           </h1>
-          <p className="text-gray-300 font-sans text-lg max-w-2xl mx-auto border-t border-white/20 pt-6 mt-2">
+          <p className="text-gray-600 font-sans text-lg max-w-2xl mx-auto border-t border-gray-200 pt-6 mt-2">
             Experience the pinnacle of ground transportation. Modern. Safe.
             Premium.
           </p>
@@ -393,10 +347,10 @@ export default function FleetPage() {
               key={index}
               className={`flex flex-col ${
                 index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
-              } gap-8 lg:gap-12 items-center group will-change-transform`}
+              } gap-8 lg:gap-12 items-center group`}
             >
               {/* Image Card */}
-              <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-primary/5">
+              <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-3xl overflow-hidden border border-gray-200 shadow-lg">
                 <Image
                   src={bus.image}
                   alt={bus.name}
@@ -410,17 +364,17 @@ export default function FleetPage() {
               {/* Info Card */}
               <div className="w-full lg:w-1/2 space-y-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="h-[1px] w-12 bg-accent" />
-                  <span className="text-accent font-bold tracking-[0.2em] text-sm uppercase">
+                  <div className="h-[1px] w-12 bg-primary" />
+                  <span className="text-primary font-bold tracking-[0.2em] text-sm uppercase">
                     Premium Class
                   </span>
                 </div>
 
-                <h3 className="font-display font-bold text-4xl text-white group-hover:text-primary transition-colors">
+                <h3 className="font-display font-bold text-4xl text-gray-900 group-hover:text-primary transition-colors">
                   {bus.name}
                 </h3>
 
-                <p className="text-gray-400 leading-relaxed text-lg">
+                <p className="text-gray-500 leading-relaxed text-lg">
                   {bus.description}
                 </p>
 
@@ -428,144 +382,58 @@ export default function FleetPage() {
                   {bus.features.map((feature, idx) => (
                     <span
                       key={idx}
-                      className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-gray-300"
+                      className="px-4 py-2 rounded-full border border-gray-200 bg-gray-50 text-sm text-gray-600"
                     >
                       {feature}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex gap-4 pt-4">
-                  <button
-                    onClick={() => openModal(bus)}
-                    className="flex-1 bg-white/5 border border-white/10 hover:border-primary text-white py-4 rounded-xl font-bold transition-all hover:bg-white/10 flex items-center justify-center gap-2"
-                  >
-                    <Zap className="w-4 h-4 text-primary" />
-                    View Facilities
-                  </button>
-                  <a
-                    href={`https://wa.me/6281353343110?text=${encodeURIComponent(
-                      `Halo PHD Trans, saya ingin booking *${bus.name}*.`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-primary text-white py-4 rounded-xl font-bold hover:bg-primary-dark transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(112,0,255,0.4)] hover:shadow-[0_0_40px_rgba(112,0,255,0.6)]"
-                  >
-                    Book Now
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
+                <a
+                  href={`https://wa.me/6281353343110?text=${encodeURIComponent(
+                    `Halo PHD Trans, saya ingin booking *${bus.name}*.`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-primary text-white py-4 rounded-xl font-bold hover:bg-primary-dark transition-all flex items-center justify-center gap-2 shadow-lg"
+                >
+                  Book Now
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+
+                {/* Facility Strip */}
+                <div className="pt-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="h-px flex-1 bg-gray-200" />
+                    <span className="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Fasilitas</span>
+                    <div className="h-px flex-1 bg-gray-200" />
+                  </div>
+                  <div className="overflow-x-auto scrollbar-thin -mx-2 px-2">
+                    <div className="flex gap-2 min-w-max pb-1">
+                      {bus.facilityDetails.map((facility, idx) => (
+                        <div
+                          key={idx}
+                          className="flex flex-col items-center gap-1.5 p-2.5 rounded-xl bg-gray-50 border border-gray-200 hover:border-primary/30 hover:bg-primary/5 transition-all min-w-[72px] cursor-default group"
+                        >
+                          <div className="text-primary group-hover:scale-110 transition-transform">
+                            {facility.icon}
+                          </div>
+                          <span className="text-[10px] text-gray-500 text-center leading-tight group-hover:text-gray-800 transition-colors">
+                            {facility.name}
+                          </span>
+                        </div>
+                      ))}
+                      <div className="flex items-center pl-1 opacity-50">
+                        <ChevronRight className="w-4 h-4 text-gray-400" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
       </section>
-
-      {/* Facility Modal */}
-      <AnimatePresence>
-        {isModalOpen && selectedBus && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
-            onClick={closeModal}
-          >
-            <div className="absolute inset-0 bg-black/90 backdrop-blur-xl" />
-
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              className="relative w-full max-w-6xl max-h-[90vh] bg-[#0a0521] border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex flex-col"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Modal Header */}
-              <div className="p-6 md:p-8 border-b border-white/10 flex justify-between items-center bg-white/5">
-                <div>
-                  <h2 className="font-display font-bold text-2xl text-white">
-                    {selectedBus.name}
-                  </h2>
-                  <p className="text-primary text-sm tracking-wider uppercase">
-                    Facility Tour
-                  </p>
-                </div>
-                <button
-                  onClick={closeModal}
-                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
-
-              <div className="flex-1 overflow-y-auto p-6 md:p-8">
-                {/* Carousel */}
-                <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 mb-8 bg-black">
-                  {selectedBus.facilityDetails.map((facility, idx) => (
-                    <motion.div
-                      key={idx}
-                      className="absolute inset-0"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: idx === currentSlide ? 1 : 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <Image
-                        src={facility.image}
-                        alt={facility.name}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 80vw"
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                      <div className="absolute bottom-0 left-0 p-8">
-                        <h3 className="text-3xl font-display font-bold text-white mb-2">
-                          {facility.name}
-                        </h3>
-                        <p className="text-gray-300 max-w-lg">
-                          {facility.description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {selectedBus.facilityDetails.map((facility, idx) => (
-                    <div
-                      key={idx}
-                      onClick={() => setCurrentSlide(idx)}
-                      className={`p-4 rounded-xl border transition-all cursor-pointer flex items-start gap-4 ${
-                        currentSlide === idx
-                          ? "bg-primary/20 border-primary"
-                          : "bg-white/5 border-white/5 hover:bg-white/10"
-                      }`}
-                    >
-                      <div
-                        className={`p-3 rounded-lg ${
-                          currentSlide === idx
-                            ? "bg-primary text-white"
-                            : "bg-white/10 text-gray-400"
-                        }`}
-                      >
-                        {facility.icon}
-                      </div>
-                      <div>
-                        <h4 className="text-white font-bold mb-1">
-                          {facility.name}
-                        </h4>
-                        <p className="text-gray-500 text-xs line-clamp-2">
-                          {facility.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </main>
   );
 }

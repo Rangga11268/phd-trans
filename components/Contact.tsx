@@ -1,57 +1,45 @@
 "use client";
 
-import { Phone, Mail, MapPin, Send, Map as MapIcon } from "lucide-react";
-import { motion } from "framer-motion";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
+import Image from "next/image";
+import {
+  Bus, Calendar, MapPin, User, Phone,
+  Clock, CheckCircle, Zap, Star
+} from "lucide-react";
 
-const MapComponent = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  return (
-    <div
-      className="w-full h-[350px] sm:h-[450px] lg:h-[500px] rounded-[2rem] overflow-hidden relative"
-      onMouseEnter={() => setIsLoaded(true)}
-      onClick={() => setIsLoaded(true)}
-    >
-      {!isLoaded && (
-        <div className="absolute inset-0 bg-white/5 flex flex-col items-center justify-center cursor-pointer group-hover:bg-white/10 transition-colors z-10">
-          <div className="p-4 rounded-full bg-primary/20 text-primary mb-4 animate-pulse">
-            <MapIcon className="w-8 h-8" />
-          </div>
-          <p className="text-white font-bold uppercase tracking-widest text-sm">
-            Click or Hover to View Map
-          </p>
-        </div>
-      )}
-
-      {isLoaded ? (
-        <iframe
-          src="https://maps.google.com/maps?q=PT+PUTRA+HANDAYANI+TRANS&t=&z=15&ie=UTF8&iwloc=&output=embed"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700"
-        ></iframe>
-      ) : (
-        /* Static Image Placeholder if available, or just the gradient/div above */
-        <div className="absolute inset-0 bg-[#0f172a]" />
-      )}
-    </div>
-  );
-};
+const armadaOptions = [
+  "Pilih Armada...",
+  "Big Bus 50+1 TL Seat",
+  "Big Bus 32 Legrest + 6 Seat",
+  "Medium Bus Luxury Jetbus 5",
+];
 
 export default function Contact() {
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    destination: "",
+    date: "",
+    armada: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name || !form.phone) return;
+
+    const message = `Halo PHD Trans! Saya ${form.name} mau pesan ${form.armada || "bus"} untuk perjalanan ke ${form.destination || "tujuan"} pada ${form.date || "tanggal"}. Mohon info ketersediaan dan harga terbaiknya. Terima kasih!`;
+
+    window.open(
+      `https://wa.me/6281353343110?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
+  };
+
   const container = {
     hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
+    show: { opacity: 1, transition: { staggerChildren: 0.08 } },
   };
 
   const item = {
@@ -61,199 +49,218 @@ export default function Contact() {
 
   return (
     <section
-      id="contact"
-      className="py-12 sm:py-16 lg:py-24 bg-[#020617] relative overflow-hidden"
+      id="booking"
+      className="py-12 sm:py-16 lg:py-24 bg-[#f1f5f9] relative overflow-hidden"
     >
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" />
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" />
-      </div>
+      <div className="absolute inset-0 bg-dot-pattern opacity-20" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-10 sm:mb-14"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 backdrop-blur-sm">
+            <Bus className="h-4 w-4 text-primary" />
+            <span className="text-sm font-bold text-primary uppercase tracking-widest">
+              Pesan Sekarang
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 mb-4 px-4">
+            Siap <span className="text-shiny-purple">Berwisata?</span>
+          </h2>
+          <p className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto px-4 font-light">
+            Isi dulu, nanti kita lanjut chat di WA. Gampang, cepat, tanpa ribet!
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 sm:gap-12">
+          {/* Form - 3 columns */}
           <motion.div
             variants={container}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
+            className="lg:col-span-3"
           >
             <motion.div
               variants={item}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-sm"
+              className="bg-white border border-gray-200 rounded-[2.5rem] p-6 sm:p-8 lg:p-10 shadow-lg relative overflow-hidden"
             >
-              <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-sm font-bold text-white uppercase tracking-widest">
-                Get In Touch
-              </span>
+              <form onSubmit={handleSubmit} className="relative z-10 space-y-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-primary uppercase tracking-widest mb-2">
+                      <User className="h-3 w-3 inline mr-1" />
+                      Nama Lengkap
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-400 font-medium"
+                      placeholder="Masukkan nama Anda"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-primary uppercase tracking-widest mb-2">
+                      <Phone className="h-3 w-3 inline mr-1" />
+                      No WhatsApp
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-400 font-medium"
+                      placeholder="0813-xxxx-xxxx"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-primary uppercase tracking-widest mb-2">
+                      <MapPin className="h-3 w-3 inline mr-1" />
+                      Tujuan Perjalanan
+                    </label>
+                    <input
+                      type="text"
+                      value={form.destination}
+                      onChange={(e) => setForm({ ...form, destination: e.target.value })}
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-400 font-medium"
+                      placeholder="Cth: Bali, Bromo, Jogja..."
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-primary uppercase tracking-widest mb-2">
+                      <Calendar className="h-3 w-3 inline mr-1" />
+                      Tanggal Berangkat
+                    </label>
+                    <input
+                      type="date"
+                      value={form.date}
+                      onChange={(e) => setForm({ ...form, date: e.target.value })}
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-400 font-medium"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-primary uppercase tracking-widest mb-2">
+                    <Bus className="h-3 w-3 inline mr-1" />
+                    Pilih Armada
+                  </label>
+                  <select
+                    value={form.armada}
+                    onChange={(e) => setForm({ ...form, armada: e.target.value })}
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium appearance-none cursor-pointer"
+                  >
+                    {armadaOptions.map((opt) => (
+                      <option key={opt} value={opt === armadaOptions[0] ? "" : opt} className="bg-white text-gray-900">
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-[#25D366] text-white font-bold py-4 sm:py-5 rounded-xl hover:bg-[#20bd5a] transition-all transform hover:scale-[1.02] shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] flex items-center justify-center gap-3 text-lg"
+                >
+                  <WhatsAppIcon className="h-6 w-6" />
+                  Pesan via WhatsApp — Gratis
+                </button>
+
+                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-gray-500 pt-2">
+                  <span className="flex items-center gap-1"><Zap className="h-3 w-3 text-accent" /> Respon &lt; 5 menit</span>
+                  <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> 24 jam</span>
+                  <span className="flex items-center gap-1"><CheckCircle className="h-3 w-3" /> Tanpa ribet</span>
+                </div>
+              </form>
+            </motion.div>
+          </motion.div>
+
+          {/* Info - 2 columns */}
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="lg:col-span-2 flex flex-col gap-6"
+          >
+            {/* Business Info Card */}
+            <motion.div
+              variants={item}
+              className="bg-white border border-gray-200 rounded-[2.5rem] p-6 sm:p-8 shadow-lg group hover:border-primary/40 transition-all"
+            >
+              <div className="flex items-center gap-2 mb-4">
+                <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                <h3 className="text-xl font-display font-bold text-gray-900">
+                  PT. PUTRA HANDAYANI TRANS
+                </h3>
+                <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+              </div>
+              <p className="text-primary font-bold text-sm uppercase tracking-widest mb-4">
+                Bus Pariwisata
+              </p>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center gap-3 text-gray-600">
+                  <Bus className="h-5 w-5 text-primary flex-shrink-0" />
+                  <span>Big Bus 50+1 TL Seat</span>
+                </div>
+                <div className="flex items-center gap-3 text-gray-600">
+                  <Bus className="h-5 w-5 text-primary flex-shrink-0" />
+                  <span>Big Bus 32 Legrest + 6 Seat</span>
+                </div>
+              </div>
+              <a
+                href="https://wa.me/6281353343110"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-[#25D366] text-white font-bold px-6 py-4 rounded-xl hover:bg-[#20bd5a] transition-all transform hover:scale-[1.02] shadow-lg w-full justify-center text-lg"
+              >
+                <WhatsAppIcon className="h-6 w-6" />
+                Chat via WhatsApp
+              </a>
             </motion.div>
 
-            <motion.h2
+            {/* Contact Details */}
+            <motion.div
               variants={item}
-              className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white mb-6"
+              className="bg-white border border-gray-200 rounded-[2.5rem] p-6 sm:p-8 shadow-lg"
             >
-              Hubungi <span className="text-shiny-purple">Kami</span>
-            </motion.h2>
-            <motion.p
-              variants={item}
-              className="text-base sm:text-lg lg:text-xl text-gray-400 mb-10 lg:mb-12 font-light leading-relaxed"
-            >
-              Siap merencanakan perjalanan Anda? Hubungi kami untuk penawaran
-              harga atau pertanyaan apa pun. Tim kami siap membantu Anda 24/7.
-            </motion.p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4 group">
+                  <div className="p-3 sm:p-4 rounded-xl bg-primary/5 border border-primary/10 group-hover:border-primary/30 transition-all flex-shrink-0">
+                    <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-base sm:text-lg text-gray-900 font-bold">
+                      0813-5334-3110
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      Call / WA / SMS
+                    </p>
+                  </div>
+                </div>
 
-            <div className="space-y-6 sm:space-y-8">
-              <motion.div
-                variants={item}
-                className="flex items-start gap-4 sm:gap-6 group"
-              >
-                <div className="bg-gradient-to-br from-white/5 to-white/[0.02] p-4 sm:p-5 rounded-2xl group-hover:from-primary/20 group-hover:to-purple-900/20 transition-all border border-white/10 group-hover:border-primary/30 flex-shrink-0">
-                  <MapPin className="h-6 w-6 sm:h-8 sm:w-8 text-primary group-hover:text-white transition-colors" />
-                </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-display font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                    Lokasi Kami
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-                    Jl. Raya Nganjuk No. 123
-                    <br />
-                    Nganjuk, Jawa Timur, Indonesia
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                variants={item}
-                className="flex items-start gap-4 sm:gap-6 group"
-              >
-                <div className="bg-gradient-to-br from-white/5 to-white/[0.02] p-4 sm:p-5 rounded-2xl group-hover:from-primary/20 group-hover:to-purple-900/20 transition-all border border-white/10 group-hover:border-primary/30 flex-shrink-0">
-                  <Phone className="h-6 w-6 sm:h-8 sm:w-8 text-primary group-hover:text-white transition-colors" />
-                </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-display font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                    Telepon
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-400 text-lg">
-                    0813-5334-3110
-                    <br />
-                    <span className="text-sm text-gray-500">
-                      Senin - Minggu, 24 Jam
-                    </span>
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                variants={item}
-                className="flex items-start gap-4 sm:gap-6 group"
-              >
-                <div className="bg-gradient-to-br from-white/5 to-white/[0.02] p-4 sm:p-5 rounded-2xl group-hover:from-primary/20 group-hover:to-purple-900/20 transition-all border border-white/10 group-hover:border-primary/30 flex-shrink-0">
-                  <Mail className="h-6 w-6 sm:h-8 sm:w-8 text-primary group-hover:text-white transition-colors" />
-                </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-display font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                    Email
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-400 text-lg">
-                    info@phdtrans.com
-                    <br />
-                    <span className="text-sm text-gray-500">
-                      support@phdtrans.com
-                    </span>
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="bg-white/[0.02] p-6 sm:p-8 lg:p-10 rounded-[2.5rem] border border-white/10 backdrop-blur-xl shadow-2xl relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2" />
-
-            <form className="space-y-5 sm:space-y-6 relative z-10">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-xs font-bold text-primary uppercase tracking-widest mb-2"
-                  >
-                    Nama Lengkap
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-white focus:outline-none focus:border-primary focus:bg-white/10 transition-all placeholder:text-gray-600 font-medium"
-                    placeholder="Nama Anda"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-xs font-bold text-primary uppercase tracking-widest mb-2"
-                  >
-                    Nomor Telepon
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-white focus:outline-none focus:border-primary focus:bg-white/10 transition-all placeholder:text-gray-600 font-medium"
-                    placeholder="+62..."
-                  />
+                <div className="flex items-center gap-4 group">
+                  <div className="p-3 sm:p-4 rounded-xl bg-primary/5 border border-primary/10 group-hover:border-primary/30 transition-all flex-shrink-0">
+                    <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm sm:text-base text-gray-500 leading-relaxed">
+                      Nganjuk, Jawa Timur, Indonesia
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-xs font-bold text-primary uppercase tracking-widest mb-2"
-                >
-                  Alamat Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-white focus:outline-none focus:border-primary focus:bg-white/10 transition-all placeholder:text-gray-600 font-medium"
-                  placeholder="email@contoh.com"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-xs font-bold text-primary uppercase tracking-widest mb-2"
-                >
-                  Pesan
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-white focus:outline-none focus:border-primary focus:bg-white/10 transition-all placeholder:text-gray-600 font-medium resize-none"
-                  placeholder="Ceritakan kebutuhan perjalanan Anda..."
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(112,0,255,0.3)] hover:shadow-[0_0_30px_rgba(112,0,255,0.5)] transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2 text-lg"
-              >
-                <Send className="h-5 w-5" />
-                Kirim Pesan
-              </button>
-            </form>
+            </motion.div>
           </motion.div>
         </div>
-
-        <motion.div
-          variants={item}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="mt-12 sm:mt-20 p-2 sm:p-3 rounded-[2.5rem] bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary/50 transition-all duration-500 shadow-2xl relative z-10 group"
-        >
-          {/* Map Facade / Lazy Loader */}
-          <MapComponent />
-        </motion.div>
       </div>
     </section>
   );

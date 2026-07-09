@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
   { href: "/", label: "Beranda" },
@@ -50,13 +51,13 @@ export default function Navbar() {
         <nav
           className={`max-w-5xl mx-auto flex items-center justify-between px-4 md:px-6 h-14 md:h-16 rounded-2xl transition-all duration-500 ${
             isScrolled
-              ? "bg-background/70 backdrop-blur-xl shadow-lg shadow-black/10 border border-white/10"
-              : "bg-background/50 backdrop-blur-md border border-white/5"
+              ? "bg-card/90 backdrop-blur-xl shadow-lg border border-card-border"
+              : "bg-card/70 backdrop-blur-md border border-card-border/50"
           }`}
         >
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="relative h-8 w-8 rounded-xl overflow-hidden border border-white/10 group-hover:border-primary/50 transition-all">
+            <div className="relative h-8 w-8 rounded-xl overflow-hidden border border-card-border group-hover:border-primary/50 transition-all">
               <Image
                 src="/assets/img/logoPHD.jpg"
                 alt="Logo"
@@ -64,7 +65,7 @@ export default function Navbar() {
                 className="object-cover"
               />
             </div>
-            <span className="font-display font-black text-base md:text-lg tracking-tight text-white">
+            <span className="font-display font-black text-base md:text-lg tracking-tight text-foreground">
               PHD<span className="text-primary">TRANS</span>
             </span>
           </Link>
@@ -79,15 +80,15 @@ export default function Navbar() {
                   href={link.href}
                   className={`relative px-4 py-2 text-sm font-medium rounded-xl transition-all duration-300 ${
                     isActive
-                      ? "text-white"
-                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                      ? "text-primary"
+                      : "text-muted-text hover:text-primary hover:bg-primary/5"
                   }`}
                 >
                   {link.label}
                   {isActive && (
                     <motion.div
                       layoutId="activeIndicator"
-                      className="absolute inset-0 bg-primary/10 border border-primary/20 rounded-xl -z-10"
+                      className="absolute inset-0 bg-primary/5 border border-primary/20 rounded-xl -z-10"
                       transition={{
                         type: "spring",
                         bounce: 0.2,
@@ -101,21 +102,27 @@ export default function Navbar() {
           </div>
 
           {/* Desktop CTA */}
-          <Link
-            href="/reservation"
-            className="hidden lg:flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-white text-sm font-bold rounded-xl transition-all hover:shadow-lg hover:shadow-primary/20"
-          >
-            Pesan Sekarang
-          </Link>
+          <div className="hidden lg:flex items-center gap-2">
+            <ThemeToggle />
+            <Link
+              href="/reservation"
+              className="flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-white text-sm font-bold rounded-xl transition-all hover:shadow-lg hover:shadow-primary/20"
+            >
+              Pesan Sekarang
+            </Link>
+          </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all"
-            aria-label="Toggle Menu"
-          >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          {/* Mobile: Theme Toggle + Menu Button */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex items-center justify-center w-10 h-10 rounded-xl bg-card border border-card-border text-muted-text hover:text-primary transition-all"
+              aria-label="Toggle Menu"
+            >
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </nav>
       </header>
 
@@ -138,16 +145,16 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 z-[95] w-[280px] bg-background border-l border-white/10 shadow-2xl lg:hidden flex flex-col"
+              className="fixed top-0 right-0 bottom-0 z-[95] w-[280px] bg-white border-l border-gray-200 shadow-2xl lg:hidden flex flex-col"
             >
               {/* Menu Header */}
-              <div className="flex items-center justify-between p-4 border-b border-white/5">
+              <div className="flex items-center justify-between p-4 border-b border-gray-100">
                 <span className="text-sm font-bold text-gray-400 uppercase tracking-wider">
                   Menu
                 </span>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 text-white hover:bg-white/10 transition-all"
+                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all"
                 >
                   <X size={18} />
                 </button>
@@ -169,8 +176,8 @@ export default function Navbar() {
                         onClick={() => setIsOpen(false)}
                         className={`flex items-center justify-between px-4 py-4 rounded-xl transition-all ${
                           isActive
-                            ? "bg-primary/10 border border-primary/20 text-white"
-                            : "text-gray-300 hover:bg-white/5 hover:text-white"
+                            ? "bg-primary/5 border border-primary/20 text-primary"
+                            : "text-gray-600 hover:bg-primary/5 hover:text-primary"
                         }`}
                       >
                         <span className="text-base font-semibold">
@@ -186,7 +193,7 @@ export default function Navbar() {
               </div>
 
               {/* Menu Footer CTA */}
-              <div className="p-4 border-t border-white/5">
+              <div className="p-4 border-t border-gray-100">
                 <Link
                   href="/reservation"
                   onClick={() => setIsOpen(false)}
@@ -195,7 +202,7 @@ export default function Navbar() {
                   Pesan Sekarang
                   <ArrowRight size={18} />
                 </Link>
-                <p className="text-center text-xs text-gray-500 mt-4">
+                <p className="text-center text-xs text-gray-400 mt-4">
                   © 2024 PT Putra Handayani Trans
                 </p>
               </div>

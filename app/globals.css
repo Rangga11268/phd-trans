@@ -1,13 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --background: #030014; /* Deep Void Purple */
-  --foreground: #ffffff;
-  --primary: #7000ff; /* Electric Indigo */
-  --primary-dark: #6000d6;
-  --secondary: #0a0521; /* Darker Void */
-  --accent: #00ff94; /* Spring Green */
-  --accent-hot: #ff0080; /* Razor Pink */
+  --background: #f5f7fa;
+  --foreground: #1e293b;
+  --primary: #7c3aed;
+  --primary-dark: #6d28d9;
+  --secondary: #ffffff;
+  --accent: #7c3aed;
+  --card: #ffffff;
+  --card-border: #e2e8f0;
+  --surface: #f1f5f9;
+  --muted: #64748b;
+  --muted-text: #64748b;
+}
+
+[data-theme="dark"] {
+  --background: #0a0a1a;
+  --foreground: #f1f5f9;
+  --primary: #a78bfa;
+  --primary-dark: #8b5cf6;
+  --secondary: #1e1e3a;
+  --accent: #a78bfa;
+  --card: #1a1a2e;
+  --card-border: #2d2d4a;
+  --surface: #12122a;
+  --muted: #64748b;
+  --muted-text: #94a3b8;
 }
 
 @theme inline {
@@ -17,7 +35,11 @@
   --color-primary-dark: var(--primary-dark);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
-  --color-accent-hot: var(--accent-hot);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-muted-text: var(--muted-text);
   --font-display: var(--font-syne), display;
   --font-sans: var(--font-manrope), sans-serif;
 }
@@ -29,23 +51,31 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 @layer utilities {
   .glass {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+    background: color-mix(in srgb, var(--card) 80%, transparent);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
   }
 
   .glass-hover {
-    @apply hover:bg-white/10 hover:border-white/20 transition-all duration-300;
+    @apply hover:bg-card hover:border-primary/30 transition-all duration-300;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-800 via-gray-600 to-gray-400;
   }
 
   .text-gradient-primary {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-accent;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-primary;
+  }
+
+  .bg-dot-pattern {
+    background-image: radial-gradient(rgba(124, 58, 237, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 }
 
@@ -62,26 +92,10 @@ body {
 .text-shiny {
   background: linear-gradient(
     to right,
-    #f8fafc 20%,
-    #94a3b8 40%,
-    #f8fafc 60%,
-    #94a3b8 80%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  background-size: 200% auto;
-  animation: shine 6s linear infinite; /* Slower animation for better performance */
-  will-change: background-position;
-}
-
-.text-shiny-purple {
-  background: linear-gradient(
-    to right,
-    #8b5cf6 20%,
-    #d946ef 40%,
-    #8b5cf6 60%,
-    #d946ef 80%
+    #1e293b 20%,
+    #64748b 40%,
+    #1e293b 60%,
+    #64748b 80%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -89,6 +103,50 @@ body {
   background-size: 200% auto;
   animation: shine 6s linear infinite;
   will-change: background-position;
+}
+
+.text-shiny-purple {
+  background: linear-gradient(
+    to right,
+    #7c3aed 20%,
+    #a78bfa 40%,
+    #7c3aed 60%,
+    #a78bfa 80%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: shine 6s linear infinite;
+  will-change: background-position;
+}
+
+[data-theme="dark"] .text-shiny {
+  background: linear-gradient(
+    to right,
+    #f1f5f9 20%,
+    #94a3b8 40%,
+    #f1f5f9 60%,
+    #94a3b8 80%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+}
+
+[data-theme="dark"] .text-shiny-purple {
+  background: linear-gradient(
+    to right,
+    #a78bfa 20%,
+    #c4b5fd 40%,
+    #a78bfa 60%,
+    #c4b5fd 80%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
 }
 
 @media (max-width: 768px) {
@@ -100,21 +158,8 @@ body {
   }
 }
 
-/* Pattern Utilities */
-.bg-dot-pattern {
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.05) 1px,
-    transparent 1px
-  );
-  background-size: 24px 24px;
-}
-
-.bg-dot-pattern-light {
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.1) 1px,
-    transparent 1px
-  );
-  background-size: 32px 32px;
+[data-theme="dark"] .bg-dot-pattern {
+  background-image: radial-gradient(rgba(167, 139, 250, 0.1) 1px, transparent 1px);
 }
 
 .bg-noise {
@@ -140,11 +185,24 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--secondary);
+  background: #d1d5db;
   border-radius: 5px;
   border: 2px solid var(--background);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #3d3d5c;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Smooth transitions for theme change */
+*, *::before, *::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }

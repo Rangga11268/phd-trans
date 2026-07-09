@@ -32,13 +32,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#020617] text-white pt-24 pb-12 border-t border-white/5 relative overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-[100px] opacity-50" />
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-[100px] opacity-50" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-      </div>
+    <footer className="bg-white text-gray-900 pt-24 pb-12 border-t border-gray-200 relative overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -64,7 +58,7 @@ export default function Footer() {
                 <span className="text-shiny-purple">Trans</span>
               </h3>
             </div>
-            <p className="text-gray-400 leading-relaxed text-sm">
+            <p className="text-gray-500 leading-relaxed text-sm">
               Layanan bus pariwisata premium di Nganjuk. Nikmati kenyamanan,
               keamanan, dan kemewahan di setiap perjalanan wisata Anda bersama
               armada modern kami.
@@ -78,32 +72,32 @@ export default function Footer() {
 
           {/* Contact Column */}
           <motion.div variants={item}>
-            <h4 className="font-display text-xl font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-8 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+            <h4 className="font-display text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <span className="w-8 h-1 bg-gradient-to-r from-primary to-primary rounded-full"></span>
               Hubungi Kami
             </h4>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-gray-400 group">
-                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-primary/20 transition-colors border border-white/5 group-hover:border-primary/30">
+              <li className="flex items-start gap-3 text-gray-500 group">
+                <div className="bg-primary/5 p-2 rounded-lg group-hover:bg-primary/10 transition-colors border border-primary/10 group-hover:border-primary/30">
                   <MapPin className="h-5 w-5 text-primary" />
                 </div>
-                <span className="text-sm leading-relaxed group-hover:text-white transition-colors">
+                <span className="text-sm leading-relaxed group-hover:text-gray-900 transition-colors">
                   Jl. Raya Nganjuk No. 123, Nganjuk, Jawa Timur, Indonesia
                 </span>
               </li>
-              <li className="flex items-center gap-3 text-gray-400 group">
-                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-primary/20 transition-colors border border-white/5 group-hover:border-primary/30">
+              <li className="flex items-center gap-3 text-gray-500 group">
+                <div className="bg-primary/5 p-2 rounded-lg group-hover:bg-primary/10 transition-colors border border-primary/10 group-hover:border-primary/30">
                   <Phone className="h-5 w-5 text-primary" />
                 </div>
-                <span className="text-sm group-hover:text-white transition-colors">
+                <span className="text-sm group-hover:text-gray-900 transition-colors">
                   0813-5334-3110
                 </span>
               </li>
-              <li className="flex items-center gap-3 text-gray-400 group">
-                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-primary/20 transition-colors border border-white/5 group-hover:border-primary/30">
+              <li className="flex items-center gap-3 text-gray-500 group">
+                <div className="bg-primary/5 p-2 rounded-lg group-hover:bg-primary/10 transition-colors border border-primary/10 group-hover:border-primary/30">
                   <Mail className="h-5 w-5 text-primary" />
                 </div>
-                <span className="text-sm group-hover:text-white transition-colors">
+                <span className="text-sm group-hover:text-gray-900 transition-colors">
                   info@phdtrans.com
                 </span>
               </li>
@@ -112,8 +106,8 @@ export default function Footer() {
 
           {/* Quick Links Column */}
           <motion.div variants={item}>
-            <h4 className="font-display text-xl font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-8 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+            <h4 className="font-display text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <span className="w-8 h-1 bg-gradient-to-r from-primary to-primary rounded-full"></span>
               Tautan Cepat
             </h4>
             <ul className="space-y-3">
@@ -140,11 +134,11 @@ export default function Footer() {
 
           {/* Newsletter & Social Column */}
           <motion.div variants={item}>
-            <h4 className="font-display text-xl font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-8 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+              <h4 className="font-display text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <span className="w-8 h-1 bg-gradient-to-r from-primary to-primary rounded-full"></span>
               Ikuti Kami
             </h4>
-            <p className="text-gray-400 text-sm mb-6">
+            <p className="text-gray-500 text-sm mb-6">
               Dapatkan info terbaru dan promo menarik dari kami.
             </p>
 
@@ -154,14 +148,14 @@ export default function Footer() {
                 href="https://www.instagram.com/phd_trans/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/5 p-3 rounded-xl hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 hover:text-white transition-all text-gray-400 group border border-white/5 hover:border-transparent hover:shadow-lg hover:shadow-purple-500/30"
+                className="bg-primary/5 p-3 rounded-xl hover:bg-primary hover:text-white transition-all text-gray-500 group border border-primary/10 hover:border-transparent hover:shadow-lg"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5 group-hover:scale-110 transition-transform" />
               </a>
               <a
                 href="#"
-                className="bg-white/5 p-3 rounded-xl hover:bg-blue-600 hover:text-white transition-all text-gray-400 group border border-white/5 hover:border-transparent hover:shadow-lg hover:shadow-blue-500/30"
+                className="bg-primary/5 p-3 rounded-xl hover:bg-primary hover:text-white transition-all text-gray-500 group border border-primary/10 hover:border-transparent hover:shadow-lg"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5 group-hover:scale-110 transition-transform" />
@@ -170,7 +164,7 @@ export default function Footer() {
                 href="https://www.tiktok.com/@phdtrans"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/5 p-3 rounded-xl hover:bg-black hover:text-white transition-all text-gray-400 group border border-white/5 hover:border-transparent hover:shadow-lg hover:shadow-gray-800/50"
+                className="bg-primary/5 p-3 rounded-xl hover:bg-gray-900 hover:text-white transition-all text-gray-500 group border border-primary/10 hover:border-transparent hover:shadow-lg"
                 aria-label="TikTok"
               >
                 <Music className="h-5 w-5 group-hover:scale-110 transition-transform" />
@@ -187,11 +181,11 @@ export default function Footer() {
           transition={{ delay: 0.5 }}
           className="border-t border-white/10 pt-8 flex flex-col lg:flex-row justify-between items-center gap-6"
         >
-          <p className="text-gray-500 text-sm order-2 lg:order-1">
-            © {new Date().getFullYear()}{" "}
-            <span className="text-gray-300 font-semibold">PHD Trans</span>. All
-            rights reserved.
-          </p>
+              <p className="text-gray-400 text-sm order-2 lg:order-1">
+                © {new Date().getFullYear()}{" "}
+                <span className="text-gray-700 font-semibold">PHD Trans</span>. All
+                rights reserved.
+              </p>
 
           {/* Author Credit */}
           <motion.div
@@ -202,7 +196,7 @@ export default function Footer() {
               href="https://github.com/Rangga11268"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 px-6 py-2 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all hover:shadow-[0_0_20px_rgba(112,0,255,0.2)]"
+              className="flex items-center gap-3 px-6 py-2 rounded-2xl bg-primary/5 border border-primary/10 hover:border-primary/50 transition-all hover:shadow-md"
             >
               <div className="flex -space-x-2">
                 <div className="p-1.5 rounded-lg bg-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
@@ -210,11 +204,11 @@ export default function Footer() {
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-bold leading-none mb-1">
+                <span className="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold leading-none mb-1">
                   Digital Architect
                 </span>
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-display font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-accent transition-all">
+                  <span className="text-sm font-display font-bold text-gray-900 group-hover:text-primary transition-all">
                     Darell Rangga
                   </span>
                   <Github className="h-3.5 w-3.5 text-gray-500 group-hover:text-white transition-colors" />

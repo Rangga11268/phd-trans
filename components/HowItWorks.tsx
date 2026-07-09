@@ -1,7 +1,8 @@
 "use client";
 
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import {
-  MessageCircle,
+  Phone,
   Bus,
   CreditCard,
   CheckCircle,
@@ -13,7 +14,7 @@ export default function HowItWorks() {
   const steps = [
     {
       number: 1,
-      icon: MessageCircle,
+      icon: Phone,
       title: "Konsultasi",
       description:
         "Hubungi kami via WhatsApp atau telepon untuk konsultasi kebutuhan perjalanan Anda.",
@@ -59,18 +60,14 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-24 bg-[#020617] relative overflow-hidden">
-      <div className="absolute inset-0 bg-dot-pattern opacity-40" />
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
-
+    <section className="py-24 bg-[#f1f5f9] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-display font-bold text-white mb-6"
+            className="text-3xl md:text-5xl font-display font-bold text-gray-900 mb-6"
           >
             Cara <span className="text-shiny-purple">Pemesanan</span>
           </motion.h2>
@@ -79,7 +76,7 @@ export default function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-gray-400 max-w-2xl mx-auto text-lg font-light"
+            className="text-gray-500 max-w-2xl mx-auto text-lg font-light"
           >
             Proses booking yang mudah dan transparan. Hanya 5 langkah sederhana!
           </motion.p>
@@ -88,7 +85,7 @@ export default function HowItWorks() {
         {/* Desktop View */}
         <div className="hidden lg:block relative">
           {/* Connecting Line */}
-          <div className="absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-primary/30" />
+          <div className="absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-primary/20" />
 
           <div className="grid grid-cols-5 gap-6">
             {steps.map((step, index) => {
@@ -104,13 +101,13 @@ export default function HowItWorks() {
                 >
                   <div className="flex justify-center mb-10 relative">
                     <div
-                      className={`w-32 h-32 rounded-full bg-[#020617] border-4 border-[#0f0529] flex items-center justify-center relative z-10 shadow-2xl group-hover:scale-110 transition-transform duration-500`}
+                      className={`w-32 h-32 rounded-full bg-white border-4 border-gray-100 flex items-center justify-center relative z-10 shadow-xl group-hover:scale-110 transition-transform duration-500`}
                     >
                       <div
-                        className={`absolute inset-0 rounded-full bg-gradient-to-br ${step.color} opacity-20 blur-md group-hover:opacity-40 transition-opacity duration-500`}
+                        className={`absolute inset-0 rounded-full bg-gradient-to-br ${step.color} opacity-10 blur-md group-hover:opacity-20 transition-opacity duration-500`}
                       />
                       <div
-                        className={`w-24 h-24 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:shadow-[0_0_30px_rgba(0,0,0,0.6)] transition-all`}
+                        className={`w-24 h-24 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all`}
                       >
                         <div className="text-center">
                           <Icon className="h-8 w-8 text-white mx-auto mb-1 drop-shadow-md" />
@@ -122,11 +119,11 @@ export default function HowItWorks() {
                     </div>
                   </div>
 
-                  <div className="bg-white/[0.03] backdrop-blur-md p-6 rounded-3xl border border-white/5 group-hover:border-primary/30 transition-all duration-500 group-hover:bg-white/[0.05] h-full">
-                    <h3 className="text-lg font-bold text-white mb-3 text-center font-display group-hover:text-primary transition-colors">
+                  <div className="bg-white p-6 rounded-3xl border border-gray-200 group-hover:border-primary/30 transition-all duration-500 group-hover:shadow-lg h-full">
+                    <h3 className="text-lg font-bold text-gray-900 mb-3 text-center font-display group-hover:text-primary transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed text-center font-light group-hover:text-gray-300">
+                    <p className="text-gray-500 text-sm leading-relaxed text-center font-light">
                       {step.description}
                     </p>
                   </div>
@@ -155,21 +152,21 @@ export default function HowItWorks() {
 
                 <div className="flex gap-6 relative z-10">
                   <div
-                    className={`flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg shadow-black/30 border border-white/10`}
+                    className={`flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg`}
                   >
                     <Icon className="h-7 w-7 text-white" />
                   </div>
 
-                  <div className="flex-1 bg-white/[0.03] backdrop-blur-md p-6 rounded-2xl border border-white/5 hover:border-primary/30 transition-all">
+                  <div className="flex-1 bg-white p-6 rounded-2xl border border-gray-200 hover:border-primary/30 transition-all shadow-sm">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="bg-white/10 px-3 py-1 rounded-full text-primary font-bold text-xs uppercase tracking-wider border border-white/5">
+                      <span className="bg-primary/10 px-3 py-1 rounded-full text-primary font-bold text-xs uppercase tracking-wider">
                         Step {step.number}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2 font-display">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 font-display">
                       {step.title}
                     </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed font-light">
+                    <p className="text-gray-500 text-sm leading-relaxed font-light">
                       {step.description}
                     </p>
                   </div>
@@ -185,11 +182,11 @@ export default function HowItWorks() {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <div className="inline-block bg-gradient-to-b from-white/[0.05] to-transparent backdrop-blur-md p-10 rounded-[3rem] border border-white/10 shadow-2xl relative overflow-hidden group">
-            <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          <div className="inline-block bg-white p-10 rounded-[3rem] border border-gray-200 shadow-lg relative overflow-hidden group">
+            <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
             <div className="relative z-10">
-              <p className="text-gray-300 mb-8 text-xl font-light">
+              <p className="text-gray-600 mb-8 text-xl font-light">
                 Siap memulai perjalanan impian Anda?
               </p>
               <a
@@ -198,7 +195,7 @@ export default function HowItWorks() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold px-10 py-5 rounded-full transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(37,211,102,0.3)] text-lg border border-[#25D366]/50"
               >
-                <MessageCircle className="h-6 w-6" />
+                <WhatsAppIcon className="h-6 w-6" />
                 <span className="text-lg">Mulai Konsultasi (WA)</span>
               </a>
             </div>

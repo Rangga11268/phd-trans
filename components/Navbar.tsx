@@ -51,8 +51,8 @@ export default function Navbar() {
         <nav
           className={`max-w-5xl mx-auto flex items-center justify-between px-4 md:px-6 h-14 md:h-16 rounded-2xl transition-all duration-500 ${
             isScrolled
-              ? "bg-card/90 backdrop-blur-xl shadow-lg border border-card-border"
-              : "bg-card/70 backdrop-blur-md border border-card-border/50"
+              ? "bg-card/70 backdrop-blur-xl shadow-sm border border-card-border/40"
+              : "bg-transparent border-transparent"
           }`}
         >
           {/* Logo */}

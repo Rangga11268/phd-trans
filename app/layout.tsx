@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   keywords: [
     "Sewa Bus Nganjuk",
     "Bus Pariwisata Nganjuk",
-    "Rental Bus Mewah",
+    "Sewa Bus Mewah",
     "PHD Trans",
     "Sewa Bus Jetbus 5",
     "Bus Pariwisata Jawa Timur",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "PHD Trans - Luxury Bus Rental Nganjuk",
+    title: "PHD Trans - Luxury Bus Sewa Nganjuk",
     description:
       "Nikmati perjalanan wisata tak terlupakan dengan armada premium PHD Trans. Fasilitas lengkap, pelayanan profesional, dan harga terbaik.",
     url: "https://phd-trans.vercel.app",

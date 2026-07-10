@@ -255,7 +255,7 @@ export default function FleetPage() {
         "Party Lights",
         "Dispenser",
       ],
-      image: "/assets/img/mediumlongbus.jpg",
+      image: "/assets/img/mediumlongbus.webp",
       facilityDetails: [
         {
           name: "AC Denso (Nero)",

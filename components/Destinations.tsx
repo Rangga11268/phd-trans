@@ -53,7 +53,7 @@ export default function Destinations() {
           className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6"
         >
           <div>
-            <h2 className="font-display font-bold text-5xl md:text-6xl text-foreground mb-2">
+            <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground mb-2">
               POPULAR{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
                 DESTINATIONS

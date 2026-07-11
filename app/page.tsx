@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
 const About = dynamic(() => import("@/components/About"));
-const Achievement = dynamic(() => import("@/components/Achievement"));
+const Achievement = dynamic(() => import("@/components/AchievementV2"));
 const Destinations = dynamic(() => import("@/components/Destinations"));
 const Safety = dynamic(() => import("@/components/Safety"));
 const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton"));

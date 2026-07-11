@@ -20,8 +20,10 @@ export default function Contact() {
   const [form, setForm] = useState({
     name: "",
     phone: "",
+    origin: "",
     destination: "",
     date: "",
+    duration: "",
     armada: "",
   });
 
@@ -29,7 +31,14 @@ export default function Contact() {
     e.preventDefault();
     if (!form.name || !form.phone) return;
 
-    const message = `Halo PHD Trans! Saya ${form.name} mau pesan ${form.armada || "bus"} untuk perjalanan ke ${form.destination || "tujuan"} pada ${form.date || "tanggal"}. Mohon info ketersediaan dan harga terbaiknya. Terima kasih!`;
+    const parts = [];
+    parts.push(`Halo PHD Trans! Saya ${form.name} mau pesan ${form.armada || "bus"}`);
+    if (form.origin) parts.push(`dari ${form.origin}`);
+    if (form.destination) parts.push(`ke ${form.destination}`);
+    parts.push(`pada ${form.date || "tanggal"}`);
+    if (form.duration) parts.push(`selama ${form.duration} hari`);
+    parts.push(`Mohon info ketersediaan dan harga terbaiknya. Terima kasih!`);
+    const message = parts.join(" ");
 
     window.open(
       `https://wa.me/6281353343110?text=${encodeURIComponent(message)}`,
@@ -120,11 +129,24 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
                   <div>
                     <label className="block text-xs font-bold text-primary uppercase tracking-widest mb-2">
                       <MapPin className="h-3 w-3 inline mr-1" />
-                      Tujuan Perjalanan
+                      Dari
+                    </label>
+                    <input
+                      type="text"
+                      value={form.origin}
+                      onChange={(e) => setForm({ ...form, origin: e.target.value })}
+                      className="w-full bg-surface border border-card-border rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-muted-text font-medium"
+                      placeholder="Cth: Nganjuk"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-primary uppercase tracking-widest mb-2">
+                      <MapPin className="h-3 w-3 inline mr-1" />
+                      Tujuan
                     </label>
                     <input
                       type="text"
@@ -136,6 +158,28 @@ export default function Contact() {
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-primary uppercase tracking-widest mb-2">
+                      <Clock className="h-3 w-3 inline mr-1" />
+                      Berapa Hari
+                    </label>
+                    <select
+                      value={form.duration}
+                      onChange={(e) => setForm({ ...form, duration: e.target.value })}
+                      className="w-full bg-surface border border-card-border rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium appearance-none cursor-pointer"
+                    >
+                      <option value="" className="bg-card text-foreground">Pilih Durasi...</option>
+                      <option value="1" className="bg-card text-foreground">1 Hari</option>
+                      <option value="2" className="bg-card text-foreground">2 Hari</option>
+                      <option value="3" className="bg-card text-foreground">3 Hari</option>
+                      <option value="4" className="bg-card text-foreground">4 Hari</option>
+                      <option value="5" className="bg-card text-foreground">5 Hari</option>
+                      <option value="7" className="bg-card text-foreground">1 Minggu</option>
+                      <option value="14" className="bg-card text-foreground">2 Minggu</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-primary uppercase tracking-widest mb-2">
                       <Calendar className="h-3 w-3 inline mr-1" />
                       Tanggal Berangkat
                     </label>
@@ -143,27 +187,26 @@ export default function Contact() {
                       type="date"
                       value={form.date}
                       onChange={(e) => setForm({ ...form, date: e.target.value })}
-                      className="w-full bg-surface border border-card-border rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-muted-text font-medium"
+                      className="w-full bg-surface border border-card-border rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                     />
                   </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-primary uppercase tracking-widest mb-2">
-                    <Bus className="h-3 w-3 inline mr-1" />
-                    Pilih Armada
-                  </label>
-                  <select
-                    value={form.armada}
-                    onChange={(e) => setForm({ ...form, armada: e.target.value })}
-                    className="w-full bg-surface border border-card-border rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium appearance-none cursor-pointer"
-                  >
-                    {armadaOptions.map((opt) => (
-                      <option key={opt} value={opt === armadaOptions[0] ? "" : opt} className="bg-card text-foreground">
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
+                  <div>
+                    <label className="block text-xs font-bold text-primary uppercase tracking-widest mb-2">
+                      <Bus className="h-3 w-3 inline mr-1" />
+                      Pilih Armada
+                    </label>
+                    <select
+                      value={form.armada}
+                      onChange={(e) => setForm({ ...form, armada: e.target.value })}
+                      className="w-full bg-surface border border-card-border rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium appearance-none cursor-pointer"
+                    >
+                      {armadaOptions.map((opt) => (
+                        <option key={opt} value={opt === armadaOptions[0] ? "" : opt} className="bg-card text-foreground">
+                          {opt}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
                 <button

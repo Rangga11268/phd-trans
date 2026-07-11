@@ -13,6 +13,8 @@ import {
   TimerReset,
   ArrowRight,
   Sparkles,
+  X,
+  Check,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -52,11 +54,11 @@ const items = [
 
 const container = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.12 } },
+  show: { opacity: 1, transition: { staggerChildren: 0.08 } },
 };
 
 const itemAnim = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0 },
 };
 
@@ -88,66 +90,68 @@ export default function Achievement() {
           </p>
         </motion.div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto space-y-4 sm:space-y-5"
-        >
-          {items.map((item, index) => {
-            const ProblemIcon = item.problemIcon;
-            const SolutionIcon = item.solutionIcon;
-            return (
-              <motion.div
-                key={index}
-                variants={itemAnim}
-                className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-3 sm:gap-4 items-stretch"
-              >
-                {/* Problem Card */}
-                <div className="bg-red-500/5 p-4 sm:p-5 rounded-2xl border border-red-500/15 hover:border-red-500/30 transition-all group">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-red-500/10 text-red-500 group-hover:scale-110 transition-transform flex-shrink-0">
-                      <ProblemIcon className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-bold text-red-500 uppercase tracking-widest block mb-0.5">
-                        Masalah
-                      </span>
-                      <p className="text-sm sm:text-base text-foreground font-medium leading-snug">
-                        {item.problem}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+        {/* Comparison Table */}
+        <div className="max-w-5xl mx-auto">
+          {/* Table Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="hidden sm:grid grid-cols-2 gap-6 mb-6 px-6"
+          >
+            <div className="flex items-center gap-2 text-red-500 font-bold text-xs uppercase tracking-widest">
+              <X className="h-4 w-4" />
+              Tanpa PHD Trans
+            </div>
+            <div className="flex items-center gap-2 text-green-500 font-bold text-xs uppercase tracking-widest">
+              <Check className="h-4 w-4" />
+              Dengan PHD Trans
+            </div>
+          </motion.div>
 
-                {/* Arrow Connector */}
-                <div className="hidden sm:flex items-center justify-center">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
-                    <ArrowRight className="h-5 w-5 text-primary" />
-                  </div>
-                </div>
+          {/* Divider */}
+          <div className="hidden sm:block h-px bg-card-border mx-6 mb-4" />
 
-                {/* Solution Card */}
-                <div className="bg-primary/5 p-4 sm:p-5 rounded-2xl border border-primary/20 hover:border-primary/30 transition-all group">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-primary/10 text-primary group-hover:scale-110 transition-transform flex-shrink-0">
-                      <SolutionIcon className="h-5 w-5" />
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="space-y-3"
+          >
+            {items.map((item, index) => {
+              const ProblemIcon = item.problemIcon;
+              const SolutionIcon = item.solutionIcon;
+              return (
+                <motion.div
+                  key={index}
+                  variants={itemAnim}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 items-stretch"
+                >
+                  {/* Problem */}
+                  <div className="flex items-center gap-3 px-5 py-4 rounded-xl border border-red-500/10 bg-red-500/[0.03] group hover:border-red-500/25 transition-all">
+                    <div className="p-2 rounded-lg bg-red-500/10 text-red-500 shrink-0">
+                      <ProblemIcon className="h-4 w-4" />
                     </div>
-                    <div>
-                      <span className="text-[10px] font-bold text-primary uppercase tracking-widest block mb-0.5">
-                        Solusi
-                      </span>
-                      <p className="text-sm sm:text-base text-foreground font-medium leading-snug">
-                        {item.solution}
-                      </p>
-                    </div>
+                    <p className="text-sm text-muted-text leading-snug">
+                      {item.problem}
+                    </p>
                   </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+
+                  {/* Solution */}
+                  <div className="flex items-center gap-3 px-5 py-4 rounded-xl border border-green-500/10 bg-green-500/[0.03] group hover:border-green-500/25 transition-all">
+                    <div className="p-2 rounded-lg bg-green-500/10 text-green-500 shrink-0">
+                      <SolutionIcon className="h-4 w-4" />
+                    </div>
+                    <p className="text-sm text-foreground font-medium leading-snug">
+                      {item.solution}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

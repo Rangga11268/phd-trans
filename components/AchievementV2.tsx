@@ -52,23 +52,21 @@ const items = [
 
 export default function AchievementV2() {
   return (
-    <section className="py-12 sm:py-16 lg:py-24 bg-surface relative overflow-hidden">
-      <div className="absolute inset-0 bg-dot-pattern opacity-20" />
-
+    <section className="py-8 sm:py-12 lg:py-16 bg-surface relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10 sm:mb-14"
+          className="text-center mb-6 sm:mb-8"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/20 mb-6">
-            <Sparkles className="h-4 w-4 text-primary" />
-            <span className="text-sm font-bold text-primary uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/20 mb-3">
+            <Sparkles className="h-3.5 w-3.5 text-primary" />
+            <span className="text-xs font-bold text-primary uppercase tracking-widest">
               Masalah & Solusi
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-2 px-4">
             Jangan Biarkan <span className="text-shiny-purple">Liburan</span>{" "}
             Rusak
           </h2>
@@ -79,7 +77,7 @@ export default function AchievementV2() {
         </motion.div>
 
         {/* Strikethrough + Glowing List */}
-        <div className="max-w-3xl mx-auto space-y-6 sm:space-y-7">
+        <div className="max-w-4xl mx-auto space-y-2 sm:space-y-2.5">
           {items.map((item, index) => {
             const ProblemIcon = item.problemIcon;
             const SolutionIcon = item.solutionIcon;
@@ -89,37 +87,23 @@ export default function AchievementV2() {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.05 }}
                 className="group"
               >
-                <div className="flex items-start gap-4 sm:gap-6">
-                  {/* Icon Column */}
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="p-2 rounded-lg bg-red-500/10 text-red-500 shrink-0">
-                      <ProblemIcon className="h-4 w-4" />
-                    </div>
-                    <div className="w-px h-6 bg-gradient-to-b from-red-500/20 to-primary/20" />
-                    <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0">
-                      <SolutionIcon className="h-4 w-4" />
-                    </div>
+                <div className="flex items-center gap-2.5 sm:gap-3 px-3 sm:px-4 py-2 rounded-xl bg-card/50 border border-card-border hover:border-primary/20 transition-all">
+                  <div className="p-1 rounded-md bg-red-500/10 text-red-500 shrink-0">
+                    <ProblemIcon className="h-3.5 w-3.5" />
                   </div>
-
-                  {/* Text Column */}
-                  <div className="flex-1 min-w-0 pt-1">
-                    {/* Problem - strikethrough */}
-                    <p className="text-base sm:text-lg text-red-400 line-through decoration-red-400/60 mb-1 leading-snug transition-all group-hover:decoration-red-400/90">
-                      {item.problem}
-                    </p>
-                    {/* Arrow transition */}
-                    <div className="flex items-center gap-2 my-1">
-                      <div className="h-px flex-1 bg-gradient-to-r from-red-500/20 to-primary/20" />
-                      <ArrowRight className="h-3 w-3 text-primary/60" />
-                    </div>
-                    {/* Solution - glowing */}
-                    <p className="text-base sm:text-lg text-foreground font-bold leading-snug transition-all group-hover:text-primary">
-                      {item.solution}
-                    </p>
+                  <p className="text-sm sm:text-base text-red-400/80 line-through decoration-red-400/50 leading-snug flex-1 min-w-0">
+                    {item.problem}
+                  </p>
+                  <ArrowRight className="h-3.5 w-3.5 text-primary/40 shrink-0" />
+                  <div className="p-1 rounded-md bg-primary/10 text-primary shrink-0">
+                    <SolutionIcon className="h-3.5 w-3.5" />
                   </div>
+                  <p className="text-sm sm:text-base text-foreground font-bold leading-snug text-right">
+                    {item.solution}
+                  </p>
                 </div>
               </motion.div>
             );
@@ -131,14 +115,14 @@ export default function AchievementV2() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-center mt-12 sm:mt-16"
+          className="text-center mt-6 sm:mt-8"
         >
           <Link
             href="#booking"
-            className="inline-flex items-center gap-3 bg-primary hover:bg-primary-dark text-white font-bold px-8 py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg text-lg"
+            className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold px-6 py-3 rounded-xl transition-all hover:scale-[1.02] shadow-lg text-sm"
           >
             Cari Tahu Solusinya Sekarang
-            <ArrowRight className="h-5 w-5" />
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>
       </div>

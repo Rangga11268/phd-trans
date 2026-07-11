@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useCallback, useState } from "react";
 import { Star } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 
@@ -44,6 +47,17 @@ const reviews = [
 ];
 
 export default function Testimonials() {
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => {
+    setCurrent((c) => (c + 1) % reviews.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 4000);
+    return () => clearInterval(timer);
+  }, [next]);
+
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-card relative overflow-hidden">
       <div className="absolute inset-0 bg-dot-pattern opacity-20" />
@@ -59,51 +73,74 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
-          {reviews.map((review, index) => (
-            <div
-              key={index}
-              className="bg-card p-8 sm:p-10 rounded-3xl border border-card-border hover:border-primary/50 transition-all hover:-translate-y-2 hover:shadow-lg duration-300"
-            >
-              <div className="flex gap-1 mb-6">
-                {[...Array(review.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="h-5 w-5 text-yellow-400 fill-yellow-400"
-                  />
-                ))}
-              </div>
-              <p className="text-base sm:text-lg text-muted-text mb-8 italic leading-relaxed font-light">
-                &ldquo;{review.content}&rdquo;
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-purple-400 flex items-center justify-center text-white font-bold text-xl font-display">
-                  {review.name.charAt(0)}
-                </div>
-                <div>
-                  <h4 className="text-lg text-foreground font-bold font-display tracking-tight">
-                    {review.name}
-                  </h4>
-                  <p className="text-sm text-primary uppercase tracking-wider font-bold text-[10px]">
-                    {review.role}
+        {/* Carousel */}
+        <div className="relative max-w-5xl mx-auto overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${current * 100}%)` }}
+          >
+            {reviews.map((review, index) => (
+              <div
+                key={index}
+                className="min-w-full flex justify-center px-2 sm:px-4"
+              >
+                <div className="bg-card p-6 sm:p-8 rounded-3xl border border-card-border w-full max-w-xl mx-auto">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400 fill-yellow-400"
+                      />
+                    ))}
+                  </div>
+                  <p className="text-sm sm:text-base text-muted-text mb-6 italic leading-relaxed font-light">
+                    &ldquo;{review.content}&rdquo;
                   </p>
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-gradient-to-br from-primary to-purple-400 flex items-center justify-center text-white font-bold text-base sm:text-xl font-display">
+                      {review.name.charAt(0)}
+                    </div>
+                    <div>
+                      <h4 className="text-sm sm:text-lg text-foreground font-bold font-display tracking-tight">
+                        {review.name}
+                      </h4>
+                      <p className="text-[10px] sm:text-sm text-primary uppercase tracking-wider font-bold">
+                        {review.role}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {reviews.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrent(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === current
+                    ? "w-6 bg-primary"
+                    : "w-2 bg-card-border hover:bg-muted-text"
+                }`}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="text-center mt-12 sm:mt-16">
-          <p className="text-muted-text text-base sm:text-lg mb-6">
+        <div className="text-center mt-10 sm:mt-12">
+          <p className="text-muted-text text-sm sm:text-base mb-4">
             Masih ragu? Chat kami sekarang dan buktikan sendiri!
           </p>
           <a
             href="https://wa.me/6281353343110?text=Halo%20PHD%20Trans!%20Saya%20lihat%20testimoni%20dan%20tertarik.%20Mau%20konsultasi%20dulu%20dong%20%F0%9F%99%8F"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-[#25D366] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#20bd5a] transition-all transform hover:scale-[1.02] shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] text-lg"
+            className="inline-flex items-center gap-3 bg-[#25D366] text-white font-bold px-6 py-3 sm:px-8 sm:py-4 rounded-xl hover:bg-[#20bd5a] transition-all transform hover:scale-[1.02] shadow-lg text-sm sm:text-base"
           >
-            <WhatsAppIcon className="h-5 w-5" /> Chat dengan PHD Trans
+            <WhatsAppIcon className="h-4 w-4 sm:h-5 sm:w-5" /> Chat dengan PHD Trans
           </a>
         </div>
       </div>
